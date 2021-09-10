@@ -1577,9 +1577,42 @@ $$\boxed{-\,x\,\cos\,x\,+\,x^{2}\,\sin\,x\,+\,C\,x\,=\,-\,\textcolor{awesome}{x}
 
   
 
-\begin{ejer}[Ejercicio 32] 
-
-  
+\begin{ejer}[Ejercicio 32]
+ 
+Suponga que un país tiene una variación en la población $P\,(t)$ dado por
+ 
+$$\boxed{\dfrac{d\,P}{d\,t}\,=\,\dfrac{d\,B}{d\,t}\,-\,\dfrac{d\,D}{d\,t}}$$ 
+ 
+Donde $d\,B/d\,t$ y $d\,D/d\,t$ son las tasas de natalidad y mortalidad respectivamente.
+ 
+\
+ 
+Determine $P\,(t)$ si $d\,B/d\,t\,=\,k_{1}\,P$ y $d\,D/d\,t\,=\,k_{2}\,P$.
+ 
+\ 
+ 
+\definecolor{armygreen}{rgb}{0.29, 0.33, 0.13}
+ 
+$$\dfrac{d\,P}{d\,t}\,=\,k_{1}\,P\,-\,k_{2}\,P \quad \textcolor{armygreen}{\iff} \quad \dfrac{d\,P}{d\,t}\,=\,(k_{1}\,-\,k_{2})\,P$$
+ 
+$$\dfrac{d\,P}{P}\,=\,(k_{1}\,-\,k_{2})\,d\,t \quad \textcolor{armygreen}{\iff} \quad \int\,\dfrac{d\,P}{P}\,=\,(k_{1}\,-\,k_{2})\,\int\,d\,t$$
+ 
+$$\ln\,P\,=\,(k_{1}\,-\,k_{2})\,t\,+\,C \quad \textcolor{armygreen}{\iff} \quad e^{\ln\,P}\,=\,e^{((k_{1}\,-\,k_{2})\,t\,+\,C ) }$$
+ 
+$$e^{\ln\,P}\,=\,e^{(k_{1}\,-\,k_{2})\,t}\,\cdot\,\underbrace{e^{C}}_{P_{0}}\quad \textcolor{armygreen}{\iff} \quad \boxed{P\,(t)\,=\,P_{0}\,e^{(k_{1}\,-\,k_{2})\,t}}$$
+ 
+\textcolor{armygreen}{\Writinghand}\, Primer caso: $\boxed{k_{1}\,>\,k_{2}}$
+ 
+$$P\,(t)\,=\,P_{0}\,e^{(k_{1}\,-\,k_{2})\,t} \quad \textcolor{armygreen}{\Longrightarrow} \quad P\,(t) \, \longrightarrow \, \infty$$
+ 
+\textcolor{armygreen}{\Writinghand}\, Segundo caso: $\boxed{k_{1}\,=\,k_{2}}$
+ 
+$$P\,(t)\,=\,P_{0}\,e^{(k_{1}\,-\,k_{2})\,t} \quad \textcolor{armygreen}{\Longrightarrow} \quad P\,(t)\,=\,P_{0}$$
+ 
+\textcolor{armygreen}{\Writinghand}\, Tercer caso: $\boxed{k_{1}\,<\,k_{2}}$
+ 
+$$P\,(t)\,=\,P_{0}\,e^{-\,k\,t} \quad \textcolor{armygreen}{\iff} \quad P\,(t)\,=\,P_{0}\,\dfrac{1}{e^{k\,t}} \quad \textcolor{armygreen}{\iff} \quad \boxed{P\,(t)\,=\,P_{0}\,\lim_{t\,\rightarrow\,\infty}\,\left(\dfrac{1}{e^{k\,t}} \right) \, \longrightarrow \, 0}$$
+ 
 
 \end{ejer} 
 
@@ -1595,8 +1628,24 @@ $$\boxed{-\,x\,\cos\,x\,+\,x^{2}\,\sin\,x\,+\,C\,x\,=\,-\,\textcolor{awesome}{x}
 
 \begin{ejer}[Ejercicio 34] 
 
-  
-
+\
+ 
+Un cuerpo inicialmente en reposo en $x_{0}$ se mueve en línea recta bajo la acción de una fuerza $\vec{F}\,=\,-\,k/x^{\,2}$. Demostrar que su velocidad en $x$ es $v^{\,2}\,=\,2(k/m)\,(1/x\,-\,1/x_{0})$.
+ 
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+ 
+$$\vec{F}\,=\,-\,k/x^{\,2} \quad \textcolor{bittersweet}{\iff} \quad m\,\dfrac{d\,\vec{V}}{d\,t}\,=\,-\,\dfrac{k}{x^{2}} \quad \textcolor{bittersweet}{\iff} \quad \dfrac{d\,\vec{V}}{d\,t}\,=\,-\,\dfrac{k}{m}\,\dfrac{1}{x^{2}}$$
+ 
+$$\int\,\left(\dfrac{d\,\vec{V}}{d\,t} \right)\,d\,x\,=\,-\,\dfrac{k}{m}\,\int\,x^{-\,2}\,d\,x \quad \textcolor{bittersweet}{\iff} \quad \int\,\vec{V}\,d\,\vec{V}\,=\,-\,\dfrac{k}{m}\,\int_{x_{0}}^{x}\,x^{-\,2}\,d\,x$$
+ 
+$$\dfrac{V^{2}}{2}\,=\,-\,\dfrac{k}{m}\,\left(\dfrac{x^{-\,2\,+\,1} }{-\,2\,+\,1}\,\biggr|_{x_{0}}^{x} \right)$$
+ 
+$$\dfrac{V^{2}}{2}\,=\,-\,\dfrac{k}{m}\,\left(\dfrac{x^{-\,1 } }{-\,1 }\,\biggr|_{x_{0}}^{x} \right) \quad \textcolor{bittersweet}{\iff} \quad \dfrac{V^{2}}{2}\,=\,-\,\dfrac{k}{m}\,\left(-\,\dfrac{1}{x }\,\biggr|_{x_{0}}^{x} \right)$$
+ 
+$$\dfrac{V^{2}}{2}\,=\,\dfrac{k}{m}\,\left(\dfrac{1}{x }\,\biggr|_{x_{0}}^{x} \right) \quad \textcolor{bittersweet}{\iff} \quad \dfrac{V^{2}}{2}\,=\,\dfrac{k}{m}\,\left(\dfrac{1}{x}\,-\,\dfrac{1}{x_{0}} \right)$$
+ 
+$$\boxed{V^{2}\,=\,\dfrac{2\,k}{m}\,\left(\dfrac{1}{x}\,-\,\dfrac{1}{x_{0}} \right) }$$
+ 
 \end{ejer} 
 
   
