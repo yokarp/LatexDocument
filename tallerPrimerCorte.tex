@@ -874,7 +874,31 @@ $$\boxed{\textcolor{byzantine}{y\,=\,\hat{C}\, x^{2}\,(x\,+\,y) } } $$
 
 \begin{ejer}[Ejercicio 17] 
 
-  
+$$-\,y\,d\,x\,+\,(x\,+\,\sqrt{x\,y})\,d\,y\,=\,0$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+$$(x\,+\,\sqrt{x\,y})\,d\,y\,=\,y\,d\,x \quad \textcolor{ao(english)}{\iff} \quad \dfrac{d\,y}{d\,x}\,=\dfrac{y}{x\,+\,\sqrt{x\,y}}$$
+
+$$x\,\dfrac{d\,U}{d\,x}\,+\,U\,=\,\dfrac{U\,x}{x\,+\,\sqrt{x\,U\,x}} \quad \textcolor{ao(english)}{\iff} \quad x\,\dfrac{d\,U}{d\,x}\,+\,U\,=\,\dfrac{U\,x}{x\,+\,\sqrt{x^{2}\,U}} \quad \textcolor{ao(english)}{\iff} \quad x\,\dfrac{d\,U}{d\,x}\,+\,U\,=\,\dfrac{U\,x}{x\,+\,x\,\sqrt{U}}$$
+
+$$x\,\dfrac{d\,U}{d\,x}\,+\,U\,=\,\dfrac{U\,\cancel{x}}{\cancel{x}\,(1\,+\,\sqrt{U})} \quad \textcolor{ao(english)}{\iff} \quad x\,\dfrac{d\,U}{d\,x}\,=\,\dfrac{U}{(1\,+\,\sqrt{U})}\,-\,U \quad \textcolor{ao(english)}{\iff} \quad x\,\dfrac{d\,U}{d\,x}\,=\,\dfrac{U\,-\,U\,(1\,+\,\sqrt{U})}{(1\,+\,\sqrt{U})}$$
+
+$$x\,\dfrac{d\,U}{d\,x}\,=\,\dfrac{\cancel{U}\,-\,\cancel{U}\,-\,U\,\sqrt{U}}{(1\,+\,\sqrt{U})} \quad \textcolor{ao(english)}{\iff} \quad x\,\dfrac{d\,U}{d\,x}\,=\,-\,\dfrac{U\,\sqrt{U}}{(1\,+\,\sqrt{U})}$$
+
+$$-\,\dfrac{(1\,+\,\sqrt{U})}{U\,\sqrt{U}}\,d\,U\,=\,\dfrac{d\,x}{x} \quad \textcolor{ao(english)}{\iff} \quad -\,\left(\dfrac{d\,U}{U\,U^{1/2}}\,+\,\dfrac{\cancel{\sqrt{U}}}{U\,\cancel{\sqrt{U}}}\,d\,U\right)\,=\,\dfrac{d\,x}{x} \quad \textcolor{ao(english)}{\iff} \quad -\,\dfrac{d\,U}{U^{3/2}}\,-\,\dfrac{d\,U}{U}\,=\,\dfrac{d\,x}{x}$$
+
+$$-\,U^{-\,3/2}\,d\,U\,-\,\dfrac{d\,U}{U}\,=\,\dfrac{d\,x}{x} \quad \textcolor{ao(english)}{\iff} \quad -\,\displaystyle\int\,U^{-\,3/2}\,d\,U\,-\,\displaystyle\int\,\dfrac{d\,U}{U}\,=\,\displaystyle\int\,\dfrac{d\,x}{x}$$
+
+$$\cancel{-}\,\dfrac{U^{-\,1/2}}{\cancel{-}\,1/2}\,-\,\ln\,U\,=\,\ln\,x\,+\,C \quad \textcolor{ao(english)}{\iff} \quad \dfrac{2}{\sqrt{U}}\,-\,\ln\,U\,=\,\ln\,x\,+\,C$$
+
+$$\dfrac{2}{\sqrt{y/x}}\,-\,\ln\left(\dfrac{y}{x}\right)\,=\,\ln\,x\,+\,C \quad \textcolor{ao(english)}{\iff} \quad \dfrac{2}{\sqrt{y/x}}\,-(\ln\,y\,-\,\ln\,x)\,=\,\ln\,x\,+\,C$$
+
+$$\dfrac{2}{\sqrt{y/x}}\,-\,\ln\,y\,+\,\cancel{\ln\,x}\,=\,\cancel{\ln\,x}\,+\,C \quad \textcolor{ao(english)}{\iff} \quad \dfrac{2}{\sqrt{y/x}}\,-\,\ln\,y\,=\,C \quad \textcolor{ao(english)}{\iff} \quad \dfrac{2}{\sqrt{y/x}}\,=\,C\,+\,\ln\,y$$
+
+$$\left(\dfrac{2}{\sqrt{y/x}}\right)^{2}\,=\,(C\,+\,\ln\,y)^{2} \quad \textcolor{ao(english)}{\iff} \quad \dfrac{4}{y/x}\,=\,(C\,+\,\ln\,y)^{2}$$
+
+$$\dfrac{4\,x}{y}\,=\,(C\,+\,\ln\,y)^{2} \quad \textcolor{ao(english)}{\iff} \quad \boxed{4\,x\,=\,y\,(C\,+\,\ln\,y)^{2}}$$  
 
 \end{ejer} 
 
@@ -1652,7 +1676,27 @@ $$\boxed{V^{2}\,=\,\dfrac{2\,k}{m}\,\left(\dfrac{1}{x}\,-\,\dfrac{1}{x_{0}} \rig
 
 \begin{ejer}[Ejercicio 35] 
 
-  
+\ 
+
+La población de un pueblo crece con una razón proporcional a la población en el tiempo $t$. La población inicial de $500$ aumenta $15\,\%$ en $10$ años. ¿Cuál será la población pasados $30$ años?
+
+\ 
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+$P_{0}\,=\,500$; $\beta\,=\,0,15$ en $t_{1}\,=\,10$; $t_{2}\,=\,30$
+
+\ 
+
+Hallando el incremento de un año
+
+$$\dfrac{\beta}{t_{1}}\,=\,\dfrac{0,15}{10}\,=\,\underbrace{0,015}_{\alpha}$$
+
+Hallando la poblacion $30$ años
+
+$$P\,(t)\,=\,P_{0}\,e^{\alpha\,t_{2}} \quad \textcolor{ao(english)}{\iff} \quad P\,(30)\,=\,500\,e^{(0,015\,\textcolor{red}{\times}\,30)} \quad \textcolor{ao(english)}{\iff} \quad P\,(30)\,=\,500\,e^{0,45}$$
+
+$$\boxed{P\,(30)\,\approx\,784}$$  
 
 \end{ejer} 
 
