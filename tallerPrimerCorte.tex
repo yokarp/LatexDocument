@@ -1866,7 +1866,45 @@ $$P\,(t)\,=\,P_{0}\,e^{-\,k\,t} \quad \textcolor{armygreen}{\iff} \quad P\,(t)\,
 
 \begin{ejer}[Ejercicio 33] 
 
-  
+\ 
+
+Suponga que un cuerpo se mueve a través de un medio con resistencia proporcional a su velocidad $v$, de tal manera que $d\,v/d\,t\,=\,-\,K\,v$. Muestre que su velocidad y posición en el tiempo $t$ están dadas por
+ 
+$$v\,(t)\,=\,v_{0}\,e^{-\,K\,t} \quad \text{y}$$
+ 
+$$x\,(t)\,=\,x_{0}\,+\,\dfrac{v_{0}}{K}\,(1\,-\,e^{-k\,t})$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+Demostrando la velocidad
+
+$$\dfrac{d\,v}{d\,t}\,=\,-\,K\,v \quad \textcolor{ao(english)}{\iff} \quad \dfrac{d\,v}{v}\,=\,-\,K\,d\,t$$
+
+$$\displaystyle\int\dfrac{1}{v}\,d\,v\,=\,-\,K\,\displaystyle\int\,d\,t \quad \textcolor{ao(english)}{\iff} \quad \ln\,v=\,-\,K\,t\,+\,C$$
+
+$$e^{\ln\,v}\,=\,e^{-\,K\,t\,+\,C} \quad \textcolor{ao(english)}{\iff} \quad v\,=\,e^{-\,K\,t\,+\,C} \quad \textcolor{ao(english)}{\iff} \quad v\,=\,e^{-\,K\,t}\,e^{C} \quad \textcolor{ao(english)}{\iff} \quad  v\,=\,e^{-\,K\,t}\,\underbrace{\hat{C}}_{v_{0}}$$
+
+$$\boxed{v\,(t)\,=\,v_{0}\,e^{-\,K\,t}}$$
+
+Demostrando la posición recordando que $v\,=\,d\,x/d\,t$
+
+$$\dfrac{d\,x}{d\,t}\,=\,v_{0}\,e^{-\,K\,t} \quad \textcolor{ao(english)}{\iff} \quad d\,x\,=\,(v_{0}\,e^{-\,K\,t})\,d\,t$$
+
+$$\displaystyle\int\,d\,x\,=\,\displaystyle\int\,(v_{0}\,e^{-\,K\,t})\,d\,t \quad \textcolor{ao(english)}{\iff} \quad \displaystyle\int\,d\,x\,=\,v_{0}\,\underbrace{\displaystyle\int\,e^{-\,K\,t}\,d\,t}_{I_{1}}$$
+
+\begin{tcolorbox}[colback=ao(english)!5!white,colframe=ao(english)!75!black,fonttitle=\bfseries,title=$I_{1}$]
+
+$$\displaystyle\int\,e^{-\,K\,t}\,d\,t$$
+
+$$u\,=\,-\,K\,t \quad \wedge \quad \dfrac{d\,u}{d\,t}\,=\,-\,K\,\rightarrow\,d\,t\,=\,-\,\dfrac{1}{K}\,d\,u$$
+
+$$-\,\dfrac{1}{K}\,\displaystyle\int\,e^{u}\,d\,u \quad \textcolor{ao(english)}{\iff} \quad -\,\dfrac{1}{K}\,e^{u}\,+\,C \quad \textcolor{ao(english)}{\iff} \quad -\,\dfrac{e^{-\,K\,t}}{K}\,+\,C$$
+
+\end{tcolorbox}
+
+$$x\,=\,v_{0}\,(-\,\dfrac{e^{-\,K\,t}}{K})\,+\,\underbrace{C}_{x_{0}} \quad \textcolor{ao(english)}{\iff} \quad x\,=\,x_{0}\,-\,\dfrac{v_{0}e^{-\,K\,t}}{K}$$
+
+$$\boxed{x\,(t)\,=\,x_{0}\,+\,\dfrac{v_{0}}{K}\,(1\,-\,e^{-\,K\,t})}$$
 
 \end{ejer} 
 
