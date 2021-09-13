@@ -1067,7 +1067,53 @@ $$\boxed{\textcolor{red}{U\,(x,\,y)\,=\,x\,\sin\,y\,-\,y\,\cos\,x\,+\,\ln\,|x\,y
 
 \begin{ejer}[Ejercicio 21] 
 
+  $$\left(x\,+\,\dfrac{2}{y} \right)\,d\,y\,+\,y\,d\,x\,=\,0$$ 
   
+Verificar la exactitud. 
+
+  
+
+$$\dfrac{\partial\,M}{\partial\,y}\,=\,\dfrac{\partial\,N}{\partial\,x}$$ 
+
+
+$$\underbrace{x\,+\,\dfrac{2}{y}}_{N\,(x,\,y)} \,d\,y\,+\,\underbrace{y\,d\,x}_{M  \,(x,\,y)}\,d\,x\,=\,0$$ 
+
+$$\dfrac{\partial\,M}{\partial\,y}\,=\,\dfrac{\partial}{\partial\,y}\,\left(y\,\right)\,=\,\boxed{1}$$ 
+
+  
+$$\dfrac{\partial\,N}{\partial\,x}\,=\,\dfrac{\partial}{\partial\,x}\,\left(x\,+\,\dfrac{2}{y}\right)\,=\boxed{1}$$ 
+
+
+Hallar la solución 
+
+$$\boxed{M\,(x,\,y)\,=\,\dfrac{\partial\,U}{\partial\,x}} \qquad \wedge \qquad \boxed{N\,(x,\,y)\,=\,\dfrac{\partial\,U}{\partial\,y}}$$  
+
+$$U\,(x,\,y)\,=\,\displaystyle\,\int\,\left(y \right)\,d\,x$$ 
+
+$$U\,(x,\,y)\,=\, y\displaystyle\,\int\,\,d\,x \textcolor{ao(english)}{\iff} U\,(x,\,y)\,=\, y\displaystyle\,\int\,\,d\,x $$ 
+
+$$ \boxed{U\,(x,\,y)\,=\,yx + K(y)} $$
+
+Eliminar la dependencia de la variable 
+
+$$ \textcolor{red}{\dfrac{\partial\,U}{\partial\,y}}\,=\,x\,+\,K'\,(y) \quad$$ 
+
+$$ \textcolor{red}{x\,+\,\dfrac{2}{y}}\,=\,x\,+\,K'\,(y) \quad$$ 
+
+$$ \cancel{x}\,+\,\dfrac{2}{y}\,=\cancel{x}\,+\,K'\,(y) \quad$$ 
+
+$$ K\,(y) = \displaystyle\,\int\, \dfrac{2}{y}\,d\,y   \quad$$ 
+
+
+$$ K\,(y) = 2\ln\,y  \quad$$ 
+
+$$ K\,(y) = \ln\,y^{2}  \quad$$ 
+
+
+Exhibir la solución  
+
+
+$$\boxed{U\,(x,\,y)\,= yx\,+\ln\,y^{2}\,+\,K} $$ 
 
 \end{ejer} 
 
@@ -1165,7 +1211,77 @@ $$\boxed{\textcolor{auburn}{x^{4}\,y^{3}\,+\,\ln\,\left(\dfrac{x}{y} \right)\,=\
 
 \begin{ejer}[Ejercicio 23] 
 
+  $$\underbrace{(3\,y)}_{M\,(x,\,y)}\,d\,x\,+\,\underbrace{(2\,x)}_{N\,(x,\,y)}\,d\,y\,=\,0; \qquad x\,=\,-1, \, y\,=\,1,4, \quad F\,=\,x^{2}\,y$$ 
+ 
+
+ Verificar la exactitud.   
+ 
+ $$\dfrac{\partial\,M}{\partial\,y}\,=\,\dfrac{\partial\,N}{\partial\,x}$$ 
+
   
+
+$$\dfrac{\partial\,M}{\partial\,y}\,=\,\dfrac{\partial}{\partial\,y}\,(3\,y)\,=\,3$$ 
+
+  
+
+$$\dfrac{\partial\,N}{\partial\,x}\,=\,\dfrac{\partial}{\partial\,x}\,=\,(2\,x)\,=\,2$$ 
+
+Como la ecuación diferencial NO es exacta, multiplique la misma por $F\,=\,x^{2}\,y$ 
+
+$$\textcolor{red}{x^{2}\,y}\,\left( (3\,y)\,d\,x\,+\,(2\,x)\,d\,y \right) \,=\,0$$ 
+
+$$\underbrace{(3\,x^{2}\,y^{2}\,)}_{M\,(x,\,y)}\,d\,x\,+\,\underbrace{(2\,x^{3}\,y)}_{N\,(x,\,y)}\,d\,y$$
+
+
+$$\dfrac{\partial\,M}{\partial\,y}\,=\,\dfrac{\partial}{\partial\,y}\,(3\,x^{2}\,y^{2})\,=\,6\,x^{2}\,y$$ 
+
+  
+
+$$\dfrac{\partial\,N}{\partial\,x}\,=\,\dfrac{\partial}{\partial\,x}\,=\,(2\,x^{3}\,y)\,=\,6\,x^{2}\,y$$ 
+
+Hallar la solución 
+
+  
+
+$$\boxed{M\,(x,\,y)\,=\,\dfrac{\partial\,U}{\partial\,x}} \qquad \wedge \qquad \boxed{N\,(x,\,y)\,=\,\dfrac{\partial\,U}{\partial\,y}}$$ 
+
+$$U\,(x,\,y)\,=\,\displaystyle\,\int\,\left(3\,x^{2}\,y^{2} \right)\,d\,x$$ 
+
+$$U\,(x,\,y)\,=\, 3\,y^{2} \displaystyle\,\int\,\left(\,x^{2}\, \right)\,d\,x$$
+
+$$ \boxed{U\,(x,\,y)\,= x^{3}\ y^{2}\,+\,K(y) }$$
+
+$$ \textcolor{red}{\dfrac{\partial\,U}{\partial\,y}} \,=\,2\,x^{3}\,y\,+K'\,(y)$$ 
+
+
+$$ \textcolor{red}{2\,x^{3}\,y} \,=\,2\,x^{3}\,y\,+K'\,(y)$$
+
+$$  K\,(y)\,= 0$$
+
+
+
+
+
+Exhibir la solución general 
+
+
+
+$$ \boxed{U\,(x,\,y)\,= x^{3}\ y^{2}\,+\,K }$$
+
+
+Exhibir la solución particular sujeta a la condición inicial $x\,=\,-1$, $y\,=\,\,1,4$ 
+
+
+$$\beta\,=\,-\,1,96$$ 
+
+  
+
+ Exhibir la solución particular 
+
+  
+
+$$\boxed{x^{3}\ y^{2}\,=\,-\,1,96} $$ 
+
 
 \end{ejer} 
 
