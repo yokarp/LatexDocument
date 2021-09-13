@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{book} 
+\documentclass[a4paper,11pt,openany]{book} 
 
 \usepackage[utf8]{inputenc} 
 
@@ -75,6 +75,7 @@ color=green]{\color{white}\Large\bf#1};}
 \usepackage{background} 
 \backgroundsetup{placement=center,angle=0,scale=1.1,opacity=0.1,contents={{\includegraphics{ETITC.png}}}} 
 
+%-----------------------------------%
 %Coloressss Implementados%
 \definecolor{blue(ncs)}{rgb}{0.0, 0.53, 0.74}
 \definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
@@ -258,7 +259,7 @@ $$\dfrac{\cos^{2}\,x}{\textcolor{blue}{\cos^{2}\,x}}\,+\,\dfrac{\sin^{2}\,x}{\te
  
  Sustituyendo en la ecuación diferencial
  
- $$\textcolor{blue(ncs)}{9\,e^{3\,x}\,+\,9\,e^{-\,3\,x}}\,=\,9\,\textcolor{blue(ncs)}{(C_{1}\,e^{3\,x}\,+\,C_{2}\,e^{-\,3\,x})} \quad \textcolor{ao(english)}{\iff} \quad \boxed{9\,e^{3\,x}\,+\,9\,e^{-\,3\,x}\,=\,9\,e^{3\,x}\,+\,9\,e^{-\,3\,x}}$$
+ $$\textcolor{red}{9\,e^{3\,x}\,+\,9\,e^{-\,3\,x}}\,=\,9\,\textcolor{red}{(C_{1}\,e^{3\,x}\,+\,C_{2}\,e^{-\,3\,x})} \quad \textcolor{ao(english)}{\iff} \quad \boxed{9\,e^{3\,x}\,+\,9\,e^{-\,3\,x}\,=\,9\,e^{3\,x}\,+\,9\,e^{-\,3\,x}}$$
 
 \end{ejer} 
 
@@ -436,9 +437,9 @@ $$\boxed{ \dfrac{sin(3y)}{3}\,=\dfrac{cos(2x)}{2} + C}$$
 
 Remplazo los valores de $x$ y $y$ 
 
-$$\dfrac{sin (\textcolor{blue}{\pi} )}{3}\,=\dfrac{cos(\textcolor{blue}{\pi})}{2} + C$$
+$$\dfrac{sin (\textcolor{red}{\pi} )}{3}\,=\dfrac{cos(\textcolor{red}{\pi})}{2} + C$$
 
-$$\dfrac{sin (\textcolor{blue}{\pi} )}{3}\,-\dfrac{cos(\textcolor{blue}{\pi})}{2} = C \textcolor{red}{\iff} \boxed{\dfrac{1}{2} = C} $$
+$$\dfrac{sin (\textcolor{red}{\pi} )}{3}\,-\dfrac{cos(\textcolor{red}{\pi})}{2} = C \textcolor{ao(english)}{\iff} \boxed{\dfrac{1}{2} = C} $$
 
 $$\boxed{ \dfrac{sin(3y)}{3}\,=\dfrac{cos(2x)}{2} + \dfrac{1}{2}}$$
 
@@ -497,7 +498,7 @@ $$d\,x\,=\,\left(\dfrac{2}{2\,t^{2}\,+\,3\,t\,+\,1} \right)\,d\,t \quad \textcol
  
 Aparte: 
 
-   $$\textcolor{red}{\checkmark}\quad2\,t^{2}\,+\,3\,t\,+\,1\,=\,\dfrac{\textcolor{red}{2}\,(2\,t^{2}\,+\,3\,t\,+\,1)}{\textcolor{red}{2}}$$
+   $$\quad2\,t^{2}\,+\,3\,t\,+\,1\,=\,\dfrac{\textcolor{red}{2}\,(2\,t^{2}\,+\,3\,t\,+\,1)}{\textcolor{red}{2}}$$
  
  $$\ding{175}\quad 2\,t^{2}\,+\,3\,t\,+\,1\,=\,\dfrac{4\,t^{2}\,+\,2\,(3\,t)\,+\,2}{2}$$
  
@@ -1173,8 +1174,9 @@ $$x\,y'\,=\,y\,+\,x^{2}\,\sin\,x$$
 $$x\,\left(-\,\cos\,x\,+\,x\,\sin\,x\,+\,C \right)\,=\,-\,\textcolor{awesome}{x}\,\cos\,x\,+\,C\,\textcolor{awesome}{x}\,+\,x^{2}\,\sin\,x$$ 
 
 $$\boxed{-\,x\,\cos\,x\,+\,x^{2}\,\sin\,x\,+\,C\,x\,=\,-\,\textcolor{awesome}{x}\,\cos\,x\,+\,C\,\textcolor{awesome}{x}\,+\,x^{2}\,\sin\,x}$$ 
+\end{ejer}
 
-\end{ejer} 
+
 
 \chapter{Aplicaciones diversas} 
 
@@ -1263,7 +1265,7 @@ $$-\,\dfrac{1}{K}\,\displaystyle\int\,e^{u}\,d\,u \quad \textcolor{ao(english)}{
 
 \end{tcolorbox}
 
-$$x\,=\,v_{0}\,(-\,\dfrac{e^{-\,K\,t}}{K})\,+\,\underbrace{C}_{x_{0}} \quad \textcolor{ao(english)}{\iff} \quad x\,=\,x_{0}\,-\,\dfrac{v_{0}e^{-\,K\,t}}{K}$$
+$$x\,=\,v_{0}\,(-\,\dfrac{e^{-\,K\,t}}{K})\,+\,\underbrace{C}_{x_{0}} \quad \textcolor{ao(english)}{\iff} \quad x\,=\,x_{0}\,-\,\dfrac{v_{0}e^{-\,K\,t}}{K} \textcolor{ao(english)}{\iff} x\,=\,x_{0}\,+\,\dfrac{v_{0}\,\left( v_{0}\,-\,e^{-\,K\,t} \right)}{K} $$
 
 $$\boxed{x\,(t)\,=\,x_{0}\,+\,\dfrac{v_{0}}{K}\,(1\,-\,e^{-\,K\,t})}$$
 
