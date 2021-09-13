@@ -1622,7 +1622,57 @@ $$\boxed{\textcolor{britishracinggreen}{y\,(x)\,=\,x^{2}\,+\,\sin\,x}}$$
 
 \begin{ejer}[Ejercicio 28] 
 
-  
+$$y'\,+\,y\,=\,2\,x\,e^{-\,x}\,+\,x^{2}$$
+
+¡CUMPLIDO!
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+$$P\,(x)\,=\,1$$
+
+$$\mu\,(x)\,=\,exp\,\left(\int\,P\,(x)\,dx \right)$$
+
+$$\displaystyle\int\,d\,x \quad \textcolor{ao(english)}{\iff} \quad \boxed{x}$$
+
+$$\boxed{\mu\,(x)\,=\,e^{x}}$$
+
+$$\textcolor{red}{e^{x}}\,(y'\,+\,y)\,=\,\textcolor{red}{e^{x}}\,(2\,x\,e^{-\,x}\,+\,x^{2}) \quad \textcolor{ao(english)}{\iff} \quad e^{x}\,y'\,+\,e^{x}\,y\,=\,2\,x\,+\,e^{x}\,x^{2} \quad \textcolor{ao(english)}{\iff} \quad (e^{x}\,y)'\,=\,2\,x\,+\,x^{2}\,e^{x}$$
+
+$$\displaystyle\int\,(e^{x}\,y)'\,=\,\displaystyle\int\,(2\,x\,+\,x^{2}\,e^{x})\,d\,x \quad \textcolor{ao(english)}{\iff} \quad \displaystyle\int\,(e^{x}\,y)'\,=\,\displaystyle\int\,2\,x\,d\,x\,+\,\underbrace{\displaystyle\int\,x^{2}\,e^{x}\,d\,x}_{I_{1}}$$
+
+\begin{tcolorbox}[colback=ao(english)!5!white,colframe=ao(english)!75!black,fonttitle=\bfseries,title=$I_{1}$]
+
+$$\displaystyle\int\,x^{2}\,e^{x}\,d\,x$$
+
+$$\boxed{U\,=\,x^{2} \quad \textcolor{ao(english)}{\Longrightarrow} \quad d\,V\,=\,e^{x}}$$
+
+$$\boxed{d\,U\,=\,2\,x\,d\,x \quad \textcolor{ao(english)}{\Longrightarrow} \quad V\,=\,e^{x}}$$
+
+$$\int\,U\,d\,V\,=\,U\,V\,-\,\int\,V\,d\,U$$
+
+$$\int\,x^{2}\,e^{x}\,d\,x\,=\,x^{2}\,e^{x}\,-\,2\,\underbrace{\int\,x\,e^{x}\,d\,x}_{I_{1.1}}$$
+
+$$\int\,x^{2}\,e^{x}\,d\,x\,=\,x^{2}\,e^{x}\,-\,2\,(x\,e^{x}\,-\,e^{x})$$
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=ao(english)!5!white,colframe=ao(english)!75!black,fonttitle=\bfseries,title=$I_{1.1}$]
+
+$$\int\,x\,e^{x}\,d\,x$$
+
+$$\boxed{U\,=\,x \quad \textcolor{ao(english)}{\Longrightarrow} \quad d\,V\,=\,e^{x}}$$
+
+$$\boxed{d\,U\,=\,d\,x \quad \textcolor{ao(english)}{\Longrightarrow} \quad V\,=\,e^{x}}$$
+
+$$\int\,x\,e^{x}\,d\,x\,=\,x\,e^{x}\,-\,\int\,e^{x}\,d\,x$$
+
+$$\int\,x\,e^{x}\,d\,x\,=\,x\,e^{x}\,-\,e^{x}$$
+
+\end{tcolorbox}
+
+$$e^{x}\,y\,=\,x^{2}\,+\,x^{2}\,e^{x}\,-\,2\,(x\,e^{x}\,-\,e^{x})\,+\,C \quad \textcolor{ao(english)}{\iff} \quad e^{x}\,y\,=\,x^{2}\,+\,x^{2}\,e^{x}\,-\,2\,x\,e^{x}\,+\,2\,e^{x}\,+\,C$$
+
+$$y\,=\,\dfrac{x^{2}\,+\,x^{2}\,e^{x}\,-\,2\,x\,e^{x}\,+\,2\,e^{x}\,+\,C}{e^{x}} \quad \textcolor{ao(english)}{\iff} \quad \boxed{y\,(x)\,=\,x^{2}\,e^{-\,x}\,+\,x^{2}\,-\,2\,x\,+\,2\,+\,C\,e^{-\,x}}$$
 
 \end{ejer} 
 
