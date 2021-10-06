@@ -1,0 +1,671 @@
+\documentclass[a4paper,11pt, openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2.54cm,top=2.54cm,right=2.54cm,bottom=2.54cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pifont}
+\usepackage{marvosym}
+\newtheorem{teo}{Teorema}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{defi}{Definición}
+\newtheorem{coro}{Corolario}
+\newtheorem{prueba}{Prueba}
+\newtheorem{exmp}{Example}[section]
+\newtheorem{ejer}{Ejercicio}[section]
+\def\proof{\paragraph{\textsf{Demostración.} }}
+\def\endproof{\hfill $\blacksquare$ \\}
+\usepackage{multirow, array} % para las tablas
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{float} % para usar [H]
+\usepackage{tikz}
+\usepackage[all]{xy}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usepackage{enumitem}
+\newcommand*{\itembolasazules}[1]{% bolas 3D
+\footnotesize\protect\tikz[baseline=-3pt]%
+\protect\node[scale=.7, circle, shade, ball
+color=green]{\color{white}\Large\bf#1};}
+\usepackage{tcolorbox} 
+\tcbuselibrary{listingsutf8}
+\newtcolorbox[auto counter,number within=section]{example}[2][]
+{colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries, title=Ejercicio~\thetcbcounter: #2,#1}
+\usepackage{background}
+\backgroundsetup{
+placement=center,
+angle=0,
+scale=1.1,
+contents= {{\includegraphics{ETITC.png}}},
+opacity=0.1
+}
+ 
+\begin{document}
+\begin{titlepage}
+ 
+\begin{center}
+\vspace*{-1in}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=7cm]{ETITC.png}
+\end{center}
+\end{figure}
+ 
+ 
+{\sc \huge Escuela Tecnológica Instituto Técnico Central (ETITC)}\\
+\vspace*{0.15in}
+Facultad de sistemas\\
+\vspace*{0.6in}
+\begin{Large}
+\textbf{Ejercicios {\LaTeX}: Ecuaciones diferenciales II} \\
+\end{Large}
+\vspace*{0.3in}
+\begin{large}
+{\bf Autores} \\ 
+
+\  
+
+Sergio Alejandro Enrrique Caballero Leon\\ 
+Cristian Eduardo Rodriguez Castañeda \\ 
+Johan Alejandro Sogamoso Camacho \\ 
+Brian Ferney Rojas Garcia
+
+\end{large}
+\vspace*{0.3in}
+ 
+\end{center}
+ 
+\begin{center}
+{\bf Presentado a:} \\
+ 
+\ 
+ 
+Andrés Garzón Mayorga \\
+ 
+\
+ 
+Bogot{\'a}, Octubre de 2021.
+\end{center}
+ 
+\end{titlepage}
+ 
+\tableofcontents
+ 
+\textcolor{blue}{\chapter{E.D lineales homogéneas con coeficientes constantes }} 
+ 
+\begin{ejer}[Ejercicio 1]
+ 
+$$y''\,-\,5\,y'\,+\,6\,y\,=\,0; \qquad y\,(1)\,=\,e^{2}, \quad y'\,(1)\,=\,3\,e^{2}$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\item Expresar la ecuación característica asociada
+ 
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
+ 
+$$\textcolor{ceruleanblue}{E.C} \qquad \lambda^{2}\,-\,5\,\lambda\,+\,6\,=\,0$$
+ 
+$$(\lambda\,-\,3)\,(\lambda\,-\,2)\,=\,0 \quad \textcolor{ceruleanblue}{\iff} \quad \lambda_{1}\,-\,3\,=\,0 \quad \textcolor{ceruleanblue}{\vee} \quad \lambda_{2}\,-\,2\,=\,0$$
+ 
+$$\boxed{\lambda_{1}\,=\,3} \quad \textcolor{ceruleanblue}{\vee} \quad \boxed{\lambda_{2}\,=\,2} $$
+ 
+\item Exhibir la solución general
+ 
+$$\boxed{y\,(x)\,=\,C_{1}\,e^{3\,x}\,+\,C_{2}\,e^{2\,x} }$$
+ 
+\item Encontrar la solución particular
+ 
+$$y\,(x)\,=\,C_{1}\,e^{3\,x}\,+\,C_{2}\,e^{2\,x}$$
+ 
+$$y'\,(x)\,=\,C_{1}\,e^{3\,x}\,\textcolor{ceruleanblue}{\times}\,3\,+\,C_{2}\,e^{2\,x}\,\textcolor{ceruleanblue}{\times}\,2 \quad \textcolor{ceruleanblue}{\iff} \quad \boxed{y'\,(x)\,=\,3\,C_{1}\,e^{3\,x}\,+\,2\,C_{2}\,e^{2\,x} }$$
+ 
+$$y\,(\textcolor{ceruleanblue}{1})\,=\,C_{1}\,e^{3\,(\textcolor{ceruleanblue}{1})}\,+\,C_{2}\,e^{2\,(\textcolor{ceruleanblue}{1})} \quad \textcolor{ceruleanblue}{\iff} \quad \boxed{C_{1}\,e^{3}\,+\,C_{2}\,e^{2}\,=\,e^{2}}$$
+ 
+$$y'\,(\textcolor{ceruleanblue}{1})\,=\,3\,C_{1}\,e^{3\,(\textcolor{ceruleanblue}{1})}\,+\,2\,C_{2}\,e^{2\,(\textcolor{ceruleanblue}{1})} \quad \textcolor{ceruleanblue}{\iff} \quad \boxed{3\,C_{1}\,e^{3}\,+\,2\,C_{2}\,e^{2}\,=\,3\,e^{2}}$$
+ 
+$$\left\{
+\begin{array}{ll}
+C_{1}\,e^{3}\,+\,C_{2}\,e^{2}\,=\,e^{2} \quad \textcolor{ceruleanblue}{\times}\,2 \\
+3\,C_{1}\,e^{3}\,+\,2\,C_{2}\,e^{2}\,=\,3\,e^{2} \quad \textcolor{ceruleanblue}{\times}\,(-\,1)
+\end{array}
+\right.$$
+ 
+$$\begin{array}{rr|r}
+2\,C_{1}\,e^{3} & 2\,C_{2}\,e^{2} & 2\,e^{2}  \\ 
+-\,3\,C_{1}\,e^{3} & -\,2\,C_{2}\,e^{2} & -\,3\,e^{2} \\
+\cline{1-1} \cline{2-3}
+-\,C_{1}\,e^{3} & \cancel & -\,e^{2}
+\end{array} \quad \textcolor{ceruleanblue}{\iff} \quad -\,C_{1}\,e^{3}\,=\,-\,e^{2} \quad \textcolor{ceruleanblue}{\iff} \quad C_{1}\,=\,\dfrac{e^{2}}{e^{3}}$$
+ 
+$$\boxed{C_{1}\,=\,\dfrac{1}{e}}$$
+ 
+Sustituyendo $C_{1}\,=\,\dfrac{1}{e}$ 
+ 
+$$\left(\textcolor{ceruleanblue}{\dfrac{1}{e}} \right)\,e^{3}\,+\,C_{2}\,e^{2}\,=\,e^{2} \quad \textcolor{ceruleanblue}{\iff} \quad e^{2}\,+\,C_{2}\,e^{2}\,=\,e^{2} \quad \textcolor{ceruleanblue}{\iff} \quad C_{2}\,e^{2}\,=\,e^{2}\,-\,e^{2}$$
+ 
+$$C_{2}\,e^{2}\,=\,0 \quad \textcolor{ceruleanblue}{\iff} \quad \boxed{C_{2}\,=\,0}$$
+ 
+\item Exhibir la solución particular
+ 
+$$y\,(x)\,=\,\left(\dfrac{1}{e} \right)\,e^{3\,x} \quad \textcolor{ceruleanblue}{\iff} \quad \boxed{y\,(x)\,=\,e^{3\,x\,-\,1} }$$
+ 
+\end{enumerate}
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 2]
+ 
+$$5\,y''\,+\,16\,y'\,+\,12,8\,y\,=\,0; \quad y\,(0)\,=\,0, \quad y'\,(0)\,=\,-\,2,3$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+ 
+\item $$\dfrac{5}{\textcolor{cadmiumgreen}{5} }y''\,+\,\dfrac{16}{\textcolor{cadmiumgreen}{5}}\,y'\,+\,\dfrac{12,8}{\textcolor{cadmiumgreen}{5}}\,y\,=\,0 \quad \textcolor{cadmiumgreen}{\iff} \quad y''\,+\,3,2\,y'\,+\,2,56\,y\,=\,0$$
+ 
+\item Expresar la ecuación característica asociada
+ 
+$$\textcolor{cadmiumgreen}{E.C} \qquad \lambda^{2}\,+\,\underbrace{3,2}_{a}\,\lambda\,+\,\underbrace{2,56}_{b}\,=\,0$$
+ 
+$$\boxed{\lambda\,=\,\dfrac{-\,a\,\pm\,\sqrt{a^{2}\,-\,4\,b } }{2} }$$
+ 
+$$\lambda\,=\,\dfrac{-\,3,2\,\pm\,\sqrt{(3,2)^{2}\,-\,4\,(2,56) } }{2} \quad \textcolor{cadmiumgreen}{\iff} \quad \lambda\,=\,\dfrac{-\,3,2\,\pm\,\sqrt{10,24\,-\,10,24} }{2}$$
+ 
+$$\lambda\,=\,\dfrac{-\,3,2\,\pm\,\sqrt{0} }{2} \quad \textcolor{cadmiumgreen}{\iff} \quad \lambda\,=\,\dfrac{-\,3,2}{2} \quad \textcolor{cadmiumgreen}{\iff} \quad \lambda\,=\,-\,1,6$$
+ 
+$$\text{S.G} \qquad \boxed{y\,(x)\,=\,(C_{1}\,+\,C_{2}\,x)\,e^{-\,1,6\,x}}$$
+ 
+\item Encontrar la solución particular
+ 
+$$y'\,(x)\,=\,C_{2}\,e^{-\,1,6\,x}\,+\,(C_{1}\,+\,C_{2}\,x)\,e^{-\,1,6\,x}\,\textcolor{cadmiumgreen}{\cdot}\,(-1,6)$$
+ 
+$$\boxed{y'\,(x)\,=\,C_{2}\,e^{-\,1,6\,x}\,-\,1,6\,(C_{1}\,+\,C_{2}\,x)\,e^{-\,1,6\,x}}$$
+ 
+$$y\,(\textcolor{cadmiumgreen}{0})\,=\,\left(C_{1}\,+\,C_{2}\,(\textcolor{cadmiumgreen}{0}) \right)\,e^{-\,1,6\,(\textcolor{cadmiumgreen}{0})} \quad \textcolor{cadmiumgreen}{\iff} \quad \left(C_{1}\,+\,C_{2}\,(\textcolor{cadmiumgreen}{0}) \right)\,e^{-\,1,6\,(\textcolor{cadmiumgreen}{0})}\,=\,0 \quad \textcolor{cadmiumgreen}{\iff} \quad \boxed{C_{1}\,=\,0 }$$
+ 
+$$y'\,(\textcolor{cadmiumgreen}{0})\,=\,C_{2}\,e^{-\,1,6\,(\textcolor{cadmiumgreen}{0})}\,-\,1,6\,\left(C_{1}\,+\,C_{2}\,(\textcolor{cadmiumgreen}{0}) \right)\,e^{-\,1,6\,(\textcolor{cadmiumgreen}{0})} \quad \textcolor{cadmiumgreen}{\iff} \quad C_{2}\,-\,1,6\,=\,-\,2,3 \quad \textcolor{cadmiumgreen}{\iff} \quad \boxed{ C_{2}\,=\,-\,0,7}$$
+ 
+\item Exhibir la solución particular
+ 
+$$\boxed{y\,(x)\,=\,-\,0,7\,x\,e^{-\,1,6\,x} } $$
+ 
+\end{enumerate}
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 3]
+ 
+$$y''\,-\,2\,y'\,+\,(\pi^{2}\,+\,1)\,y\,=\,0; \quad y\,(0)\,=\,1, \quad y'\,(0)\,=\,1\,-\,\pi$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+Expresar la ecuación característica asociada
+
+$$\lambda^2\,-\,2\,\lambda\,+\,(\pi^{2}\,+\,1)\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda^2\,-\,2\,\lambda\,+\,\pi^{2}\,+\,1\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda^2\,-\,2\,\lambda\,+\,\pi^{2}\,=\,-\,1$$
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 4]
+
+$$4\,y''\,-\,y\,=\,0; \quad y\,(-\,2)\,=\,1, \quad y'\,(-\,2)\,=\,-\,1$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+Expresar la ecuación característica asociada
+
+$$\lambda^{2}\,+\,0\,\lambda\,-\,1\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda^{2}\,-\,1\,=\,0$$
+
+$$(\lambda_{1}\,-\,1) \quad \textcolor{ao(english)}{\vee} \quad (\lambda_{2}\,+\,1)$$
+
+$$\lambda_{1}\,-\,1\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda_{1}\,=\,1$$
+
+$$\lambda_{2}\,+\,1\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda_{2}\,=\,-\,1$$
+
+$$\boxed{y\,(x)\,=\,C_{1}\,e^{x}\,+\,C_{2}\,e^{-\,x}}$$
+
+Encontrar la solución particular
+
+$$\boxed{y'\,(x)\,=\,C_{1}\,e^{x}\,-\,C_{2}\,e^{-\,x}}$$
+
+$$y\,(\textcolor{red}{-\,2})\,=\,C_{1}\,e^{\textcolor{red}{-\,2}}\,+\,C_{2}\,e^{-\,(\textcolor{red}{-\,2})} \quad \textcolor{ao(english)}{\iff} \quad \boxed{C_{1}\,e^{-\,2}\,+\,C_{2}\,e^{2}\,=\,1}$$
+
+$$y'\,(\textcolor{red}{-\,2})\,=\,C_{1}\,e^{\textcolor{red}{-\,2}}\,-\,C_{2}\,e^{-\,(\textcolor{red}{-\,2})} \quad \textcolor{ao(english)}{\iff} \quad \boxed{C_{1}\,e^{-\,2}\,-\,C_{2}\,e^{2}\,=\,-\,1}$$
+
+$$\left\{
+\begin{array}{ll}
+C_{1}\,e^{-\,2}\,+\,C_{2}\,e^{2}\,=\,1 \\
+C_{1}\,e^{-\,2}\,-\,C_{2}\,e^{2}\,=\,-\,1
+\end{array}
+\right.$$
+
+$$\begin{array}{rr|r}
+C_{1}\,e^{-\,2} & C_{2}\,e^{2} & 1  \\ 
+C_{1}\,e^{-\,2} & -\,C_{2}\,e^{2} & -\,1 \\
+\cline{1-1} \cline{2-3}
+2\,C_{1}\,e^{-\,2} & \cancel & 0
+\end{array}$$
+
+$$2\,C_{1}\,e^{-\,2}\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \boxed{C_{1}\,=\,0}$$
+
+Sustituyendo $C_{1}$ en la segunda ecuación:
+
+$$\textcolor{red}{0}\,e^{-\,2}\,-\,C_{2}\,e^{2}\,=\,-\,1 \quad \textcolor{ao(english)}{\iff} \quad -\,C_{2}\,=\,-\,\dfrac{1}{e^{2}} \quad \textcolor{ao(english)}{\iff} \quad C_{2}\,=\,\dfrac{1}{e^{2}} \quad \textcolor{ao(english)}{\iff} \quad \boxed{ C_{2}\,=\,e^{-\,2}}$$
+
+Exhibir la solución particular
+
+$$y\,(x)\,=\,e^{-\,2}\,\textcolor{ao(english)}{\times}\,e^{-\,x} \quad \textcolor{ao(english)}{\iff} \quad \boxed{y\,(x)\,=\,e^{-\,2\,-\,x}}$$
+
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 5]
+ 
+$$y''\,-\,10\,y'\,+\,25\,y\,=\,0$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+Expresar la ecuación característica asociada
+
+$$\lambda^{2}\,-\,10\,\lambda\,+\,25\,=\,0$$
+
+$$(\lambda_{1}\,-\,5) \quad \textcolor{ao(english)}{\vee} \quad (\lambda_{2}\,-\,5)$$
+
+$$\lambda_{1}\,-\,5\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda_{1}\,=\,5$$
+
+$$\lambda_{2}\,-\,5\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda_{2}\,=\,5$$
+
+$$\boxed{\lambda_{1}\,=\,\lambda_{2} \quad \textcolor{ao(english)}{\rightarrow} \quad \Delta\,=\,0}$$
+
+Exhibir la solución general
+
+$$\boxed{y\,(x)\,=\,(C_{1}\,+\,C_{2}\,x)\,e^{5\,x}}$$
+
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 6]
+ 
+$$\dfrac{d^{2}\,x}{d\,t^{2}}\,+\,2\,b\,\dfrac{d\,x}{d\,t}\,+\,k^{2}\,x\,=\,0, \quad k\,>\,b\,>\,0; \quad y\,(0)\,=\,0 \quad y'\,(0)\,=\,V_{0}$$
+ 
+$$x''\,+\,2\,b\,x'\,+\,k^{2}\,x\,=\,0$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{lust}{rgb}{0.9, 0.13, 0.13}
+ 
+\item Expresar la ecuación característica asociada
+ 
+$$\textcolor{lust}{E.D} \qquad \lambda^{2}\,+\,\underbrace{2\,b}_{a}\,\lambda\,+\,\underbrace{k^{2}}_{b}\,=\,0$$
+ 
+$$\boxed{\lambda\,=\,\dfrac{-\,a\,\pm\,\sqrt{a^{2}\,-\,4\,b } }{2} }$$
+ 
+$$\lambda\,=\,\dfrac{-\,2\,b\,\pm\,\sqrt{(2\,b)^{2}\,-\,4\,k^{2} } }{2} \quad \textcolor{lust}{\iff} \quad \lambda\,=\,\dfrac{-\,2\,b\,\pm\,\sqrt{4\,b^{2}\,-\,4\,k^{2} } }{2}$$
+ 
+$$\lambda\,=\,\dfrac{-\,2\,b\,\pm\,\sqrt{4\,(b^{2}\,-\,k^{2}) } }{2} \quad \textcolor{lust}{\iff} \quad \lambda\,=\,\dfrac{-\,2\,b\,\pm\,2\,\sqrt{b^{2}\,-\,k^{2} } }{2}$$
+ 
+$$\lambda\,=\,\dfrac{-\,2\,b\,\pm\,2\,\sqrt{\underbrace{b^{2}\,-\,k^{2}}_{-\,\alpha} } }{2} \quad \textcolor{lust}{\iff} \quad \lambda\,=\,\dfrac{-\,2\,b\,\pm\,2\,\sqrt{-\,\alpha}}{2} \quad \textcolor{lust}{\iff} \quad \lambda\,=\,\dfrac{-\,2\,b\,\pm\,2\,\sqrt{-\,1}\,\sqrt{\alpha}}{2}$$
+ 
+$$\lambda\,=\,\dfrac{-\,2\,b\,\pm\,2\,a\,i}{2} \quad \textcolor{lust}{\iff} \quad \lambda\,=\,\dfrac{2\,\left(-\,b\,\pm\,a\,i\right)}{2} \quad \textcolor{lust}{\iff} \quad \boxed{\lambda\,=\,-\,b\,\pm\,a\,i}$$
+ 
+\item Exhibir la solución general
+ 
+$$\sqrt{\alpha}\,=\,a$$
+ 
+$$\boxed{\textcolor{lust}{y\,(x)\,=\,e^{-\,b\,x}\,\left(C_{1}\,\cos\,\sqrt{b^{2}\,-\,k^{2}}\,x\,+\,C_{2}\,\sin\,\sqrt{b^{2}\,-\,k^{2}}\,x \right)}}$$
+ 
+\item Encontrar la solución particular
+ 
+\begin{multline*}
+y'\,(x)\,=\,-\,b\,e^{-\,b\,x}\,\left(C_{1}\,\cos\,\sqrt{b^{2}\,-\,k^{2}}\,x\,+\,C_{2}\,\sin\,\sqrt{b^{2}\,-\,k^{2}}\,x \right)\,\textcolor{lust}{+} \\
+e^{-\,b\,x}\,\left[C_{1}\,\left(-\,\sin\,\sqrt{b^{2}\,-\,k^{2}}\,x \right)\,\textcolor{lust}{\times}\,\sqrt{b^{2}\,-\,k^{2}}\,+\,C_{2}\,\left(\cos\,\sqrt{b^{2}\,-\,k^{2}}\,x \right)\,\textcolor{lust}{\times}\,\sqrt{b^{2}\,-\,k^{2}}  \right]   
+\end{multline*}
+ 
+$$y\,(\textcolor{lust}{0})\,=\,e^{-\,b\,(\textcolor{lust}{0})}\,\left(C_{1}\,\cos\,\sqrt{b^{2}\,-\,k^{2}}\,(\textcolor{lust}{0})\,+\,C_{2}\,\sin\,\sqrt{b^{2}\,-\,k^{2}}\,(\textcolor{lust}{0}) \right)$$
+ 
+$$C_{1}\,\cos\,0\,+\,C_{2}\,\sin\,0\,=\,0 \quad \textcolor{lust}{\iff} \quad \boxed{C_{1}\,=\,0}$$
+ 
+\begin{multline*}
+y'\,(\textcolor{lust}{0})\,=\,-\,b\,e^{-\,b\,(\textcolor{lust}{0})}\,\left(\cancel{C_{1}\,\cos\,\sqrt{b^{2}\,-\,k^{2}}\,(\textcolor{lust}{0})}\,+\,C_{2}\,\sin\,\sqrt{b^{2}\,-\,k^{2}}\,(\textcolor{lust}{0}) \right)\,\textcolor{lust}{+} \\
+e^{-\,b\,(\textcolor{lust}{0})}\,\left[\cancel{C_{1}\,\left(-\,\sin\,\sqrt{b^{2}\,-\,k^{2}}\,x \right)\,\textcolor{lust}{\times}\,\sqrt{b^{2}\,-\,k^{2}}}\,+\,C_{2}\,\left(\cos\,\sqrt{b^{2}\,-\,k^{2}}\,(\textcolor{lust}{0}) \right)\,\textcolor{lust}{\times}\,\sqrt{b^{2}\,-\,k^{2}}  \right]    
+\end{multline*}
+ 
+$$-\,b\,\left(\sin\,0 \right)\,+\,C_{2}\,\sqrt{b^{2}\,-\,k^{2}}\,\cos\,0\,=\,V_{0} \quad \textcolor{lust}{\iff} \quad C_{2}\,\sqrt{b^{2}\,-\,k^{2}}\,=\,V_{0}$$
+ 
+$$\boxed{C_{2}\,=\,\dfrac{V_{0}}{\sqrt{b^{2}\,-\,k^{2} }}}$$
+ 
+\item Exhibir la solución particular
+ 
+$$\boxed{\textcolor{lust}{y\,(x)\,=\,\dfrac{V_{0}\,e^{-\,b\,x}}{\sqrt{b^{2}\,-\,k^{2} }}\,\left(\sin\,\sqrt{b^{2}\,-\,k^{2}}\,x \right)}}$$
+ 
+\end{enumerate}
+
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 7]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 8]
+
+$$e^{-\,\pi\,x}, \qquad x\,e^{-\,\pi\,x}$$
+ 
+$$\boxed{y\,(x)\,=\,C_{1}\,e^{-\,\pi\,x}\,+\,C_{2}\,x\,e^{-\,\pi\,x}}$$
+ 
+\definecolor{mahogany}{rgb}{0.75, 0.25, 0.0}
+ 
+$$\textcolor{mahogany}{e^{\pi\,x}}\,\textcolor{mahogany}{\times}\,y\,=\,\textcolor{mahogany}{e^{\pi\,x}}\,\left(C_{1}\,e^{-\,\pi\,x}\,+\,C_{2}\,x\,e^{-\,\pi\,x} \right) \quad \textcolor{mahogany}{\iff} \quad e^{\pi\,x}\,y\,=\,C_{1}\,+\,C_{2}\,x$$
+ 
+$$\pi\,e^{\pi\,x}\,y\,+\,e^{\pi\,x}\,y'\,=\,C_{2} \quad \textcolor{mahogany}{\iff} \quad \pi^{2}\,e^{\pi\,x}\,y\,+\,\pi\,e^{\pi\,x}\,y'\,\textcolor{mahogany}{+}\,\pi\,e^{\pi\,x}\,y'\,+\,e^{\pi\,x}\,y''\,=\,0$$
+ 
+$$e^{\pi\,x}\,y''\,+\,2\,\pi\,e^{\pi\,x}\,y'\,+\,\pi^{2}\,e^{\pi\,x}\,y\,=\,0 \quad \textcolor{mahogany}{\div\,e^{\pi\,x}}$$
+ 
+$$\boxed{y''\,+\,2\,\pi\,y'\,+\,\pi^{2}\,y\,=\,0}$$
+
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 9]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 10]
+
+\definecolor{majorelleblue}{rgb}{0.38, 0.31, 0.86}
+ 
+$$\cosh\,x, \qquad \sinh\,x$$ 
+ 
+$$\boxed{y\,(x)\,=\,C_{1}\,\cosh\,x\,+\,C_{2}\,\sinh\,x}$$
+ 
+$$\boxed{y'\,(x)\,=\,C_{1}\,\sinh\,x\,+\,C_{2}\,\cosh\,x}$$
+ 
+$$\boxed{y''\,(x)\,=\,C_{1}\,\cosh\,x\,+\,C_{2}\,\sinh\,x}$$
+ 
+$$y''\,=\,y \quad \textcolor{majorelleblue}{\iff} \quad \boxed{\textcolor{majorelleblue}{y''\,-\,y\,=\,0}}$$
+
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 11]
+ 
+\
+ 
+Encuentre la solución del problema de valor inicial
+ 
+$$y''\,-\,y\,=\,0; \qquad y\,(0)\,=\,\dfrac{5}{4}, \quad y'\,(0)\,=\,-\,\dfrac{3}{4}$$
+ 
+Graficar la solución para $0\,\leq\,t\,\leq\,2$ y determine el valor mínimo.
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\item Expresar la ecuación característica asociada
+ 
+\definecolor{calpolypomonagreen}{rgb}{0.12, 0.3, 0.17}
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+ 
+$$\lambda^{2}\,+\,0\,\lambda\,-\,1\,=\,0 \quad \textcolor{calpolypomonagreen}{\iff} \quad \lambda^{2}\,-\,1\,=\,0$$
+
+$$(\lambda_{1}\,-\,1) \quad \textcolor{ao(english)}{\vee} \quad (\lambda_{2}\,+\,1)$$
+
+$$\lambda_{1}\,-\,1\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda_{1}\,=\,1$$
+
+$$\lambda_{2}\,+\,1\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda_{2}\,=\,-\,1$$
+
+$$\boxed{y\,(x)\,=\,C_{1}\,e^{x}\,+\,C_{2}\,e^{-\,x}}$$
+
+\item Encontrar la solución particular
+
+$$\boxed{y'\,(x)\,=\,C_{1}\,e^{x}\,-\,C_{2}\,e^{-\,x}}$$
+
+$$y\,(\textcolor{red}{0})\,=\,C_{1}\,e^{\textcolor{red}{0}}\,+\,C_{2}\,e^{-\,(\textcolor{red}{0})} \quad \textcolor{ao(english)}{\iff} \quad \boxed{C_{1}\,+\,C_{2}\,=\,\dfrac{5}{4}}$$
+
+$$y'\,(\textcolor{red}{0})\,=\,C_{1}\,e^{\textcolor{red}{0}}\,-\,C_{2}\,e^{-\,(\textcolor{red}{0})} \quad \textcolor{ao(english)}{\iff} \quad \boxed{C_{1}\,-\,C_{2}\,=\,-\,\dfrac{3}{4}}$$
+
+$$\left\{
+\begin{array}{ll}
+C_{1}\,+\,C_{2}\,=\,5/4 \\
+C_{1}\,-\,C_{2}\,=\,-\,3/4
+\end{array}
+\right.$$
+
+$$\begin{array}{rr|r}
+C_{1} & C_{2} & 5/4  \\ 
+C_{1} & -\,C_{2} & -\,3/4 \\
+\cline{1-1} \cline{2-3}
+2\,C_{1} & \cancel & 1/2
+\end{array}$$
+
+$$2\,C_{1}\,=\,\dfrac{1}{2} \quad \textcolor{ao(english)}{\iff} \quad C_{1}\,=\,\dfrac{1}{2\,\textcolor{red}{\times}\,2} \quad \textcolor{ao(english)}{\iff} \quad \boxed{C_{1}\,=\,\dfrac{1}{4}}$$
+
+Sustituyendo $C_{1}$ en la primera ecuación:
+
+$$\textcolor{red}{\dfrac{1}{4}}\,+\,C_{2}\,=\,\dfrac{5}{4} \quad \textcolor{ao(english)}{\iff} \quad C_{2}\,=\,\dfrac{5}{4}\,-\,\textcolor{red}{\dfrac{1}{4}} \quad \textcolor{ao(english)}{\iff} \quad C_{2}\,=\,\dfrac{4}{4} \quad \textcolor{ao(english)}{\iff} \quad \boxed{C_{2}\,=\,1}$$
+ 
+$$\text{Solución particular} \qquad \boxed{y\,(x)\,=\,\dfrac{1}{4}\,e^{x}\,+\,e^{-\,x}}$$
+ 
+\end{enumerate}
+ 
+ 
+\end{ejer}
+ 
+\textcolor{red}{\chapter{Método de coeficientes indeterminados}}  
+ 
+\begin{ejer}[Ejercicio 12]
+
+$$y''\,+\,2\,y'\,+\,5\,y\,=\,5\,x^{2}\,+\,4\,x\,+\,2$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\item Resolver la ecuación diferencial homogénea.
+ 
+\definecolor{amber(sae/ece)}{rgb}{1.0, 0.49, 0.0}
+ 
+$$\boxed{y''\,+\,2\,y'\,+\,5\,y\,=\,0}$$
+ 
+$$\textcolor{amber(sae/ece)}{E.C} \qquad \lambda^{2}\,+\,2\,\lambda\,+\,5\,=\,0$$
+ 
+$$\boxed{\lambda\,=\,\dfrac{-\,a\,\pm\,\sqrt{a^{2}\,-\,4\,b } }{2} }$$
+ 
+$$\lambda\,=\,\dfrac{-\,2\,\pm\,\sqrt{(2)^{2}\,-\,4\,(5) } }{2} \quad \textcolor{amber(sae/ece)}{\iff} \quad \lambda\,=\,\dfrac{-\,2\,\pm\,\sqrt{4\,-\,20 } }{2} \quad \textcolor{amber(sae/ece)}{\iff} \quad \lambda\,=\,\dfrac{-\,2\,\pm\,\sqrt{-\,16 } }{2}$$
+ 
+$$\lambda\,=\,\dfrac{-\,2\,\pm\,4\,i}{2} \quad \textcolor{amber(sae/ece)}{\iff} \quad \lambda\,=\,\dfrac{2\,(-\,1\,\pm\,2\,i)}{2} \quad \textcolor{amber(sae/ece)}{\iff} \quad \boxed{\lambda\,=\,-\,1\,\pm\,2\,i}$$
+ 
+\textcolor{amber(sae/ece)}{\Pointinghand} \, Solución homogénea asociada: 
+ 
+$$\boxed{y_{H}\,(x)\,=\,e^{-\,x}\,\left(C_{1}\,\cos\,2\,x\,+\,C_{2}\,\sin\,2\,x \right)}$$
+ 
+\item Resolver el término NO homogéneo. 
+ 
+$$\boxed{y_{P}\,(x)\,=\,K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}}$$
+ 
+$$\boxed{y_{P}'\,(x)\,=\,2\,K_{2}\,x\,+\,K_{1}}$$
+ 
+$$\boxed{y_{P}''\,(x)\,=\,2\,K_{2} }$$
+ 
+Sustituyendo en la ecuación diferencial
+ 
+$$2\,K_{2}\,+\,2\,(2\,K_{2}\,x\,+\,K_{1})\,+\,5\,(K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0})\,=\,5\,x^{2}\,+\,4\,x\,+\,2$$
+ 
+$$2\,K_{2}\,+\,4\,K_{2}\,x\,+\,2\,K_{1}\,+\,5\,K_{2}\,x^{2}\,+\,5\,K_{1}\,x\,+\,5\,K_{0}\,=\,5\,x^{2}\,+\,4\,x\,+\,2$$
+ 
+$$5\,K_{2}\,x^{2}\,+\,(4\,K_{2}\,+\,5\,K_{1})\,x\,+\,(2\,K_{2}\,+\,2\,K_{1}\,+\,5\,K_{0})\,=\,5\,x^{2}\,+\,4\,x\,+\,2$$
+ 
+$$5\,K_{2}\,=\,5 \quad \textcolor{amber(sae/ece)}{\iff} \quad K_{2}\,=\,\dfrac{5}{5} \quad \textcolor{amber(sae/ece)}{\iff} \quad \boxed{K_{2}\,=\,1}$$
+ 
+$$4\,K_{2}\,+\,5\,K_{1}\,=\,4 \quad \textcolor{amber(sae/ece)}{\iff} \quad 4\,(1)\,+\,5\,K_{1}\,=\,4 \quad \textcolor{amber(sae/ece)}{\iff} \quad 5\,K_{1}\,=\,4\,-\,4 \quad \textcolor{amber(sae/ece)}{\iff} \quad \boxed{K_{1}\,=\,0 }$$
+ 
+$$2\,K_{2}\,+\,2\,K_{1}\,+\,5\,K_{0}\,=\,2 \quad \textcolor{amber(sae/ece)}{\iff} \quad 2\,+\,5\,K_{0}\,=\,2 \quad \textcolor{amber(sae/ece)}{\iff} \quad 5\,K_{0}\,=\,2\,-\,2 \quad \textcolor{amber(sae/ece)}{\iff} \quad \boxed{K_{0}\,=\,0}$$
+ 
+\item Exhibir la solución general 
+ 
+$$\boxed{y\,(x)\,=\,e^{-\,x}\,\left(C_{1}\,\cos\,2\,x\,+\,C_{2}\,\sin\,2\,x \right)\,+\,x^{2}} $$
+ 
+\end{enumerate}
+
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 13]
+ 
+$$3\,y''\,+\,10\,y'\,+\,3\,y\,=\,x^{2}\,+\,\sin\,x$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{aurometalsaurus}{rgb}{0.43, 0.5, 0.5}
+ 
+\item Resolver la ecuación diferencial homogénea.
+ 
+$$3\,y''\,+\,10\,y'\,+\,3\,y\,=\,0 \quad \textcolor{aurometalsaurus}{\iff} \quad \dfrac{3}{\textcolor{aurometalsaurus}{3}}\,y''\,+\,\dfrac{10}{\textcolor{aurometalsaurus}{3}}\,y'\,+\,\dfrac{3}{\textcolor{aurometalsaurus}{3}}\,y\,=\,0 \quad \textcolor{aurometalsaurus}{\iff} \quad y''\,+\,\dfrac{10}{3}\,y'\,+\,y\,=\,0$$
+ 
+$$\textcolor{aurometalsaurus}{E.C} \quad \lambda^{2}\,+\,\dfrac{10}{3}\,\lambda\,+\,1\,=\,0$$
+ 
+$$\boxed{\lambda\,=\,\dfrac{-\,a\,\pm\,\sqrt{a^{2}\,-\,4\,b } }{2} }$$
+ 
+$$\lambda\,=\,\dfrac{-\,\dfrac{10}{3}\,\pm\,\sqrt{\left(\dfrac{10}{3} \right)^{2}\,-\,4\,(1) } }{2} \quad \textcolor{aurometalsaurus}{\iff} \quad \lambda\,=\,\dfrac{-\,\dfrac{10}{3}\,\pm\,\sqrt{\dfrac{100}{9} \,-\,4 } }{2} \quad \textcolor{aurometalsaurus}{\iff} \quad \lambda\,=\,\dfrac{-\,\dfrac{10}{3}\,\pm\,\sqrt{\dfrac{64}{9} } }{2}$$
+ 
+$$\lambda\,=\,\dfrac{-\,\dfrac{10}{3}\,\pm\,\dfrac{8}{3}}{2}$$
+ 
+$$\lambda_{1}\,=\,\dfrac{-\,\dfrac{10}{3}\,+\,\dfrac{8}{3}}{2}\,=\,\dfrac{-\,\dfrac{2}{3} }{2}\,=\,\boxed{-\,\dfrac{1}{3}}$$
+ 
+$$\lambda_{2}\,=\,\dfrac{-\,\dfrac{10}{3}\,-\,\dfrac{8}{3}}{2}\,=\,\dfrac{-\,\dfrac{18}{3}}{2}\,=\,\dfrac{-\,6}{2}\,=\,\boxed{-\,3}$$
+ 
+$$\boxed{y_{H}\,(x)\,=\,C_{1}\,e^{-\,x/3}\,+\,C_{2}\,e^{-\,3\,x}}$$
+ 
+\item Resolver el término NO homogéneo.
+ 
+$$\boxed{y_{P}\,(x)\,=\,K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}\,+\,M\,\sin\,x\,+\,N\,\cos\,x}$$
+ 
+$$\boxed{y_{P}'\,(x)\,=\,2\,K_{2}\,x\,+\,K_{1}\,\,+\,M\,\cos\,x\,-\,N\,\sin\,x}$$
+ 
+$$\boxed{y_{P}''\,(x)\,=\,2\,K_{2}\,-\,M\,\sin\,x\,-\,N\,\cos\,x}$$
+ 
+Sustituyendo en la ecuación diferencial.
+ 
+\begin{multline*}
+3\,\left(2\,K_{2}\,-\,M\,\sin\,x\,-\,N\,\cos\,x \right)\,+\,10\,\left(2\,K_{2}\,x\,+\,K_{1}\,\,+\,M\,\cos\,x\,-\,N\,\sin\,x \right)\,\textcolor{aurometalsaurus}{+} \\
+3\,\left(K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}\,+\,M\,\sin\,x\,+\,N\,\cos\,x \right)\,=\,x^{2}\,+\,\sin\,x
+\end{multline*}
+ 
+\begin{multline*}
+6\,K_{2}\,-\,3\,M\,\sin\,x\,-\,3\,N\,\cos\,x\,+\,20\,K_{2}\,x\,+\,10\,K_{1}\,\,+\,10\,M\,\cos\,x\,-\,10\,N\,\sin\,x\,\textcolor{aurometalsaurus}{+} \\
+3\,K_{2}\,x^{2}\,+\,3\,K_{1}\,x\,+\,3\,K_{0}\,+\,3\,M\,\sin\,x\,+\,3\,N\,\cos\,x\,=\,x^{2}\,+\,\sin\,x
+\end{multline*}
+ 
+\begin{multline*}
+6\,K_{2}\,-\,\cancel{3\,M\,\sin\,x}\,-\,\cancel{3\,N\,\cos\,x}\,+\,20\,K_{2}\,x\,+\,10\,K_{1}\,\,+\,10\,M\,\cos\,x\,-\,10\,N\,\sin\,x\,\textcolor{aurometalsaurus}{+} \\
+3\,K_{2}\,x^{2}\,+\,3\,K_{1}\,x\,+\,3\,K_{0}\,+\,\cancel{3\,M\,\sin\,x}\,+\,\cancel{3\,N\,\cos\,x}\,=\,x^{2}\,+\,\sin\,x
+\end{multline*}
+ 
+ 
+\begin{multline*}
+3\,K_{2}\,x^{2}\,+\,\left(20\,K_{2}\,+\,3\,K_{1} \right)\,x\,+\,\left(6\,K_{2}\,+\,10\,K_{1}\,+\,3\,K_{0} \right)\,\textcolor{aurometalsaurus}{+} \\   
+10\,M\,\cos\,x\,-\,10\,N\,\sin\,x\,\textcolor{aurometalsaurus}{=}\,x^{2}\,+\,\sin\,x
+\end{multline*}
+ 
+$$x^{2}: \qquad 3\,K_{2}\,=\,1 \quad \textcolor{aurometalsaurus}{\iff} \quad \boxed{K_{2}\,=\,\dfrac{1}{3}}$$
+ 
+$$x \qquad 20\,K_{2}\,+\,3\,K_{1}\,=\,0 \quad \textcolor{aurometalsaurus}{\iff} \quad 20\,\left(\dfrac{1}{3} \right)\,+\,3\,K_{1}\,=\,0 \quad \textcolor{aurometalsaurus}{\iff} \quad \dfrac{20}{3}\,=\,-\,3\,K_{1}\quad \textcolor{aurometalsaurus}{\iff} \quad \boxed{K_{1}\,=\,-\,\dfrac{20}{9} }$$
+ 
+$$x^{0}: \qquad 6\,K_{2}\,+\,10\,K_{1}\,+\,3\,K_{0}\,=\,0 \quad \textcolor{aurometalsaurus}{\iff} \quad 6\,\left(\dfrac{1}{3} \right)\,+\,10\,\left(-\,\dfrac{20}{9} \right)\,+\,3\,K_{0}\,=\,0$$
+ 
+$$2\,-\,\dfrac{200}{9}\,=\,-\,3\,K_{0} \quad \textcolor{aurometalsaurus}{\iff} \quad -\,\dfrac{182}{9}\,=\,-\,3\,K_{0} \quad \textcolor{aurometalsaurus}{\iff} \quad \boxed{K_{0}\,=\,\dfrac{182}{27}}$$
+ 
+$$\cos\,x: \qquad 10\,M\,=\,0 \quad \textcolor{aurometalsaurus}{\iff} \quad \boxed{M\,=\,0}$$
+ 
+$$\sin\,x: \qquad -\,10\,N\,=\,1 \quad \textcolor{aurometalsaurus}{\iff} \quad \boxed{N\,=\,-\,\dfrac{1}{10}}$$
+ 
+\item Exhibir la solución NO homogénea 
+ 
+$$\boxed{y\,(x)\,=\,C_{1}\,e^{-\,x/3}\,+\,C_{2}\,e^{-\,3\,x}\,+\,\dfrac{1}{3}\,x^{2}\,-\,\dfrac{20}{9}\,x\,+\,\dfrac{182}{27}\,\,-\,\dfrac{1}{10}\,\cos\,x} $$
+ 
+\end{enumerate}
+
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 14]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 15]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 16]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 17]
+ 
+\end{ejer}
+ 
+\definecolor{arylideyellow}{rgb}{0.91, 0.84, 0.42}
+ 
+\textcolor{arylideyellow}{\chapter{Método de variación de parámetros}}
+ 
+\begin{ejer}[Ejercicio 18]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 19]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 20]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 21]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 22]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 23]
+ 
+\end{ejer}
+ 
+\definecolor{awesome}{rgb}{1.0, 0.13, 0.32}
+ 
+\textcolor{awesome}{\chapter{Dependencia e independencia lineal}}  
+ 
+\begin{ejer}[Ejercicio 24]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 25]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 26]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 27]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 28]
+ 
+\end{ejer}
+ 
+\definecolor{brass}{rgb}{0.71, 0.65, 0.26}
+ 
+\textcolor{brass}{\chapter{Suplementarios}}
+ 
+\begin{ejer}[Ejercicio 29]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 30]
+ 
+\end{ejer}
+ 
+\begin{ejer}[Ejercicio 31]
+ 
+\end{ejer}
+ 
+Este documento fue levantado en \textcolor{red}{\LaTeX}
+ 
+\end{document}
