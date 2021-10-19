@@ -658,6 +658,58 @@ $$\boxed{y\,(x)\,=\,C_{1}\,e^{-\,x/3}\,+\,C_{2}\,e^{-\,3\,x}\,+\,\dfrac{1}{3}\,x
  
 \begin{ejer}[Ejercicio 14]
  
+$$y''\,-\,y'\,=\,x^{2}\,+\,e^{x}$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+Resolver la ecuación diferencial homogénea.
+
+$$\lambda^{2}\,-\,\lambda\,=\,0$$
+
+$$(\lambda_{1}\,+\,0) \quad \textcolor{ao(english)}{\vee} \quad (\lambda_{2}\,-\,1)$$
+
+$$\lambda_{1}\,+\,0\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda_{1}\,=\,0$$
+
+$$\lambda_{2}\,-\,1\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda_{2}\,=\,1$$
+
+$$\boxed{y_{H}\,(x)\,=\,C_{1}\,+\,C_{2}\,e^{x}}$$
+
+Resolver el término NO homogéneo
+
+$$\boxed{y_{P}\,(x)\,=\,(K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}\,+\,C\,e^{x})\,x}$$
+
+$$\boxed{y_{P}'\,(x)\,=\,K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}\,+\,C\,e^{x}\,+\,(2\,K_{2}\,x\,+\,K_{1}\,+\,C\,e^{x})\,x}$$
+
+$$\boxed{y_{P}''\,(x)\,=\,2\,K_{2}\,x\,+\,K_{1}\,+\,C\,e^{x}\,+\, 2\,K_{2}\,x\,+\,K_{1}\,+\,C\,e^{x}\,+\,(2\,K_{2}\,+\,C\,e^{x})\,x}$$
+
+Sustituyendo en la ecuación diferencial
+
+\begin{multline*}
+\left[2\,K_{2}\,x\,+\,K_{1}\,+\,C\,e^{x}\,+\,2\,K_{2}\,x\,+\,K_{1}\,+\,C\,e^{x}\,+\,(2\,K_{2}\,+\,C\,e^{x})\,x\right]\\
+-\,\left[K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}\,+\,C\,e^{x}\,+\,(2\,K_{2}\,x\,+\,K_{1}\,+\,C\,e^{x})\,x\right]\,=\,x^{2}\,+\,e^{x}
+\end{multline*}
+
+\begin{multline*}
+2\,K_{2}\,x\,+\,K_{1}\,+\,C\,e^{x}\,+\,2\,K_{2}\,x\,+\,K_{1}\,+\,\cancel{C\,e^{x}}\,+\,2\,K_{2}\,x\,+\,\cancel{C\,x\,e^{x}}\\
+-\,K_{2}\,x^{2}\,-\,K_{1}\,x\,-\,K_{0}\,-\,\cancel{C\,e^{x}}\,-\,2\,K_{2}\,x^{2}\,-\,K_{1}\,x\,-\,\cancel{C\,x\,e^{x}}\,=\,x^{2}\,+\,e^{x}
+\end{multline*}
+
+$$-\,3\,K_{2}\,x^{2}\,+\,(6\,K_{2}\,-\,2\,K_{1})\,x\,+\,(2\,K_{1}\,-\,K_{0})\,+\,C\,e^{x}\,=\,x^{2}\,+\,e^{x}$$
+
+$$C\,=\,1$$
+
+$$-\,3\,K_{2}\,=\,1 \quad \textcolor{ao(english)}{\iff} \quad \boxed{K_{2}\,=\,-\,\dfrac{1}{3}}$$
+
+$$6\,\left(\textcolor{red}{-\,\dfrac{1}{3}}\right)\,-\,2\,K_{1}\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad -\,2\,-\,2\,K_{1}\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad -\,2\,K_{1}\,=\,2$$
+
+$$K_{1}\,=\,-\,\dfrac{2}{2} \quad \textcolor{ao(english)}{\iff} \quad \boxed{K_{1}\,=\,-\,1}$$
+
+$$2\,(\textcolor{red}{-\,1})\,-\,K_{0}\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad -\,2\,-\,K_{0}\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad -\,K_{0}\,=\,2 \quad \textcolor{ao(english)}{\iff} \quad \boxed{K_{0}\,=\,-\,2}$$
+
+Exhibir la solución general NO homogénea
+
+$$\boxed{y\,(x)\,=\,C_{1}\,+\,C_{2}\,e^{x}\,+\,\left(-\,\dfrac{1}{3}\,x^{2}\,-\,x\,-\,2\,+\,e^{x}\right)\,x}$$
+
 \end{ejer}
  
 \begin{ejer}[Ejercicio 15]
@@ -1208,22 +1260,120 @@ $$\boxed{y\,(x)\,=\,-\,\dfrac{8}{3}\,e^{-\,2\,x}\,+\,\dfrac{5}{2}\,e^{-\,x}\,+\,
  
 \begin{ejer}[Ejercicio 24]
  
+$$\underbrace{e^{\lambda_{1}\,x}}_{y_{1}\,(x)}, \quad \underbrace{e^{\lambda_{2}\,x}}_{y_{2}\,(x)}, \quad \lambda_{1}\,\neq\,\lambda_{2}$$
+ 
+$$y_{1}'\,(x)\,=\,\lambda_{1}\,e^{\lambda_{1}\,x}$$
+ 
+$$y_{2}'\,(x)\,=\,\lambda_{2}\,e^{\lambda_{2}\,x}$$
+ 
+$$W\,\left(y_{1},\,y_{2} \right)\,=\,\begin{vmatrix}
+e^{\lambda_{1}\,x} & e^{\lambda_{2}\,x} \\
+\\
+\lambda_{1}\,e^{\lambda_{1}\,x} & \lambda_{2}\,e^{\lambda_{2}\,x} 
+\end{vmatrix}\,=\,\lambda_{2}\,e^{(\lambda_{1}\,+\,\lambda_{2})\,x}\,-\,\lambda_{1}\,e^{(\lambda_{1}\,+\,\lambda_{2})\,x}$$
+ 
+$$W\,\left(y_{1},\,y_{2} \right)\,=\,e^{(\lambda_{1}\,+\,\lambda_{2})\,x}\,\left(\lambda_{2}\,-\,\lambda_{1} \right)$$
+ 
+Por hipótesis, como $\lambda_{1}\,\neq\,\lambda_{2}$, entonces $W\,\left(y_{1},\,y_{2} \right)\,\neq\,0$ y por ende existe un sistema fundamental de soluciones de la forma
+ 
+$$\boxed{y\,(x)\,=\,C_{1}\,e^{\lambda_{1}\,x}\,+\,C_{2}\,e^{\lambda\,x}}$$
+
 \end{ejer}
  
 \begin{ejer}[Ejercicio 25]
  
+\definecolor{antiquefuchsia}{rgb}{0.57, 0.36, 0.51}
+ 
+$$\underbrace{\cosh\,k\,x}_{y_{1}\,(x)}, \quad \underbrace{\sinh\,k\,x}_{y_{2}\,(x)}$$
+ 
+$$y_{1}'\,(x)\,=\,k\,\sinh\,k\,x$$
+ 
+$$y_{2}'\,(x)\,=\,k\,\cosh\,k\,x$$
+ 
+$$W\,\left(y_{1},\,y_{2} \right)\,=\,\begin{vmatrix}
+\cosh\,k\,x & \sinh\,k\,x \\
+\\
+k\,\sinh\,k\,x & k\,\cosh\,k\,x
+\end{vmatrix}\,=\,k\,\cosh^{2}\,k\,x\,-\,k\,\sinh^{2}\,k\,x$$
+ 
+$$W\,\left(y_{1},\,y_{2} \right)\,=\,k\,\left(\cosh^{2}\,k\,x\,-\,\sinh^{2}\,k\,x \right)\,=\,k$$
+ 
+$$W\,\left(y_{1},\,y_{2} \right)\,=\,\boxed{k\,\neq\,0}$$
+ 
+Como las soluciones son \underline{linealmente independientes}, entonces existe un sistema de soluciones dado por
+ 
+$$\boxed{y\,(x)\,=\,C_{1}\,\cosh\,k\,x\,+\,C_{2}\,\sinh\,k\,x}$$
+
 \end{ejer}
  
 \begin{ejer}[Ejercicio 26]
  
+$$\underbrace{2\,\cos\,x\,+\,3\,\sin\,x}_{y_{1}\,(x)}, \quad \underbrace{3\,\cos\,x\,-\,2\,\sin\,x}_{y_{2}\,(x)}$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+$$y_{1}'\,(x)\,=\,-\,2\,\sin\,x\,+\,3\,\cos\,x$$
+
+$$y_{2}'\,(x)\,=\,-\,3\,\sin\,x\,-\,2\,\cos\,x$$
+
+$$W\,(y_{1},\,y_{2})\,=\,\begin{vmatrix}
+2\,\cos\,x\,+\,3\,\sin\,x & 3\,\cos\,x\,-\,2\,\sin\,x \\
+\\
+-\,2\,\sin\,x\,+\,3\,\cos\,x & -\,3\,\sin\,x\,-\,2\,\cos\,x
+\end{vmatrix}$$
+
+$$W\,(y_{1},\,y_{2})\,=\,-\,4\,\cos^{2}\,x\,-\,9\,\sin^{2}\,x\,-\,9\,\cos^{2}\,x\,-\,4\,\sin^{2}\,x$$
+
+$$W\,(y_{1},\,y_{2})\,=\,-\,13\,\cos^{2}\,x\,-\,13\,\sin^{2}\,x \quad \textcolor{ao(english)}{\iff} \quad W\,(y_{1},\,y_{2})\,=\,-\,13\,(cos^{2}\,x\,+\,\sin^{2}\,x)$$
+
+$$W\,(y_{1},\,y_{2})\,=\,\boxed{-\,13\,\neq\,0}$$
+
 \end{ejer}
  
 \begin{ejer}[Ejercicio 27]
  
+$$\underbrace{x^{m_{1}}}_{y_{1}\,(x)}, \quad \underbrace{x^{m_{2}}}_{y_{2}\,(x)}, \quad m_{1}\,\neq\,m_{2}$$
+ 
+$$y_{1}'\,(x)\,=\,m_{1}\,x^{m_{1}\,-\,1}$$
+ 
+$$y_{2}'\,(x)\,=\,m_{2}\,x^{m_{2}\,-\,1}$$
+ 
+$$W\,\left(y_{1},\,y_{2} \right)\,=\,\begin{vmatrix}
+x^{m_{1}} & x^{m_{2}} \\
+\\
+m_{1}\,x^{m_{1}\,-\,1} & m_{2}\,x^{m_{2}\,-\,1}
+\end{vmatrix}\,=\,m_{2}\,x^{(m_{1}\,+\,m_{2}\,-\,1)}\,-\,m_{1}\,x^{(m_{1}\,+\,m_{2}\,-\,1)}$$
+ 
+$$W\,\left(y_{1},\,y_{2} \right)\,=\,x^{(m_{1}\,+\,m_{2}\,-\,1)}\,\left(m_{2}\,-\,m_{1} \right)\,\neq\,0$$
+ 
+Como las soluciones son \underline{linealmente independientes}, entonces existe un sistema de soluciones dado por
+ 
+$$\boxed{y\,(x)\,=\,C_{1}\,x^{m_{1}}\,+\,C_{2}\,x^{m_{2}}}$$
+
 \end{ejer}
  
 \begin{ejer}[Ejercicio 28]
  
+$$\underbrace{x}_{y_{1}\,(x)}, \quad \underbrace{x\,\ln\,x}_{y_{2}\,(x)}$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+$$y_{1}'\,(x)\,=\,1$$
+
+$$y_{2}'\,(x)\,=\,\ln\,x\,+\,x\,\left(\dfrac{1}{x}\right) \quad \textcolor{ao(english)}{\iff} \quad y_{2}'\,(x)\,=\,\ln\,x\,+\,1$$
+
+$$W\,(y_{1},\,y_{2})\,=\,\begin{vmatrix}
+x & x\,\ln\,x \\
+\\
+1 & \ln\,x\,+\,1
+\end{vmatrix}\,=\,x(\ln\,x\,+\,1)\,-\,x\,\ln\,x$$
+
+$$W\,(y_{1},\,y_{2})\,=\,\cancel{x\ln\,x}\,+\,x\,-\,\cancel{x\,\ln\,x} \quad \textcolor{ao(english)}{\iff} \quad W\,(y_{1},\,y_{2})\,=\,\boxed{x\,\neq\,0}$$
+
+Como las soluciones son \underline{linealmente independientes}, entonces existe un sistema de soluciones dado por
+ 
+$$\boxed{y\,(x)\,=\,C_{1}\,x\,+\,C_{2}\,x\ln\,x}$$
+
 \end{ejer}
  
 \definecolor{brass}{rgb}{0.71, 0.65, 0.26}
@@ -1240,6 +1390,30 @@ $$\boxed{y\,(x)\,=\,-\,\dfrac{8}{3}\,e^{-\,2\,x}\,+\,\dfrac{5}{2}\,e^{-\,x}\,+\,
  
 \begin{ejer}[Ejercicio 31]
  
+{\bf Ecuaciones de primer orden}: El método de coeficientes indeterminados también se puede aplicar a ciertas ecuaciones diferenciales lineales de primer orden. Utilice este método para resolver la siguiente ecuación diferencial.
+ 
+$$\boxed{y'\,+\,2\,y\,=\,x^{2}\,+\,2\,x }$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{tomato}{rgb}{1.0, 0.39, 0.28}
+ 
+\item Resolver la ecuación diferencial homogénea.
+ 
+$$y'\,+\,2\,y\,=\,0 \quad \textcolor{tomato}{\iff} \quad \dfrac{d\,y}{d\,x}\,+\,2\,y\,=\,0$$
+ 
+$$\textcolor{tomato}{\vdots}$$
+ 
+\item Resolver el término NO homogéneo.
+ 
+$$\boxed{y_{P}\,(x)\,=\,K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}}$$
+ 
+$$\textcolor{tomato}{\vdots}$$ 
+ 
+ 
+ 
+\end{enumerate}
+
 \end{ejer}
  
 Este documento fue levantado en \textcolor{red}{\LaTeX}
