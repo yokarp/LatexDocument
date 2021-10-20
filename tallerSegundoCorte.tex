@@ -1529,27 +1529,59 @@ $$\boxed{\textcolor{burgundy}{y\,(t)\,=\,\left(y_{0}\,+\,\dfrac{1}{\omega^{2}\,-
  
 {\bf Ecuaciones de primer orden}: El método de coeficientes indeterminados también se puede aplicar a ciertas ecuaciones diferenciales lineales de primer orden. Utilice este método para resolver la siguiente ecuación diferencial.
  
-$$\boxed{y'\,+\,2\,y\,=\,x^{2}\,+\,2\,x }$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
  
-\begin{enumerate}[label=\itembolasazules{\arabic*}]
- 
-\definecolor{tomato}{rgb}{1.0, 0.39, 0.28}
- 
-\item Resolver la ecuación diferencial homogénea.
- 
-$$y'\,+\,2\,y\,=\,0 \quad \textcolor{tomato}{\iff} \quad \dfrac{d\,y}{d\,x}\,+\,2\,y\,=\,0$$
- 
-$$\textcolor{tomato}{\vdots}$$
- 
-\item Resolver el término NO homogéneo.
- 
-$$\boxed{y_{P}\,(x)\,=\,K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}}$$
- 
-$$\textcolor{tomato}{\vdots}$$ 
- 
- 
- 
-\end{enumerate}
+$$ y'\,+\,2y\, = \,x^{2}\,+\,2x $$
+
+
+Separación de variables 
+
+$$ \dfrac{dy}{dx}\,+\,2y\, = 0 $$
+
+$$ dy\,+\,2y\, = dx  \textcolor{ao(english)}{\iff} \dfrac{dy}{y}\,\,=\,-2\, dx $$
+
+$$\displaystyle\,\int \dfrac{dy}{y}\,\,= \displaystyle\,\int \,-2\, dx \textcolor{ao(english)}{\iff} \ln y\,=\,-2\,x\,+\,C $$
+
+$$ e^{\ln y\,} =\,e^{-2\,x\,+\,C} \textcolor{ao(english)}{\iff} y =\,e^{-2\,x}  \hat{C}$$
+
+
+$$\boxed{y_{H}\,(x)\,=\,\hat{C} e^{-2\,x}}$$
+
+Resolver el término NO homogéneo
+$$y_{P}\,(x)\,=\,(K_{2}\,x^{2}\,+\,K_{1}\,x\,+\,K_{0}\,) +\,(2K_{1}\,x)\,$$
+
+$$\boxed{y_{P}\,(x)\,=\,K_{2}\,x^{2}\,+\,3K_{1}\,x\,+\,K_{0}\,}$$
+
+
+$$\boxed{ y_{P}'\,(x)\,=\,2K_{2}\,x\,+\,3K_{1}\,} $$
+
+
+Sustituyendo en la ecuación diferencial
+
+$$ y'\,+\,2y\, = \,x^{2}\,+\,2x $$
+
+$$
+\left[2\,K_{2}\,x\,+\,3\,K_{1}\,+\,2(K_{2}\,x^{2}\,+\,3K_{1}\,x\,+K_{0} ) \right]=x^{2}\,+\,2x
+$$
+
+$$
+2\,K_{2}\,x^{2}\,+x(2\,K_{2}\,+\,6\,K_{1})\,+(3\,K_{1}\,+\,K_{0})=\,x\,^{2}\,+\,2\,x$$
+
+
+
+$$\,2\,K_{2}\,=\,1 \quad \textcolor{ao(english)}{\iff} \quad \boxed{K_{2}\,=\, \textcolor{red}{ \dfrac{1}{2}}}$$
+
+$$2\,\left(\textcolor{red}{\,\dfrac{1}{2}}\right)\,+\,6\,K_{1}\,=\,0\quad  \textcolor{ao(english)}{\iff} \quad \,6\,K_{1}\,=\,-\,1 \quad \textcolor{ao(english)}{\iff} \quad \boxed{K_{1}\,=\,\textcolor{red}{ -\dfrac{1}{6}}}$$
+
+$$3\,(\textcolor{red}{-\dfrac{1}{6}})\,+\,2\,K_{0}\,=\,0 \quad  \textcolor{ao(english)}{\iff} \quad \,2\,K_{0}\,=\,\dfrac{1}{2} \quad \textcolor{ao(english)}{\iff} \quad \boxed{K_{0}\,=\,\dfrac{1}{4}}$$
+
+Exhibir la solución general NO homogénea
+
+$$y\,(x)\,=\hat{C} e^{-2\,x} \,+\left(\,\dfrac{1}{2}\,x^{2}\,-\,3\dfrac{1}{6}\,x\,+\,\dfrac{1}{4}\right)$$
+
+
+$$ \boxed{ y\,(x)\,=\hat{C} e^{-2\,x} \,+\dfrac{1}{2} \left(x^{2}\,-\,x\,+\,\dfrac{1}{2}\right)} $$
 
 \end{ejer}
  
