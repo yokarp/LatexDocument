@@ -262,7 +262,9 @@ $$4\,y''\,-\,y\,=\,0 \quad \textcolor{ao(english)}{\div\,4} \quad \textcolor{ao(
 
 Expresar la ecuación característica asociada
 
-$$\lambda^{2}\,-\,\dfrac{1}{4}\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda^{2}\,=\,\dfrac{1}{4} \quad \textcolor{ao(english)}{\iff} \quad \lambda\,=\,\sqrt{\dfrac{1}{4}} \quad \textcolor{ao(english)}{\iff} \quad \lambda\,=\,0\,\pm\,\dfrac{1}{2}$$
+$$\lambda^{2}\,-\,\dfrac{1}{4}\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \lambda^{2}\,=\,\dfrac{1}{4} \quad \textcolor{ao(english)}{\iff} \quad \lambda\,=\,\sqrt{\dfrac{1}{4}} \quad \textcolor{ao(english)}{\iff} \quad \lambda\,=\,\pm\,\dfrac{1}{2}$$
+
+$$\lambda_{1}\,=\,\dfrac{1}{2} \quad \textcolor{ao(english)}{\vee} \quad \lambda_{2}\,=\,-\,\dfrac{1}{2}$$
 
 Exhibir la solución general
 
@@ -390,7 +392,21 @@ $$\boxed{\textcolor{lust}{y\,(x)\,=\,\dfrac{V_{0}\,e^{-\,b\,x}}{\sqrt{b^{2}\,-\,
  
 $$e^{-\,2\,x}, \quad e^{-x/2}$$
 
-$$\boxed{y\,(x)\,=\,C_{1}\,e^{-\,2\,x}\,+\,C_{2}\,e^{-x/2}}$$
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+$$\boxed{y\,(x)\,=\,C_{1}\,e^{-\,2\,x}\,+\,C_{2}\,e^{-\,x/2}}$$
+
+$$\textcolor{ao(english)}{e^{2\,x}}\,y\,=\,\textcolor{ao(english)}{e^{2\,x}}\,\left(C_{1}\,e^{-\,2\,x}\,+\,C_{2}\,e^{-\,x/2} \right)$$
+
+$$e^{2\,x}\,y\,=\,C_{1}\,+\,C_{2}\,e^{3\,x/2} \quad \textcolor{ao(english)}{\iff} \quad 2\,e^{2\,x}\,y\,+\,e^{2\,x}\,y'\,=\,\dfrac{3\,C_{2}}{2}\,e^{3\,x/2}$$
+
+$$\textcolor{ao(english)}{e^{-\,3\,x/2}}\left(2\,e^{2\,x}\,y\,+\,e^{2\,x}\,y'\right)\,=\,\textcolor{ao(english)}{e^{-\,3\,x/2}}\dfrac{3\,C_{2}}{2}\,e^{3\,x/2}$$
+
+$$2\,e^{x/2}\,y\,+\,e^{x/2}\,y'\,=\,\dfrac{3\,C_{2}}{2} \quad \textcolor{ao(english)}{\iff} \quad e^{x/2}\,y\,+\,2\,e^{x/2}\,y'\,+\,\dfrac{1}{2}\,e^{x/2}\,y'\,+\,e^{x/2}\,y''\,=\,0$$
+
+$$e^{x/2}\,y''\,+\,\dfrac{5}{2}\,e^{x/2}\,y'\,+\,e^{x/2}\,y\,=\,0 \quad \textcolor{ao(english)}{\div\,e^{x/2}}$$
+
+$$\boxed{y''\,+\,\dfrac{5}{2}\,y'\,+\,y\,=\,0}$$
 
 \end{ejer}
  
@@ -836,7 +852,7 @@ $$\boxed{y_{P}'\,(x)\,=\,2\,m\,M\,\cos\,m\,x\,-\,2\,m\,N\,\sin\,m\,x}$$
 
 $$y_{P}''\,(x)\,=\,-\,2\,m\,M\,\sin\,m\,x\,\textcolor{ao(english)}{\times}\,m\,-\,2\,m\,N\,\cos\,m\,x \,\textcolor{ao(english)}{\times}\,m$$
 
-$$\boxed{y_{P}'\,(x)\,=\,-\,2\,m^{2}\,M\,\sin\,m\,x\,-\,2\,m^{2}\,N\,\cos\,m\,x}$$
+$$\boxed{y_{P}''\,(x)\,=\,-\,2\,m^{2}\,M\,\sin\,m\,x\,-\,2\,m^{2}\,N\,\cos\,m\,x}$$
 
 Sustituyendo en la ecuación diferencial
 
@@ -844,7 +860,7 @@ $$-\,2\,m^{2}\,M\,\sin\,m\,x\,-\,2\,m^{2}\,N\,\cos\,m\,x\,+\,a^{2}\,(2\,M\,\sin\
 
 $$-\,2\,m^{2}\,M\,\sin\,m\,x\,-\,2\,m^{2}\,N\,\cos\,m\,x\,+\,2\,a^{2}\,M\,\sin\,m\,x\,+\,2\,a^{2}\,N\,\cos\,m\,x\,=\,2\,\cos\,m\,x\,+\,3\,\sin\,m\,x$$
 
-$$(2\,a^{2}\,M\,-\,2\,m^{2}\,M)\,\sin\,m\,x\,+\,(2\,a^{2}\,N\,-\,2\,m^{2}\,N)\,\cos\,m\,x\,=\,2\,\cos\,m\,x\,+\,3\,\sin\,m\,x$$
+$$\left(2\,a^{2}\,M\,-\,2\,m^{2}\,M\right)\,\sin\,m\,x\,+\,\left(2\,a^{2}\,N\,-\,2\,m^{2}\,N\right)\,\cos\,m\,x\,=\,2\,\cos\,m\,x\,+\,3\,\sin\,m\,x$$
 
 $$2\,a^{2}\,M\,-\,2\,m^{2}\,M\,=\,3 \quad \textcolor{ao(english)}{\iff} \quad M\,(2\,a^{2}\,-\,2\,m^{2})\,=\,3 \quad \textcolor{ao(english)}{\iff} \quad \boxed{M\,=\,\dfrac{3}{2\,(a^{2}\,-\,m^{2})}}$$
 
@@ -1333,6 +1349,10 @@ $$W\,(y_{1},\,y_{2})\,=\,-\,13\,\cos^{2}\,x\,-\,13\,\sin^{2}\,x \quad \textcolor
 
 $$W\,(y_{1},\,y_{2})\,=\,\boxed{-\,13\,\neq\,0}$$
 
+Como las soluciones son \underline{linealmente independientes}, entonces existe un sistema de soluciones dado por
+
+$$\boxed{y\,(x)\,=\,C_{1}\,\left(2\,\cos\,x\,+\,3\,\sin\,x\right)\,+\,C_{2}\,\left(3\,\cos\,x\,-\,2\,\sin\,x\right)}$$
+
 \end{ejer}
  
 \begin{ejer}[Ejercicio 27]
@@ -1444,7 +1464,65 @@ $$\boxed{y\,(t)\,=\,\cos\,t\,+\,2\,\sin\,t\,-\,t\,\cos\,t}$$
 \end{ejer}
  
 \begin{ejer}[Ejercicio 30]
+
+$$y''\,+\,\omega_{0}^{2}\,y\,=\,\cos\,\omega\,t, \quad y\,(0)\,=\,y_{0}, \quad y'\,(0)\,=\,v_{0}, \quad \omega^{2}\,\neq\,\omega_{0}^{2}$$
  
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
+ 
+\item  Resolver la ecuación diferencial homogénea.
+ 
+$$y''\,+\,\omega_{0}^{2}\,y\,=\,0$$
+ 
+$$\textcolor{burgundy}{E.C} \qquad \lambda^{2}\,+\,\omega_{0}^{2}\,=\,0 \quad \textcolor{burgundy}{\iff} \quad \lambda^{2}\,=\,-\,\omega_{0}^{2} \quad \textcolor{burgundy}{\iff} \quad \lambda\,=\,0\,\pm\,\omega_{0}\,i$$
+ 
+$$\boxed{y_{H}\,(t)\,=\,C_{1}\,\cos\,\omega_{0}\,t\,+\,C_{2}\,\sin\,\omega_{0}\,t}$$
+ 
+\item Resolver el término NO homogéneo 
+ 
+$$y_{P}\,(t)\,=\,M\,\sin\,\omega\,t\,+\,N\,\cos\,\omega\,t$$
+ 
+$$y_{P}'\,(t)\,=\,M\,\omega\,\cos\,\omega\,t\,-\,N\,\omega\,\sin\,\omega\,t$$
+ 
+$$y_{P}''\,(t)\,=\,-\,M\,\omega^{2}\,\sin\,\omega\,t\,-\,N\,\omega^{2}\,\cos\,\omega\,t$$
+ 
+Sustituyendo en la ecuación diferencial
+ 
+$$-\,M\,\omega^{2}\,\sin\,\omega\,t\,-\,N\,\omega^{2}\,\cos\,\omega\,t\,+\,\omega_{0}^{2}\,\left(M\,\sin\,\omega\,t\,+\,N\,\cos\,\omega\,t \right)\,=\,\cos\,\omega\,t$$
+ 
+$$\textcolor{blue}{-\,M\,\omega^{2}\,\sin\,\omega\,t}\,-\,N\,\omega^{2}\,\cos\,\omega\,t\,+\,\textcolor{blue}{M\,\omega_{0}^{2}\,\sin\,\omega\,t}\,+\,N\,\omega_{0}^{2}\,\cos\,\omega\,t\,=\,\cos\,\omega\,t$$
+ 
+$$(-\,M\,\omega^{2}\,+\,M\,\omega_{0}^{2})\,\sin\,\omega\,t\,+\,(-\,N\,\omega^{2}\,+\,N\,\omega_{0}^{2})\,\cos\,\omega\,t\,=\,\cos\,\omega\,t$$
+ 
+$$-\,M\,\omega^{2}\,+\,M\,\omega_{0}^{2}\,=\,0 \quad \textcolor{burgundy}{\iff} \quad -\,M\,(\omega^{2}\,-\,\omega_{0}^{2})\,=\,0 \quad \textcolor{burgundy}{\iff} \quad \boxed{M\,=\,0}$$
+ 
+$$-\,N\,\omega^{2}\,+\,N\,\omega_{0}^{2}\,=\,1 \quad \textcolor{burgundy}{\iff} \quad -\,N\,(\omega^{2}\,-\,\omega_{0}^{2})\,=\,1 \quad \textcolor{burgundy}{\iff} \quad \boxed{N\,=\,-\,\dfrac{1}{\omega^{2}\,-\,\omega_{0}^{2}} }$$
+ 
+\item Exhibir la solución general
+ 
+$$\boxed{\textcolor{burgundy}{y\,(t)\,=\,C_{1}\,\cos\,\omega_{0}\,t\,+\,C_{2}\,\sin\,\omega_{0}\,t\,-\,\dfrac{1}{\omega^{2}\,-\,\omega_{0}^{2}}\,\cos\,\omega\,t }} $$
+ 
+\item Encontrar la solución particular
+ 
+$$y\,(t)\,=\,C_{1}\,\cos\,\omega_{0}\,t\,+\,C_{2}\,\sin\,\omega_{0}\,t\,-\,\dfrac{1}{\omega^{2}\,-\,\omega_{0}^{2}}\,\cos\,\omega\,t $$
+ 
+$$y'\,(t)\,=\,-\,C_{1}\,\omega_{0}\,\sin\,\omega_{0}\,t\,+\,C_{2}\,\omega_{0}\,\cos\,\omega_{0}\,t\,+\,\dfrac{\omega}{\omega^{2}\,-\,\omega_{0}^{2}}\,\sin\,\omega\,t $$
+ 
+$$y\,(\textcolor{burgundy}{0})\,=\,C_{1}\,\cos\,\omega_{0}\,(\textcolor{burgundy}{0})\,+\,C_{2}\,\sin\,\omega_{0}\,(\textcolor{burgundy}{0})\,-\,\dfrac{1}{\omega^{2}\,-\,\omega_{0}^{2}}\,\cos\,\omega\,(\textcolor{burgundy}{0}) \quad \textcolor{burgundy}{\iff} \quad C_{1}\,-\,\dfrac{1}{\omega^{2}\,-\,\omega_{0}^{2}}\,=\,y_{0}$$
+ 
+$$\boxed{C_{1}\,=\,y_{0}\,+\,\dfrac{1}{\omega^{2}\,-\,\omega_{0}^{2}} }$$
+ 
+$$y'\,(\textcolor{burgundy}{0})\,=\,-\,C_{1}\,\omega_{0}\,\sin\,\omega_{0}\,(\textcolor{burgundy}{0})\,+\,C_{2}\,\omega_{0}\,\cos\,\omega_{0}\,(\textcolor{burgundy}{0})\,+\,\dfrac{\omega}{\omega^{2}\,-\,\omega_{0}^{2}}\,\sin\,\omega\,(\textcolor{burgundy}{0}) \quad \textcolor{burgundy}{\iff} \quad C_{2}\,\omega_{0}\,=\,v_{0}$$
+ 
+$$\boxed{C_{2}\,=\,\dfrac{v_{0}}{\omega_{0}} }$$
+ 
+\item Exhibir la solución particular
+ 
+$$\boxed{\textcolor{burgundy}{y\,(t)\,=\,\left(y_{0}\,+\,\dfrac{1}{\omega^{2}\,-\,\omega_{0}^{2}} \right)\,\cos\,\omega_{0}\,t\,+\,\dfrac{v_{0}}{\omega_{0}}\,\sin\,\omega_{0}\,t\,-\,\dfrac{1}{\omega^{2}\,-\,\omega_{0}^{2}}\,\cos\,\omega\,t }} $$
+
+\end{enumerate}
+
 \end{ejer}
  
 \begin{ejer}[Ejercicio 31]
