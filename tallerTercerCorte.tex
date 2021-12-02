@@ -125,6 +125,30 @@ $$\boxed{\textcolor{vividauburn}{\mathcal{L}\,\left(f\,(t) \right)\,=\,\dfrac{e^
 \end{exmp}
  
 \begin{exmp}[Ejercicio 2]
+
+    $$f\,(t)\,=\,\cos(\,\omega\,t\,+\,\theta) $$ 
+  
+   $$\boxed{f\,(0)\,=\,\cos(\theta)}$$ 
+
+    $$\boxed{f'\,(t)\,=\,-\omega\,\sin(\,\omega\,t\,+\,\theta) }$$ 
+    $$\boxed{f'\,(0)\,=-\omega\,\sin(\theta) }$$ 
+  
+ $$\boxed{f''\,(t)\,=\,-\omega^{2}\,\sin(\,\omega\,t\,+\,\theta) }$$ 
+ 
+ 
+ $$\boxed{\mathcal{L}\,\left(f''\,(t) \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,S\,f\,(0)\,-\,f'\,(0)}$$ 
+  
+$$\mathcal{L}\,\left(-\omega^{2}\,\sin(\,\omega\,t\,+\,\theta) \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,S\,\cos(\theta)\,+\,\omega\,\sin(\theta)$$ 
+
+$$ -\omega^{2}\mathcal{L}\,\left(f\,(t) \right)\,-\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\, =\,-\,S\,\cos(\theta)\,+\,\omega\,\sin(\theta)$$
+
+$$ \mathcal{L}\,\left(f\,(t) \right) (-\omega^{2}\,-\,S^{2})\,=\,-\,S\,\cos(\theta)\,+\,\omega\,\sin(\theta) \textcolor{ao(english)}{\iff} \dfrac{-\,S\,\cos(\theta)\,+\,\omega\,\sin(\theta)}{-\omega^{2}\,-\,S^{2}} $$
+
+
+$$ \textcolor{ao(english)}{\boxed{\textcolor{black}{\dfrac{\cancel{-}\,(S\,\cos(\theta)\,-\,\omega\,\sin(\theta))}{\cancel{-}(\,S^{2}\,+\omega^{2}\,)}}}}$$
+
+
+
  
 \end{exmp}
  
@@ -160,6 +184,38 @@ $$\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,=\,\dfrac{\cancel
  
 \begin{exmp}[Ejercicio 4]
  
+    $$f\,(t)\,=\,\sin \left( \dfrac{2\,n\,\pi\,t}{T} \right)\ $$ 
+  
+    $$\boxed{f\,(0)\,=\,0}$$ 
+ 
+     $$\boxed{f'\,(t)\,=\,\dfrac{ 2n\pi\cos\left( \dfrac{2\,n\,\pi\,t}{T} \right)\  }{T} }$$ 
+     $$\boxed{f'\,(0)\,=\left( \dfrac{2\,n\,\pi\,}{T} \right) }$$ 
+   
+  $$\boxed{f''\,(t)\,=\,-\dfrac{ 4n^{2}\pi^{2}\sin\left( \dfrac{2\,n\,\pi\,t}{T} \right)\  }{T^{2}} }$$ 
+  
+  
+  $$\boxed{\mathcal{L}\,\left(f''\,(t) \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,S\,f\,(0)\,-\,f'\,(0)}$$ 
+   
+ $$\mathcal{L}\,\left(\dfrac{-\,4n^{2}\pi^{2}\sin\left( \dfrac{2\,n\,\pi\,t}{T} \right)\  }{T^{2}}\right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\left( \dfrac{2\,n\,\pi\,}{T} \right)$$ 
+ 
+ 
+ $$\dfrac{-\,4n^{2}\pi^{2}}{T^{2}} \mathcal{L}\,\left(\ \sin\left( \dfrac{2\,n\,\pi\,t}{T} \right)\  \right) -\,S^{2}\,\left(f\,(t) \right)\mathcal{L}\,=\,\,\left( \dfrac{-\,2\,n\,\pi\,}{T} \right)$$ 
+ 
+ 
+ $$\dfrac{-\,4n^{2}\pi^{2}}{T^{2}} \mathcal{L}\,\left(f\,(t) \right)\  -\,S^{2}\,\mathcal{L}\left(f\,(t) \right)\,=\,\,\left( \dfrac{-\,2\,n\,\pi\,}{T} \right)$$ 
+ 
+ 
+ $$\mathcal{L}\,\left(f\,(t) \right)\left(  \dfrac{-\,4n^{2}\pi^{2}-\,S^{2}\,T^{2}}{T^{2}}\right)  =\,\,\left( \dfrac{-\,2\,n\,\pi\,}{T} \right)$$ 
+ 
+ 
+ $$\mathcal{L}\left(f\,(t) \right)\left(  \dfrac{ \dfrac{-\,2\,n\,\pi\,}{1}}{\dfrac{-\,4n^{2}\pi^{2}-\,S^{2}\,T^{2}}{T}}\right) \textcolor{ao(english)}{\iff} \mathcal{L}\left(f\,(t) \right)\,=\,\left(  \dfrac{\cancel{-}\,2\,n\,\pi\,T}{
+ \cancel{-}\,(S^{2}\,T^{2}\,+\,4\,n^{2}\pi^{2})}\,\right)$$
+ 
+ 
+ $$ \textcolor{ao(english)}{\boxed{\textcolor{black}{\mathcal{L}\left(f\,(t) \right)\,=\,  \dfrac{\,2\,n\,\pi\,T}{
+ \,(S^{2}\,T^{2}\,+\,4\,n^{2}\pi^{2})}\,  }}}$$
+   
+
 \end{exmp}
  
 \begin{exmp}[Ejercicio 5]
