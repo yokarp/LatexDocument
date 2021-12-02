@@ -1,0 +1,1214 @@
+\documentclass[a4paper,11pt,openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2.54cm,top=2.54cm,right=2.54cm,bottom=2.54cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{pifont}
+\usepackage{marvosym}
+\newtheorem{teo}{Teorema}
+\newtheorem{ejemplo}{Ejemplo}
+\newtheorem{defi}{Definición}
+\newtheorem{coro}{Corolario}
+\newtheorem{prueba}{Prueba}
+\newtheorem{exmp}{Example}[section]
+\newtheorem{ejer}{Ejercicio}[section]
+\def\proof{\paragraph{\textsf{Demostración.} }}
+\def\endproof{\hfill $\blacksquare$ \\}
+\usepackage{multirow, array} % para las tablas
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{float} % para usar [H]
+\usepackage{tikz}
+\usepackage[all]{xy}
+\usepackage{cancel}
+\usetikzlibrary{positioning}
+\usepackage{enumitem}
+\newcommand*{\itembolasazules}[1]{% bolas 3D
+\footnotesize\protect\tikz[baseline=-3pt]%
+\protect\node[scale=.7, circle, shade, ball
+color=green]{\color{white}\Large\bf#1};}
+\usepackage{tcolorbox} 
+\tcbuselibrary{listingsutf8}
+\newtcolorbox[auto counter,number within=section]{example}[2][]
+{colback=green!5!white,colframe=green!75!black,fonttitle=\bfseries, title=Ejercicio~\thetcbcounter: #2,#1}
+\usepackage{background}
+\backgroundsetup{
+placement=center,
+angle=0,
+scale=1.1,
+contents= {{\includegraphics{HojaCuadriculada.png}}}
+}
+ 
+ 
+\begin{document}
+\begin{titlepage}
+ 
+\begin{center}
+\vspace*{-1in}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=7cm]{ETITC.png}
+\end{center}
+\end{figure}
+ 
+ 
+{\sc \huge Escuela Tecnológica Instituto Técnico Central (ETITC)}\\
+\vspace*{0.15in}
+Facultad de sistemas\\
+\vspace*{0.6in}
+\begin{Large}
+\textbf{Ejercicios {\LaTeX}: ecuaciones diferenciales} \\
+\end{Large}
+\vspace*{0.3in}
+\begin{large}
+{\bf Autores} \\
+ 
+\ 
+ 
+Sergio Alejandro Enrrique Caballero Leon\\ 
+Cristian Eduardo Rodriguez Castañeda \\ 
+Johan Alejandro Sogamoso Camacho \\ 
+Brian Ferney Rojas Garcia
+\end{large}
+\vspace*{0.3in}
+ 
+\end{center}
+ 
+\begin{center}
+{\bf Presentado a:} \\
+ 
+\ 
+ 
+Andrés Garzón Mayorga \\
+ 
+\
+ 
+Bogot{\'a}, Diciembre de 2021.
+\end{center}
+ 
+\end{titlepage}
+ 
+\tableofcontents
+ 
+\definecolor{amber(sae/ece)}{rgb}{1.0, 0.49, 0.0}
+ 
+\textcolor{amber(sae/ece)}{\chapter{Transformada directa de Laplace}} 
+ 
+\begin{exmp}[Ejercicio 1]
+ 
+\definecolor{vividauburn}{rgb}{0.58, 0.15, 0.14}
+ 
+$$f\,(t)\,=\,e^{(a\,t\,+\,b)}$$
+ 
+\textcolor{vividauburn}{\ding{44}}\, $$f\,(\textcolor{vividauburn}{0})\,=\,e^{(a\,(\textcolor{vividauburn}{0})\,+\,b)} \quad \textcolor{vividauburn}{\iff} \quad \boxed{f\,(0)\,=\,e^{b}}$$
+ 
+\textcolor{vividauburn}{\ding{44}}\, $$f'\,(t)\,=\,e^{(a\,t\,+\,b)}\,\textcolor{vividauburn}{\times}\,a \quad \textcolor{vividauburn}{\iff} \quad \boxed{f'\,(0)\,=\,a\,e^{b}}$$
+ 
+\textcolor{vividauburn}{\ding{44}}\, $$f''\,(t)\,=\,a\,e^{(a\,t\,+\,b)}\,\textcolor{vividauburn}{\times}\,a \quad \textcolor{vividauburn}{\iff} \quad \boxed{f''\,(t)\,=\,a^{2}\,e^{(a\,t\,+\,b)} }$$
+ 
+$$\boxed{\mathcal{L}\,\left(f''\,(t) \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,S\,f\,(0)\,-\,f'\,(0)}$$
+ 
+$$\mathcal{L}\,\left(a^{2}\,e^{(a\,t\,+\,b)} \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,S\,e^{b}\,-\,a\,e^{b} \quad \textcolor{vividauburn}{\iff} \quad a^{2}\,\mathcal{L}\,\left(e^{(a\,t\,+\,b)} \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,S\,e^{b}\,-\,a\,e^{b} $$
+ 
+$$a^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,S\,e^{b}\,-\,a\,e^{b} \quad \textcolor{vividauburn}{\iff} \quad S\,e^{b}\,+\,a\,e^{b}\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,a^{2}\,\mathcal{L}\,\left(f\,(t) \right)$$
+ 
+$$e^{b}\,(S\,+\,a)\,=\,\mathcal{L}\,\left(f\,(t) \right)\,\left(S^{2}\,-\,a^{2}  \right) \quad \textcolor{vividauburn}{\iff} \quad \mathcal{L}\,\left(f\,(t) \right)\,=\,\dfrac{e^{b}\,(S\,+\,a)}{S^{2}\,-\,a^{2}} $$ 
+$$\mathcal{L}\,\left(f\,(t) \right)\,=\,\dfrac{e^{b}\,(S\,+\,a)}{(S\,-\,a)\,(S\,+\,a) } \quad \textcolor{vividauburn}{\iff} \quad \mathcal{L}\,\left(f\,(t) \right)\,=\,\dfrac{e^{b}\,\cancel{(S\,+\,a)}}{(S\,-\,a)\,\cancel{(S\,+\,a)} }$$
+ 
+$$\boxed{\textcolor{vividauburn}{\mathcal{L}\,\left(f\,(t) \right)\,=\,\dfrac{e^{b} }{S\,-\,a} } } $$
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 2]
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 3]
+ 
+$$f\,(t)\,=\,t\,e^{a\,t}$$
+ 
+\definecolor{burntorange}{rgb}{0.8, 0.33, 0.0}
+ 
+$$\boxed{\mathcal{L}\,\left(f''\,(t) \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,S\,f\,(0)\,-\,f'\,(0)}$$
+ 
+\textcolor{burntorange}{\ding{47}}\, $$f\,(\textcolor{burntorange}{0})\,=\,(\textcolor{burntorange}{0})\,e^{a\,(\textcolor{burntorange}{0})}\,=\,0$$
+ 
+\textcolor{burntorange}{\ding{47}}\, $$f'\,(t)\,=\,e^{a\,t}\,+\,t\,(e^{a\,t}\,\textcolor{burntorange}{\times}\,a) \quad \textcolor{burntorange}{\iff} \quad f'\,(t)\,=\,e^{a\,t}\,+\,a\,t\,e^{a\,t}$$
+ 
+\textcolor{burntorange}{\ding{47}}\, $$f'\,(\textcolor{burntorange}{0})\,=\,e^{a\,(\textcolor{burntorange}{0})}\,+\,a\,(\textcolor{burntorange}{0})\,e^{a\,(\textcolor{burntorange}{0})} \quad \textcolor{burntorange}{\iff} \quad \boxed{f'\,(0)\,=\,1}$$
+ 
+\textcolor{burntorange}{\ding{47}}\, $$f''\,(t)\,=\,a\,e^{a\,t}\,+\,a\,e^{a\,t}\,+\,a\,t\,(e^{a\,t}\,\textcolor{burntorange}{\times}\,a) \quad \textcolor{burntorange}{\iff} \quad \boxed{f''\,(t)\,=\,2\,a\,e^{a\,t}\,+\,a^{2}\,t\,e^{a\,t}}$$
+ 
+$$\mathcal{L}\,\left(2\,a\,e^{a\,t}\,+\,a^{2}\,t\,e^{a\,t} \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,1$$
+ 
+$$2\,a\,\mathcal{L}\,\left(e^{a\,t} \right)\,+\,a^{2}\,\mathcal{L}\,\left(t\,e^{a\,t} \right)\,=\,S^{2}\,\mathcal{L}\,\left(f\,(t) \right)\,-\,1$$
+ 
+$$2\,a\,\left(\dfrac{1}{S\,-\,a} \right)\,+\,a^{2}\,\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,=\,S^{2}\,\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,-\,1 $$
+ 
+$$\dfrac{2\,a}{S\,-\,a}\,+\,1\,=\,S^{2}\,\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,-\,a^{2}\,\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right) \quad \textcolor{burntorange}{\iff} \quad \dfrac{2\,a\,+\,S\,-\,a}{S\,-\,a}\,=\,\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,\left(S^{2}\,-\,a^{2} \right)$$
+ 
+$$\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,\left(S^{2}\,-\,a^{2} \right)\,=\,\dfrac{S\,+\,a}{S\,-\,a} \quad \textcolor{burntorange}{\iff} \quad \mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,=\,\dfrac{S\,+\,a}{(S\,-\,a)\,(S\,-\,a)\,(S\,+\,a) }$$
+ 
+$$\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,=\,\dfrac{\cancel{S\,+\,a}}{(S\,-\,a)\,(S\,-\,a)\,\cancel{(S\,+\,a)} } \quad \textcolor{burntorange}{\iff} \quad \boxed{\textcolor{burntorange}{\mathcal{L}\,\left(\textcolor{burntorange}{f\,(t) } \right)\,=\,\dfrac{1}{(S\,-\,a)^{2}} } }$$
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 4]
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 5]
+ 
+\definecolor{vermilion}{rgb}{0.89, 0.26, 0.2}
+ 
+\
+ 
+Use el resultado $e^{i\,a\,t}\,=\,\cos\,a\,t\,+\,i\,\sin\,a\,t$ para mostrar que 
+ 
+\ 
+ 
+$$\boxed{\mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{1}{S\,-\,i\,a} }$$
+ 
+$$\mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\mathcal{L}\,\left(\cos\,a\,t\,+\,i\,\sin\,a\,t \right) \quad \textcolor{vermilion}{\iff} \quad \mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\mathcal{L}\,\left(\cos\,a\,t \right)\,+\,\mathcal{L}\,\left(i\,\sin\,a\,t \right)$$
+ 
+$$\mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\mathcal{L}\,\left(\cos\,a\,t \right)\,+\,i\,\mathcal{L}\,\left(\sin\,a\,t \right) \quad \textcolor{vermilion}{\iff} \quad \mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{S}{S^{2}\,+\,a^{2}}\,+\,\dfrac{a\,i}{S^{2}\,+\,a^{2}}$$
+ 
+$$\mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{S\,+\,a\,i}{S^{2}\,+\,a^{2}}\,\textcolor{vermilion}{\times}\,\textcolor{vermilion}{\dfrac{S\,-\,a\,i}{S\,-\,a\,i}} \quad \textcolor{vermilion}{\iff} \quad \mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{(S\,+\,a\,i)\,(S\,-\,a\,i)}{(S^{2}\,+\,a^{2})\,(S\,-\,a\,i) } $$
+ 
+$$\mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{S^{2}\,-\,a\,i\,S\,+\,a\,i\,S\,-\,a^{2}\,i^{2} }{(S^{2}\,+\,a^{2})\,(S\,-\,a\,i) } \quad \textcolor{vermilion}{\iff} \quad  \mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{S^{2}\,-\,\cancel{a\,i\,S}\,+\,\cancel{a\,i\,S}\,-\,a^{2}\,i^{2} }{(S^{2}\,+\,a^{2})\,(S\,-\,a\,i) }$$
+ 
+$$\mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{S^{2}\,-\,a^{2}\,(-\,1) }{(S^{2}\,+\,a^{2})\,(S\,-\,a\,i) } \quad \textcolor{vermilion}{\iff} \quad \mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{S^{2}\,+\,a^{2} }{(S^{2}\,+\,a^{2})\,(S\,-\,a\,i) }$$
+ 
+$$\mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{\cancel{S^{2}\,+\,a^{2}} }{\cancel{(S^{2}\,+\,a^{2})}\,(S\,-\,a\,i) } \quad \textcolor{vermilion}{\iff} \quad \boxed{\textcolor{vermilion}{\mathcal{L}\,\{e^{i\,a\,t} \}\,=\,\dfrac{1}{S\,-\,a\,i} } } $$
+ 
+\end{exmp}
+ 
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+ 
+\textcolor{ao(english)}{\chapter{Transformada inversa de Laplace } } 
+ 
+\begin{exmp}[Ejercicio 6]
+ 
+\definecolor{caputmortuum}{rgb}{0.35, 0.15, 0.13}
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+ 
+$$F\,(S)\,=\,\dfrac{2}{2\,S^{2}\,+\,3\,S\,+\,1}$$
+ 
+\textcolor{caputmortuum}{\ding{172}}\, $$\dfrac{\textcolor{caputmortuum}{2}\,(2\,S^{2}\,+\,3\,S\,+\,1) }{\textcolor{caputmortuum}{2}}$$ 
+ 
+\textcolor{caputmortuum}{\ding{173}}\, $$\dfrac{4\,S^{2}\,+\,2\,(3\,S)\,+\,2 }{\textcolor{caputmortuum}{2}}$$ 
+ 
+\textcolor{caputmortuum}{\ding{174}}\, $$\dfrac{4\,S^{2}\,+\,3\,(2\,S)\,+\,2 }{\textcolor{caputmortuum}{2}}\,=\,\dfrac{(2\,S\,+\,2)\,(2\,S\,+\,1) }{\textcolor{caputmortuum}{2} }$$
+ 
+\textcolor{caputmortuum}{\ding{175}}\, $$\dfrac{4\,S^{2}\,+\,3\,(2\,S)\,+\,2 }{\textcolor{caputmortuum}{2}}\,=\,\dfrac{2\,(S\,+\,1)\,(2\,S\,+\,1) }{\textcolor{caputmortuum}{2} }\,=\,\boxed{(S\,+\,1)\,(2\,S\,+\,1)}$$
+ 
+$$2\,S^{2}\,+\,3\,S\,+\,1\,=\,(S\,+\,1)\,\left(S\,+\,\dfrac{1}{2} \right) $$
+ 
+\textcolor{caputmortuum}{\ding{171}} $$\dfrac{2}{2\,S^{2}\,+\,3\,S\,+\,1}\,=\,\dfrac{2}{(S\,+\,1)\,\left(S\,+\,\dfrac{1}{2} \right) }$$
+ 
+\textcolor{ao(english)}{\ding{47}}
+$$\dfrac{2}{2\,S^{2}\,+\,3\,S\,+\,1}\,=\,\dfrac{A}{S\,+\,\dfrac{1}{2}}\,+\,\dfrac{B}{S\,+\,1}$$
+
+\textcolor{ao(english)}{\ding{228}}
+$$A\,=\,\dfrac{2}{-\dfrac{1}{2}\,+\,1}\,=\,\dfrac{2}{-\dfrac{1}{2}\,+\,\dfrac{2}{2}}\,=\,\dfrac{2}{\dfrac{1}{2}}\,=\,\boxed{\textcolor{ao(english)}{4}}$$
+
+\textcolor{ao(english)}{\ding{228}}
+$$B\,=\,\dfrac{2}{-\,1\,+\,\dfrac{1}{2}}\,=\,\dfrac{2}{-\,\dfrac{2}{2}\,+\,\dfrac{1}{2}}\,=\,-\,\dfrac{2}{\dfrac{1}{2}}\,=\,\boxed{\textcolor{ao(english)}{-\,4}}$$
+
+\textcolor{ao(english)}{\ding{47}}
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{2}{2\,S^{2}\,+\,3\,S\,+\,1}\right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{4}{S\,+\,\dfrac{1}{2}}\,+\,\dfrac{-\,4}{S\,+\,1}\right)$$
+
+\textcolor{ao(english)}{\ding{47}}
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{2}{2\,S^{2}\,+\,3\,S\,+\,1}\right)\,=\,4\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,\dfrac{1}{2}}\right)\,-\,4\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,1}\right)$$
+
+\textcolor{ao(english)}{\ding{47}}
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{2}{2\,S^{2}\,+\,3\,S\,+\,1}\right)\,=\,4\,\left[\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,\dfrac{1}{2}}\right)\,-\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,1}\right)\right]$$
+
+\textcolor{ao(english)}{\ding{47}}
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{2}{2\,S^{2}\,+\,3\,S\,+\,1}\right)\,=\,\boxed{\textcolor{ao(english)}{4\,\left(e^{-\,t/2}\,-\,e^{-\,t}\right)}}$$
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 7]
+ 
+$$F\,(S)\,=\,\dfrac{S^{2}\,-\,6\,S\,+\,4}{S^{3}\,-\,3\,S^{2}\,+\,2\,S}$$
+ 
+\definecolor{burntumber}{rgb}{0.54, 0.2, 0.14}
+ 
+\textcolor{burntumber}{\ding{42}} $$S^{3}\,-\,3\,S^{2}\,+\,2\,S\,=\,S\,(S^{2}\,-\,3\,S\,+\,2)\,=\,S\,(S\,-\,2)\,(S\,-\,1)$$ 
+ 
+\textcolor{burntumber}{\ding{42}} $$\dfrac{S^{2}\,-\,6\,S\,+\,4}{S^{3}\,-\,3\,S^{2}\,+\,2\,S}\,=\,\dfrac{S^{2}\,-\,6\,S\,+\,4}{S\,(S\,-\,2)\,(S\,-\,1)}$$
+ 
+\textcolor{burntumber}{\ding{42}} $$\dfrac{S^{2}\,-\,6\,S\,+\,4}{S^{3}\,-\,3\,S^{2}\,+\,2\,S}\,=\,\dfrac{A}{S}\,+\,\dfrac{B}{S\,-\,1}\,+\,\dfrac{C}{S\,-\,2} $$
+ 
+\textcolor{burntumber}{\ding{80}} $$A\,=\,\dfrac{\textcolor{burntumber}{0}^{2}\,-\,6\,(\textcolor{burntumber}{0})\,+\,4}{(\textcolor{burntumber}{0}\,-\,2)\,(\textcolor{burntumber}{0}\,-\,1)}\,=\,\dfrac{4}{(-\,2)\,(-\,1) }\,=\,\boxed{2} $$
+ 
+\textcolor{burntumber}{\ding{80}} $$B\,=\,\dfrac{\textcolor{burntumber}{1}^{2}\,-\,6\,(\textcolor{burntumber}{1})\,+\,4}{\textcolor{burntumber}{1}\,(\textcolor{burntumber}{1}\,-\,2) }\,=\,\dfrac{-\,1}{1\,(-\,1)}\,=\,\boxed{1}$$
+ 
+\textcolor{burntumber}{\ding{80}} $$C\,=\,\dfrac{\textcolor{burntumber}{2}^{2}\,-\,6\,(\textcolor{burntumber}{2})\,+\,4}{\textcolor{burntumber}{2}\,(\textcolor{burntumber}{2}\,-\,1)}\,=\,\dfrac{-\,4}{2\,\textcolor{burntumber}{\times}\,1}\,=\,\boxed{-\,2}$$
+ 
+\textcolor{burntumber}{\ding{42}} $$\mathcal{L}^{-\,1}\,\left(\dfrac{S^{2}\,-\,6\,S\,+\,4}{S^{3}\,-\,3\,S^{2}\,+\,2\,S} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{2}{S}\,+\,\dfrac{1}{S\,-\,1}\,+\,\dfrac{-\,2}{S\,-\,2} \right) $$
+ 
+\textcolor{burntumber}{\ding{42}} $$\mathcal{L}^{-\,1}\,\left(\dfrac{S^{2}\,-\,6\,S\,+\,4}{S^{3}\,-\,3\,S^{2}\,+\,2\,S} \right)\,=\,2\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S} \right)\,+\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,-\,1} \right)\,-\,2\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,-\,2} \right)$$
+ 
+\textcolor{burntumber}{\ding{42}} $$\mathcal{L}^{-\,1}\,\left(\dfrac{S^{2}\,-\,6\,S\,+\,4}{S^{3}\,-\,3\,S^{2}\,+\,2\,S} \right)\,=\,\boxed{\textcolor{burntumber}{2\,+\,e^{t}\,-\,2\,e^{2\,t} } }$$
+ 
+\end{exmp}
+
+\newpage
+
+\begin{exmp}[Ejercicio 8]
+
+$$F\,(S)\,=\,\dfrac{S\,-\,2}{S^{2}\,-\,4\,S\,+\,5}$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+\textcolor{ao(english)}{\ding{229}}$$S^{2}\,-\,4\,S\,+\,5\,=\,S^{2}\,-\,4\,S\,+\,5\,\textcolor{ao(english)}{+\,4}\,\textcolor{ao(english)}{-\,4}\,=\,S^{2}\,-\,4\,S\,\textcolor{ao(english)}{+\,4}\,+\,5\,\textcolor{ao(english)}{-\,4}$$
+
+\textcolor{ao(english)}{\ding{229}}$$S^{2}\,-\,4\,S\,+\,5\,=\,(S\,-\,2)^{2}\,+\,1$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{S\,-\,2}{S^{2}\,-\,4\,S\,+\,5}\,=\,\dfrac{S\,-\,2}{(S\,-\,2)^{2}\,+\,1}$$
+
+\textcolor{ao(english)}{\ding{46}}$$\mathcal{L}^{-\,1}\,\left(\dfrac{S\,-\,2}{S^{2}\,-\,4\,S\,+\,5}\right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{S\,-\,2}{(S\,-\,2)^{2}\,+\,1}\right)$$
+
+\textcolor{ao(english)}{\ding{46}}$$\mathcal{L}^{-\,1}\,\left(\dfrac{S\,-\,2}{S^{2}\,-\,4\,S\,+\,5}\right)\,=\,\boxed{\textcolor{ao(english)}{e^{2\,t}\,\cos\,t}}$$
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 9]
+ 
+\definecolor{candyapplered}{rgb}{1.0, 0.03, 0.0}
+ 
+\
+ 
+$$F\,(S)\,=\,\dfrac{S\,+\,12}{S^{2}\,+\,10\,S\,+\,35}$$
+ 
+\textcolor{candyapplered}{\ding{168}}\, $$S^{2}\,+\,10\,S\,+\,35\,\textcolor{candyapplered}{=}\,S^{2}\,+\,10\,S\,+\,35\,\textcolor{candyapplered}{+}\,25\,\textcolor{candyapplered}{-}\,25\,=\,S^{2}\,+\,10\,S\,+\,25\,+\,35\,-\,25$$ 
+ 
+\textcolor{candyapplered}{\ding{168}}\, $$S^{2}\,+\,10\,S\,+\,35\,\textcolor{candyapplered}{=}\,(S\,+\,5)^{2}\,+\,10$$
+ 
+\textcolor{candyapplered}{\ding{168}}\,$$\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,12}{S^{2}\,+\,10\,S\,+\,35} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,5\,+\,7}{(S\,+\,5)^{2}\,+\,10} \right)$$
+ 
+$$\dfrac{A}{C}\,+\,\dfrac{B}{C}\,=\,\dfrac{A\,+\,B}{C}$$
+ 
+\textcolor{candyapplered}{\ding{168}}\,$$\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,12}{S^{2}\,+\,10\,S\,+\,35} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,5}{(S\,+\,5)^{2}\,+\,10}\,\textcolor{candyapplered}{+}\,\dfrac{7 }{(S\,+\,5)^{2}\,+\,10} \right)$$
+ 
+\textcolor{candyapplered}{\ding{168}}\,$$\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,12}{S^{2}\,+\,10\,S\,+\,35} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,5}{(S\,+\,5)^{2}\,+\,10} \right)\,\textcolor{candyapplered}{+}\,\mathcal{L}^{-\,1}\,\left(\dfrac{7 }{(S\,+\,5)^{2}\,+\,10} \right)$$
+ 
+\textcolor{candyapplered}{\Info}\, Tener en cuenta las siguientes transformadas: $\mathcal{L}^{-\,1}\,\left(\dfrac{S\,-\,a}{(S\,-\,a)^{2}\,+\,K^{2}} \right)\,=\,e^{a\,t}\,\cos\,K\,t$
+ 
+\ 
+ 
+$\mathcal{L}^{-\,1}\,\left(\dfrac{K }{(S\,-\,a)^{2}\,+\,K^{2}} \right)\,=\,e^{a\,t}\,\sin\,K\,t$
+ 
+\textcolor{candyapplered}{\ding{168}}\,$$\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,12}{S^{2}\,+\,10\,S\,+\,35} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,\textcolor{candyapplered}{5} }{(S\,+\,\textcolor{candyapplered}{5})^{2}\,+\,\textcolor{candyapplered}{10}} \right)\,\textcolor{candyapplered}{+}\,\mathcal{L}^{-\,1}\,\left(\dfrac{7\,\textcolor{candyapplered}{\times\,\sqrt{10} } }{\textcolor{candyapplered}{\sqrt{10}\,\times}\, (S\,+\,5)^{2}\,+\,10} \right)$$
+ 
+\textcolor{candyapplered}{\ding{168}}\,$$\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,12}{S^{2}\,+\,10\,S\,+\,35} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,\textcolor{candyapplered}{5} }{(S\,+\,\textcolor{candyapplered}{5})^{2}\,+\,\textcolor{candyapplered}{10}} \right)\,\textcolor{candyapplered}{+}\,\dfrac{7}{\sqrt{10}}\, \mathcal{L}^{-\,1}\,\left(\dfrac{\textcolor{candyapplered}{\sqrt{10} } }{ (S\,+\,5)^{2}\,+\,10} \right)$$
+ 
+\textcolor{candyapplered}{\ding{168}}\,$$\mathcal{L}^{-\,1}\,\left(\dfrac{S\,+\,12}{S^{2}\,+\,10\,S\,+\,35} \right)\,=\,\boxed{\textcolor{candyapplered}{e^{-\,5\,t}\,\cos\,\sqrt{10}\,t\,\textcolor{candyapplered}{+}\,\dfrac{7}{\sqrt{10}}\,e^{-\,5\,t}\,\sin\,\sqrt{10}\,t} }  $$
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 10]
+ 
+ \definecolor{burgundy}{rgb}{0.5, 0.0, 0.13}
+ 
+$$\dfrac{1}{S^{4}\,-\,2\,S^{3}}$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\item Identificar a $F\,(S)$
+ 
+$$\dfrac{1}{S^{4}\,-\,2\,S^{3}}\,=\,\dfrac{1}{S\,(S^{3}\,-\,2\,S^{2})}\,=\,\textcolor{burgundy}{\dfrac{1}{S}}\,\underbrace{\dfrac{1}{S^{3}\,-\,2\,S^{2}}}_{\textcolor{burgundy}{F\,(S) } }$$
+ 
+\item Transformar inversamente al indentificado $F\,(S)$
+ 
+\textcolor{burgundy}{\ding{48}}\, $$\dfrac{1}{S^{3}\,-\,2\,S^{2}}\,=\,\dfrac{1}{S^{2}\,(S\,-\,2)}$$
+ 
+\textcolor{burgundy}{\ding{48}}\, $$\dfrac{1}{S^{3}\,-\,2\,S^{2}}\,=\,\dfrac{A\,S\,+\,B}{S^{2}}\,+\,\dfrac{C}{S\,-\,2} $$
+ 
+\textcolor{burgundy}{\ding{48}}\, $$\dfrac{1}{S^{3}\,-\,2\,S^{2}}\,=\,\dfrac{(A\,S\,+\,B)\,(S\,-\,2)\,+\,C\,S^{2} }{S^{2}\,(S\,-\,2) } $$
+ 
+\textcolor{burgundy}{\ding{48}}\, $$\dfrac{1}{S^{3}\,-\,2\,S^{2}}\,=\,\dfrac{\textcolor{blue}{A\,S^{2}}\,-\,\textcolor{red}{2\,A\,S }\,+\,\textcolor{red}{B\,S }\,-\,2\,B\,+\,\textcolor{blue}{C\,S^{2}} }{S^{2}\,(S\,-\,2) } $$
+ 
+\textcolor{burgundy}{\ding{48}}\, $$\dfrac{1}{S^{3}\,-\,2\,S^{2}}\,=\,\dfrac{(A\,+\,C)\,S^{2}\,+\,(B\,-\,2\,A)\,S\,-\,2\,B }{S^{2}\,(S\,-\,2)}$$
+ 
+$$\begin{cases}
+A\,+\,C\,=\,0 \\
+B\,-\,2\,A\,=\,0 \\
+-\,2\,B\,=\,1 \quad \textcolor{burgundy}{\iff } \quad \boxed{B\,=\,-\,\dfrac{1}{2} }  
+\end{cases}$$
+ 
+$$-\,\dfrac{1}{2}\,=\,2\,A \quad \textcolor{burgundy}{\iff } \quad \boxed{A\,=\,-\,\dfrac{1}{4}}$$
+ 
+$$-\,\dfrac{1}{4}\,+\,C\,=\,0 \quad \textcolor{burgundy}{\iff } \quad \boxed{C\,=\,\dfrac{1}{4}}$$
+ 
+\textcolor{burgundy}{\ding{48}}\, $$\dfrac{1}{S^{3}\,-\,2\,S^{2}}\,=\,\dfrac{A\,S\,+\,B}{S^{2}}\,+\,\dfrac{C}{S\,-\,2}\,=\,\dfrac{A\,S}{S^{2}}\,+\,\dfrac{B}{S^{2}}\,+\,\dfrac{C}{S\,-\,2} $$
+ 
+\textcolor{burgundy}{\ding{48}}\, $$\dfrac{1}{S^{3}\,-\,2\,S^{2}}\,=\,-\,\dfrac{1}{4}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{S}\,-\,\dfrac{1}{2}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{S^{2}}\,+\,\dfrac{1}{4}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{S\,-\,2}$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{3}\,-\,2\,S^{2}} \right)\,=\,-\,\dfrac{1}{4}\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S} \right)\,-\,\dfrac{1}{2}\, \mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}} \right)\,+\,\dfrac{1}{4}\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,-\,2} \right)$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{3}\,-\,2\,S^{2}} \right)\,=\,\underbrace{-\,\dfrac{1}{4}\,-\,\dfrac{1}{2}\,\tau\,+\,\dfrac{1}{4}\,e^{2\,\tau}}_{\textcolor{burgundy}{f\,(\tau) } }$$
+ 
+\item Integrar $f\,(\tau)$
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{S^{3}\,-\,2\,S^{2}} \right)\,=\,\displaystyle\,\int_{0}^{t}\,\left(-\,\dfrac{1}{4}\,-\,\dfrac{1}{2}\,\tau\,+\,\dfrac{1}{4}\,e^{2\,\tau} \right)\,d\,\tau$$  
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{S^{3}\,-\,2\,S^{2}} \right)\,=\,-\,\dfrac{1}{4}\,\displaystyle\,\int_{0}^{t}\,d\,\tau\,-\,\dfrac{1}{2}\,\displaystyle\,\int_{0}^{t}\,\tau\,d\,\tau\,+\,\dfrac{1}{4}\,\displaystyle\,\int_{0}^{t}\,e^{2\,\tau}\,d\,\tau$$ 
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{S^{3}\,-\,2\,S^{2}} \right)\,=\,-\,\dfrac{1}{4}\,\tau\,\biggr|_{0}^{t}\,-\,\dfrac{1}{2}\,\dfrac{\tau^{2}}{2}\,\biggr|_{0}^{t}\,+\,\dfrac{1}{4}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{2}\,e^{2\,\tau}\,\biggr|_{0}^{t}$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{S^{3}\,-\,2\,S^{2}} \right)\,=\,-\,\dfrac{1}{4}\,t\,-\,\dfrac{1}{4}\,t^{2}\,+\,\dfrac{1}{8}\,\left(e^{2\,\textcolor{burgundy}{t}}\,-\,e^{2\,(\textcolor{burgundy}{0})}  \right)$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\textcolor{burgundy}{\cdot}\,\dfrac{1}{S^{3}\,-\,2\,S^{2}} \right)\,=\,\boxed{-\,\dfrac{1}{4}\,t\,-\,\dfrac{1}{4}\,t^{2}\,+\,\dfrac{1}{8}\,\left(e^{2\,\textcolor{burgundy}{t}}\,-\,1  \right)}$$
+ 
+\end{enumerate}
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 11]
+
+$$\dfrac{2\,S\,-\,\pi}{S^{3}(S\,-\,\pi)}$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+\textcolor{ao(english)}{\ding{202}}\,Identificar a $F\,(S)$
+
+$$\dfrac{2\,S\,-\,\pi}{S^{3}(S\,-\,\pi)}\,=\,\textcolor{ao(english)}{\dfrac{1}{S}}\,\cdot\,\underbrace{\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}}_{\textcolor{ao(english)}{F\,(S)}}$$
+
+\textcolor{ao(english)}{\ding{203}}\,Transformar inversamente al identificado $F\,(S)$
+
+\textcolor{ao(english)}{\ding{47}}$$\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\,=\,\dfrac{A\,S\,+\,B}{S^{2}}\,+\,\dfrac{C}{S\,-\,\pi}$$
+
+\textcolor{ao(english)}{\ding{47}}$$\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\,=\,\dfrac{(A\,S\,+\,B)\,(S\,-\,\pi)\,+\,C\,(S^{2})}{S^{2}(S\,-\,\pi)}$$
+
+\textcolor{ao(english)}{\ding{47}}$$\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\,=\,\dfrac{A\,S^{2}\,+\,B\,S\,-\,A\,\pi\,S\,-\,B\,\pi\,+\,C\,S^{2}}{S^{2}(S\,-\,\pi)}$$
+
+\textcolor{ao(english)}{\ding{47}}$$\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\,=\,\dfrac{(A\,+\,C)\,S^{2}\,+\,(B\,-\,A\,\pi)\,S\,-\,B\,\pi}{S^{2}(S\,-\,\pi)}$$
+
+$$\begin{cases}
+A\,+\,C\,=\,0 \\
+B\,-\,A\,\pi\,=\,2 \\
+-\,B\,\pi\,=\,-\,\pi \quad \textcolor{ao(english)}{\iff } \quad \boxed{B\,=\,1 }  
+\end{cases}$$
+
+\textcolor{ao(english)}{\ding{229}}$$\textcolor{ao(english)}{1}\,-\,A\,\pi\,=\,2 \quad \textcolor{ao(english)}{\iff } \quad -\,A\,\pi\,=\,2\,-\,1 \quad \textcolor{ao(english)}{\iff } \quad -\,A\,\pi\,=\,1 \quad \textcolor{ao(english)}{\iff } \quad \boxed{A\,=\,-\,\dfrac{1}{\pi}}$$
+
+\textcolor{ao(english)}{\ding{229}}$$\textcolor{ao(english)}{-\,\dfrac{1}{\pi}}\,+\,C\,=\,0 \quad \textcolor{ao(english)}{\iff } \quad \boxed{C\,=\,\dfrac{1}{\pi}}$$
+ 
+\textcolor{ao(english)}{\ding{47}}$$\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\,=\,\dfrac{A\,S\,+\,B}{S^{2}}\,+\,\dfrac{C}{S\,-\,\pi}\,=\,\dfrac{A\,S}{S^{2}}\,+\,\dfrac{B}{S^{2}}\,+\,\dfrac{C}{S\,-\,\pi}$$
+ 
+\textcolor{ao(english)}{\ding{47}}$$\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\,=\,-\,\dfrac{1}{\pi}\,\cdot\,\dfrac{1}{S}\,-\,\dfrac{1}{S^{2}}\,+\,\dfrac{1}{\pi}\,\cdot\,\dfrac{1}{S\,-\,\pi}$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\right)\,=\,-\,\dfrac{1}{\pi}\,\cdot\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\right)\,-\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}}\right)\,+\,\dfrac{1}{\pi}\,\cdot\,\mathcal{L}^{-\,1}\left(\dfrac{1}{S\,-\,\pi}\right)$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\right)\,=\,\underbrace{-\,\dfrac{1}{\pi}\,-\,\tau\,+\,\dfrac{1}{\pi}\,e^{\pi\,\tau}}_{\textcolor{ao(english)}{f\,(\tau)}}$$
+
+\textcolor{ao(english)}{\ding{204}}\,Integrar $f\,(\tau)$
+
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\cdot\,\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\right)\,=\,\displaystyle\int_{0}^{t}\,\left(-\,\dfrac{1}{\pi}\,-\,\tau\,+\,\dfrac{1}{\pi}\,e^{\pi\,\tau}\right)\,d\,\tau$$
+
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\cdot\,\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\right)\,=\,-\,\dfrac{1}{\pi}\,\displaystyle\int_{0}^{t}\,d\,\tau\,-\,\displaystyle\int_{0}^{t}\,\tau\,d\,\tau\,+\,\dfrac{1}{\pi}\,\displaystyle\int_{0}^{t}\,e^{\pi\,\tau}\,d\,\tau$$
+
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\cdot\,\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\right)\,=\,-\,\dfrac{1}{\pi}\,\tau\biggr|_{0}^{t}\,-\,\dfrac{\tau^{2}}{2}\biggr|_{0}^{t}\,+\,\dfrac{1}{\pi}\,\cdot\,\dfrac{1}{\pi}\,e^{\pi\,\tau}\biggr|_{0}^{t}$$
+
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\cdot\,\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\right)\,=\,-\,\dfrac{1}{\pi}\,t\,-\,\dfrac{t^{2}}{2}\,+\,\dfrac{1}{\pi^{2}}\,(e^{\pi\,\textcolor{red}{t}}\,-\,e^{\pi\,\textcolor{red}{0}})$$
+
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S}\,\cdot\,\dfrac{2\,S\,-\,\pi}{S^{2}(S\,-\,\pi)}\right)\,=\,\boxed{-\,\dfrac{1}{\pi}\,t\,-\,\dfrac{t^{2}}{2}\,+\,\dfrac{1}{\pi^{2}}\,(e^{\pi\,t}\,-\,1)}$$
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 12]
+
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+ 
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{2\,a^{2}}{S\,(S^{2}\,-\,4\,a^{2})}  \right)\,=\,\sinh^{2}\,a\,t$$
+ 
+\textcolor{cadmiumgreen}{\ding{168}} $$\dfrac{2\,a^{2}}{S\,(S^{2}\,-\,4\,a^{2})}\,=\,\dfrac{2\,a^{2}}{S\,(S\,-\,2\,a)\,(S\,+\,2\,a) }$$
+ 
+\textcolor{cadmiumgreen}{\ding{168}} $$\dfrac{2\,a^{2}}{S\,(S^{2}\,-\,4\,a^{2})}\,=\,\dfrac{A}{S}\,+\,\dfrac{B}{S\,-\,2\,a}\,+\,\dfrac{C}{S\,+\,2\,a}$$
+ 
+$$A\,=\,\dfrac{2\,a^{2}}{(\textcolor{cadmiumgreen}{0 }\,-\,2\,a)\,(\textcolor{cadmiumgreen}{0 }\,+\,2\,a) }\,=\,\dfrac{2\,a^{2}}{(-\,2\,a)\,(2\,a) }\,=\,\boxed{-\,\dfrac{1}{2}}$$
+ 
+$$B\,=\,\dfrac{2\,a^{2}}{\textcolor{cadmiumgreen}{2\,a} \,(\textcolor{cadmiumgreen}{2\,a}\,+\,2\,a) }\,=\,\dfrac{2\,a^{2}}{2\,a\,\textcolor{cadmiumgreen}{\times }\, 4\,a}\,=\,\boxed{\dfrac{1}{4}}$$
+ 
+$$C\,=\,\dfrac{2\,a^{2}}{\textcolor{cadmiumgreen}{-\,2\,a}\,(\textcolor{cadmiumgreen}{-\,2\,a}\,-\,2\,a) }\,=\,\dfrac{2\,a^{2}}{-\,2\,a\,\textcolor{cadmiumgreen}{\times }\, (-\,4\,a)}\,=\,\boxed{\dfrac{1}{4}}$$
+ 
+\textcolor{cadmiumgreen}{\ding{168}} $$\mathcal{L}^{-\,1}\,\left( \dfrac{2\,a^{2}}{S\,(S^{2}\,-\,4\,a^{2})}\right) \,=\,-\,\dfrac{1}{2}\,\mathcal{L}^{-\,1}\,\left( \dfrac{1}{S} \right)\,+\,\dfrac{1}{4}\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,-\,2\,a} \right) \,+\,\dfrac{1}{4}\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,2\,a} \right)$$
+ 
+\textcolor{cadmiumgreen}{\ding{168}} $$\mathcal{L}^{-\,1}\,\left( \dfrac{2\,a^{2}}{S\,(S^{2}\,-\,4\,a^{2})}\right) \,=\,\boxed{-\,\dfrac{1}{2}\,+\,\dfrac{1}{4}\,e^{2\,a\,t}\,+\,\dfrac{1}{4}\,e^{-\,2\,a\,t}}$$
+ 
+\begin{prueba}
+ 
+$$\left(\sinh\,\textcolor{cadmiumgreen}{a\,t} \right)^{2}\,=\,\left(\dfrac{e^{\textcolor{cadmiumgreen}{a\,t}}\,-\,e^{-\,\textcolor{cadmiumgreen}{a\,t}}}{2} \right)^{2}$$
+ 
+$$\sinh^{2}\,a\,t\,=\,\dfrac{e^{2\,a\,t}\,-\,2\,e^{\textcolor{cadmiumgreen}{a\,t}}\,e^{\textcolor{cadmiumgreen}{-\,a\,t}}\,+\,e^{-\,2\,a\,t} }{4}\,=\,\dfrac{1}{4}\,e^{2\,a\,t}\,-\,\dfrac{1}{2}\,+\,\dfrac{1}{4}\,e^{-\,2\,a\,t}$$
+ 
+\end{prueba}
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 13]
+
+$$\mathcal{L}^{-\,1}\,\left(\dfrac{1}{(S^{2}\,+\,\omega^{2})^{2}}  \right)\,=\,\dfrac{1}{2\,\omega^{3}}\,\left(\sin\,\omega\,t\,-\,\omega\,t\,\cos\,\omega\,t \right)$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+\end{exmp}
+ 
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+ 
+\textcolor{britishracinggreen}{\chapter{Problemas con valor inicial}} 
+ 
+\begin{exmp}[Ejercicio 14]
+ 
+$$L\,\left(\dfrac{d\,i}{d\,t} \right)\,+\,R\,i\,=\,0, \qquad L,\,R\,\in\,\mathbb{R} \quad \text{and} \quad i\,(0)\,=\,0$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{blush}{rgb}{0.87, 0.36, 0.51}
+ 
+\item Estandarizar la ecuación 
+ 
+$$\dfrac{L}{\textcolor{blush}{L}}\,i'\,+\,\dfrac{R}{\textcolor{blush}{L}}\,i\,=\,0 \quad \textcolor{blush}{\iff} \quad \boxed{\textcolor{blush}{i'\,+\,\dfrac{R}{L}\,i\,=\,0} } $$
+ 
+\item Tomar transformada directa a ambos lados
+ 
+$$\mathcal{L}\,\left(i'\,+\,\dfrac{R}{L}\,i \right)\,=\,0 \quad \textcolor{blush}{\iff} \quad \mathcal{L}\,\left(i' \right)\,+\,\dfrac{R}{L}\,\mathcal{L}\,\left(i \right)\,=\,0$$
+ 
+$$S\,\mathcal{L}\,\left(i \right)\,-\,i\,(0)\,+\,\dfrac{R}{L}\,\mathcal{L}\,\left(i \right)\,=\,0$$
+ 
+\end{enumerate}
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 15]
+
+$$y'\,+\,K\,y\,=\,e^{-\,K\,y}, \qquad y\,(0)\,=\,0,7$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+\textcolor{ao(english)}{\ding{172}}\,Tomar el operador $\mathcal{L}$ a ambos lados
+
+$$\mathcal{L}\,\left(y'\,+\,K\,y\right)\,=\,\mathcal{L}\,\left(e^{-\,K\,y}\right) \quad \textcolor{ao(english)}{\iff} \quad \mathcal{L}\,\left(y'\right)\,+\,K\,\mathcal{L}\,\left(y\right)\,=\,\mathcal{L}\,\left(e^{-\,K\,y}\right)$$
+
+$$S\,\mathcal{L}\,\left(y\right)\,-\,y\,(0)\,+\,K\,\mathcal{L}\,\left(y\right)\,=\,\dfrac{1}{S\,+\,K} \quad \textcolor{ao(english)}{\iff} \quad S\,\mathcal{L}\,\left(y\right)\,-\,0,7\,+\,K\,\mathcal{L}\,\left(y\right)\,=\,\dfrac{1}{S\,+\,K}$$
+
+\textcolor{ao(english)}{\ding{173}}\,Cambio de variable: $\boxed{Y\,=\,\mathcal{L}\,(y) \quad \textcolor{ao(english)}{\iff} \quad \mathcal{L}^{-\,1}\,(Y)\,=\,y}$
+
+$$S\,\underbrace{\mathcal{L}\,\left(y\right)}_{Y}\,-\,0,7\,+\,K\,\underbrace{\mathcal{L}\,\left(y\right)}_{Y}\,=\,\dfrac{1}{S\,+\,K} \quad \textcolor{ao(english)}{\iff} \quad S\,Y\,-\,0,7\,+\,K\,Y\,=\,\dfrac{1}{S\,+\,K}$$
+
+$$S\,Y\,+\,K\,Y\,=\,\dfrac{1}{S\,+\,K}\,+\,0,7 \quad \textcolor{ao(english)}{\iff} \quad Y\,(S\,+\,K)\,=\,\dfrac{1\,+\,0,7\,(S\,+\,K)}{S\,+\,K}$$
+
+$$Y\,=\,\dfrac{1\,+\,0,7\,(S\,+\,K)}{(S\,+\,K)^{2}} \quad \textcolor{ao(english)}{\iff} \quad Y\,=\,\dfrac{1}{(S\,+\,K)^{2}}\,+\,\dfrac{0,7}{S\,+\,K}$$
+
+\textcolor{ao(english)}{\ding{174}}\,Transformar inversamente
+
+$$\mathcal{L}^{-\,1}\,\left(Y\right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{(S\,+\,K)^{2}}\,+\,\dfrac{0,7}{S\,+\,K}\right)$$
+
+$$\mathcal{L}^{-\,1}\,\left(Y\right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{(S\,+\,K)^{2}}\right)\,+\,0,7\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,K}\right)$$
+
+$$y\,(t)\,=\,t\,e^{-\,K\,t}\,+\,0,7\,e^{-\,K\,t} \quad \textcolor{ao(english)}{\iff} \quad \boxed{y\,(t)\,=\,e^{-\,K\,t}\,(t\,+\,0,7)}$$
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 16]
+
+$$y''\,-\,a^{2}\,y\,=\,0 \qquad y\,(0)\,=\,A, \quad y'\,(0)\,=\,B$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0}
+ 
+\item Tomar el operador $\mathcal{L}$ a ambos lados
+ 
+$$\mathcal{L}\,\left(y''\,-\,a^{2}\,y \right)\,=\,\mathcal{L}\,\left(0 \right) \quad \textcolor{bostonuniversityred}{\iff} \quad \mathcal{L}\,\left(y'' \right)\,-\,a^{2}\,\mathcal{L}\,\left(y \right)\,=\,0$$
+ 
+$$S^{2}\,\mathcal{L}\,(y)\,-\,S\,y\,(0)\,-\,y'\,(0)\,-\,a^{2}\,\mathcal{L}\,\left(y \right)\,=\,0 $$
+ 
+$$S^{2}\,\mathcal{L}\,(y)\,-\,A\,S\,-\,B\,-\,a^{2}\,\mathcal{L}\,\left(y \right)\,=\,0 $$
+ 
+\item Cambio de variable: $\boxed{Y\,=\,\mathcal{L}\,(y) \quad \textcolor{bostonuniversityred}{\iff} \quad \mathcal{L}^{-\,1}\,(Y)\,=\,y  }$
+ 
+$$S^{2}\,\underbrace{\mathcal{L}\,(y)}_{\textcolor{bostonuniversityred}{Y}}\,-\,A\,S\,-\,B\,-\,a^{2}\,\underbrace{\mathcal{L}\,\left(y \right)}_{\textcolor{bostonuniversityred}{Y}}\,=\,0 $$
+ 
+$$S^{2}\,\textcolor{bostonuniversityred}{Y}\,-\,a^{2}\,\textcolor{bostonuniversityred}{Y}\,=\,A\,S\,+\,B \quad \textcolor{bostonuniversityred}{\iff} \quad Y\,(S^{2}\,-\,a^{2})\,=\,A\,S\,+\,B$$
+ 
+$$Y\,=\,\dfrac{A\,S\,+\,B}{S^{2}\,-\,a^{2}} \quad \textcolor{bostonuniversityred}{\iff} \quad Y\,=\,\dfrac{A\,S}{S^{2}\,-\,a^{2}}\,+\,\dfrac{B}{S^{2}\,-\,a^{2}}$$
+ 
+\item Transformar inversamente 
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y \right)\,=\,A\,\mathcal{L}^{-\,1}\,\left(\dfrac{S}{S^{2}\,-\,a^{2}} \right)\,+\,B\,\mathcal{L}^{-\,1}\,\left(\dfrac{\textcolor{bostonuniversityred}{a}}{\textcolor{bostonuniversityred}{a}\,(S^{2}\,-\,a^{2})} \right)$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y \right)\,=\,A\,\mathcal{L}^{-\,1}\,\left(\dfrac{S}{S^{2}\,-\,a^{2}} \right)\,+\,\dfrac{B}{\textcolor{bostonuniversityred}{a}}\,\mathcal{L}^{-\,1}\,\left(\dfrac{\textcolor{bostonuniversityred}{a}}{S^{2}\,-\,a^{2}} \right)$$
+ 
+$$\boxed{y(t)\,=\,A\,\cosh\,a\,t\,+\,\dfrac{B}{a}\,\sinh\,a\,t}$$
+ 
+\end{enumerate}
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 17]
+
+$$y''\,+\,\omega^{2}\,y\,=\,0; \qquad y\,(0)\,=\,0, \quad y'\,(0)\,=\,1$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{caputmortuum}{rgb}{0.35, 0.15, 0.13}
+ 
+\item Tomar el operador $\mathcal{L}$ a ambos lados
+ 
+$$\mathcal{L}\,\left(y''\,+\,\omega^{2}\,y \right)\,=\,\mathcal{L}\,(0) \quad \textcolor{caputmortuum}{\iff} \quad \mathcal{L}\,\left(y'' \right)\,+\,\omega^{2}\,\mathcal{L}\,\left(y \right)\,=\,0$$
+ 
+$$S^{2}\,\mathcal{L}\,(y)\,-\,S\,y\,(0)\,-\,y'\,(0)\,+\,\omega^{2}\,\mathcal{L}\,\left(y \right)\,=\,0$$
+ 
+$$S^{2}\,\mathcal{L}\,(y)\,-\,1\,+\,\omega^{2}\,\mathcal{L}\,\left(y \right)\,=\,0$$
+ 
+\item Cambio de variable: $\boxed{Y\,=\,\mathcal{L}\,(y) \quad \textcolor{caputmortuum}{\iff} \quad \mathcal{L}^{-\,1}\,(Y)\,=\,y  }$
+ 
+$$S^{2}\,\underbrace{\mathcal{L}\,(y)}_{\textcolor{caputmortuum}{Y} }\,-\,1\,+\,\omega^{2}\,\underbrace{\mathcal{L}\,\left(y \right)}_{\textcolor{caputmortuum}{Y} }\,=\,0 \quad \textcolor{caputmortuum}{\iff} \quad S^{2}\,Y\,-\,1\,+\,\omega^{2}\,Y\,=\,0$$
+ 
+$$S^{2}\,Y\,+\,\omega^{2}\,Y\,=\,1 \quad \textcolor{caputmortuum}{\iff} \quad Y\,(S^{2}\,+\,\omega^{2})\,=\,1 \quad \textcolor{caputmortuum}{\iff} \quad Y\,=\,\dfrac{1}{S^{2}\,+\,\omega^{2}}$$
+ 
+\item Transformar inversamente 
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}\,+\,\omega^{2}} \right) \quad \textcolor{caputmortuum}{\iff} \quad \mathcal{L}^{-\,1}\,\left(Y \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{\textcolor{caputmortuum}{\omega} }{\textcolor{caputmortuum}{\omega}\,(S^{2}\,+\,\omega^{2})} \right) $$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y \right)\,=\,\dfrac{1}{\textcolor{caputmortuum}{\omega}}\,\mathcal{L}^{-\,1}\,\left(\dfrac{\textcolor{caputmortuum}{\omega} }{S^{2}\,+\,\omega^{2}} \right) \quad \textcolor{caputmortuum}{\iff} \quad \boxed{\textcolor{caputmortuum}{y\,(t)\,=\,\dfrac{1}{\omega}\,\sin\,\omega\,t }  }$$
+ 
+\end{enumerate}
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 18]
+
+$$y''\,+\,3\,y'\,+\,2\,y\,=\,e^{x}; \quad y\,(0)\,=\,0, \quad \, y'\,(0)\,=\,3$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+\textcolor{ao(english)}{\ding{172}}\,Tomar el operador $\mathcal{L}$ a ambos lados
+
+$$\mathcal{L}\,\left(y''\,+\,3\,y'\,+\,2\,y\right)\,=\,\mathcal{L}\,\left(e^{x}\right) \quad \textcolor{ao(english)}{\iff} \quad \mathcal{L}\,\left(y''\right)\,+\,3\,\mathcal{L}\,\left(y'\right)\,+\,2\,\mathcal{L}\,\left(y\right)\,=\,\mathcal{L}\,\left(e^{x}\right)$$
+
+$$S^{2}\,\mathcal{L}\,\left(y\right)\,-\,S\,y\,(0)\,-\,y'\,(0)\,+\,3\,\left(S\,\mathcal{L}\,\left(y\right)\,-\,y\,(0)\right)\,+\,2\,\mathcal{L}\,\left(y\right)\,=\,\dfrac{1}{S\,-\,1}$$
+
+$$S^{2}\,\mathcal{L}\,\left(y\right)\,-\,3\,+\,3\,S\,\mathcal{L}\,\left(y\right)\,+\,2\,\mathcal{L}\,\left(y\right)\,=\,\dfrac{1}{S\,-\,1}$$
+
+$$S^{2}\,\mathcal{L}\,\left(y\right)\,+\,3\,S\,\mathcal{L}\,\left(y\right)\,+\,2\,\mathcal{L}\,\left(y\right)\,=\,\dfrac{1}{S\,-\,1}\,+\,3$$
+
+$$S^{2}\,\mathcal{L}\,\left(y\right)\,+\,3\,S\,\mathcal{L}\,\left(y\right)\,+\,2\,\mathcal{L}\,\left(y\right)\,=\,\dfrac{1\,+\,3\,(S\,-\,1)}{S\,-\,1}$$
+
+$$S^{2}\,\mathcal{L}\,\left(y\right)\,+\,3\,S\,\mathcal{L}\,\left(y\right)\,+\,2\,\mathcal{L}\,\left(y\right)\,=\,\dfrac{1\,+\,3\,S\,-\,3}{S\,-\,1}$$
+
+$$S^{2}\,\mathcal{L}\,\left(y\right)\,+\,3\,S\,\mathcal{L}\,\left(y\right)\,+\,2\,\mathcal{L}\,\left(y\right)\,=\,\dfrac{3\,S\,-\,2}{S\,-\,1}$$
+
+\textcolor{ao(english)}{\ding{173}}\,Cambio de variable: $\boxed{Y\,=\,\mathcal{L}\,(y) \quad \textcolor{ao(english)}{\iff} \quad \mathcal{L}^{-\,1}\,(Y)\,=\,y}$
+
+$$S^{2}\,\underbrace{\mathcal{L}\,\left(y\right)}_{Y}\,+\,3\,S\,\underbrace{\mathcal{L}\,\left(y\right)}_{Y}\,+\,2\,\underbrace{\mathcal{L}\,\left(y\right)}_{Y}\,=\,\dfrac{3\,S\,-\,2}{S\,-\,1}$$
+
+$$S^{2}\,Y\,+\,3\,S\,Y\,+\,2\,Y\,=\,\dfrac{3\,S\,-\,2}{S\,-\,1} \quad \textcolor{ao(english)}{\iff} \quad Y\,(S^{2}\,+\,3\,S\,+\,2)\,=\,\dfrac{3\,S\,-\,2}{S\,-\,1}$$
+
+$$Y\,=\,\dfrac{3\,S\,-\,2}{(S\,-\,1)(S^{2}\,+\,3\,S\,+\,2)} \quad \textcolor{ao(english)}{\iff} \quad Y\,=\,\dfrac{3\,S\,-\,2}{S^{3}\,+\,3\,S^{2}\,+\,2\,S\,-\,S^{2}\,-\,3\,S\,-\,2}$$
+
+$$Y\,=\,\dfrac{3\,S\,-\,2}{S^{3}\,+\,2\,S^{2}\,-\,S\,-\,2}$$
+
+\textcolor{ao(english)}{\ding{174}}\,Transformar inversamente
+
+\textcolor{ao(english)}{\ding{229}}$$S^{3}\,+\,2\,S^{2}\,-\,S\,-\,2\,=\,(S^{3}\,+\,2\,S^{2})\,-\,(S\,+\,2)\,=\,S^{2}\,(S\,+\,2)\,-\,(S\,+\,2)$$
+
+\textcolor{ao(english)}{\ding{229}}$$S^{3}\,+\,2\,S^{2}\,-\,S\,-\,2\,=\,(S\,+\,2)\,(S^{2}\,-\,1)\,=\,(S\,+\,2)\,(S\,+\,1)\,(S\,-\,1)$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{3\,S\,-\,2}{S^{3}\,+\,2\,S^{2}\,-\,S\,-\,2}\,=\,\dfrac{3\,S\,-\,2}{(S\,+\,2)\,(S\,+\,1)\,(S\,-\,1)}$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{3\,S\,-\,2}{S^{3}\,+\,2\,S^{2}\,-\,S\,-\,2}\,=\,\dfrac{A}{S\,-\,1}\,+\,\dfrac{B}{S\,+\,1}\,+\,\dfrac{C}{S\,+\,2}$$
+
+\textcolor{ao(english)}{\ding{47}}$$A\,=\,\dfrac{3\,(\textcolor{red}{1})\,-\,2}{(\textcolor{red}{1}\,+\,1)\,(\textcolor{red}{1}\,+\,2)}\,=\,\dfrac{3\,-\,2}{(2)\,(3)}\,=\,\boxed{\dfrac{1}{6}}$$
+
+\textcolor{ao(english)}{\ding{47}}$$B\,=\,\dfrac{3\,(\textcolor{red}{-\,1})\,-\,2}{(\textcolor{red}{-\,1}\,-\,1)\,(\textcolor{red}{-\,1}\,+\,2)}\,=\,\dfrac{-\,3\,-\,2}{(-\,2)\,(1)}\,=\,\boxed{\dfrac{5}{2}}$$
+
+\textcolor{ao(english)}{\ding{47}}$$C\,=\,\dfrac{3\,(\textcolor{red}{-\,2})\,-\,2}{(\textcolor{red}{-\,2}\,-\,1)\,(\textcolor{red}{-\,2}\,+\,1)}\,=\,\dfrac{-\,6\,-\,2}{(-\,3)\,(-\,1)}\,=\,\boxed{-\,\dfrac{8}{3}}$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{3\,S\,-\,2}{S^{3}\,+\,2\,S^{2}\,-\,S\,-\,2}\,=\,\dfrac{1}{6}\,\cdot\,\dfrac{1}{S\,+\,2}\,+\,\dfrac{5}{2}\,\cdot\,\dfrac{1}{S\,+\,1}\,-\,\dfrac{8}{3}\,\cdot\,\dfrac{1}{S\,-\,1}$$
+
+\textcolor{ao(english)}{\ding{46}}$$Y\,=\,\dfrac{1}{6}\,\cdot\,\dfrac{1}{S\,-\,1}\,+\,\dfrac{5}{2}\,\cdot\,\dfrac{1}{S\,+\,1}\,-\,\dfrac{8}{3}\,\cdot\,\dfrac{1}{S\,+\,2}$$
+
+$$\mathcal{L}^{-\,1}\left(Y\right)\,=\,\dfrac{1}{6}\,\mathcal{L}^{-\,1}\left(\dfrac{1}{S\,-\,1}\right)\,+\,\dfrac{5}{2}\,\mathcal{L}^{-\,1}\left(\dfrac{1}{S\,+\,1}\right)\,-\,\dfrac{8}{3}\,\mathcal{L}^{-\,1}\left(\dfrac{1}{S\,+\,2}\right)$$
+
+$$\boxed{y\,(t)\,=\,\dfrac{1}{6}\,e^{t}\,+\,\dfrac{5}{2}\,e^{-\,t}\,-\,\dfrac{8}{3}\,e^{-\,2\,t}}$$
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 19]
+
+$$y'''\,=\,0; \qquad y\,(0)\,=\,12, \quad y'\,(0)\,=\,16, \quad y''\,(0)\,=\,8$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\item Tomar el operador $\mathcal{L}$ a ambos lados
+ 
+\definecolor{brandeisblue}{rgb}{0.0, 0.44, 1.0}
+ 
+$$\mathcal{L}\,\left(y''' \right)\,=\,\mathcal{L}\,\left(0 \right) \quad \textcolor{brandeisblue}{\iff} \quad S^{3}\,\mathcal{L}\,\left(y \right)\,-\,S^{2}\,y\,(0)\,-\,S\,y'\,(0)\,-\,y''\,(0)\,=\,0$$
+ 
+$$S^{3}\,\mathcal{L}\,\left(y \right)\,-\,12\,S^{2}\,-\,16\,S\,-\,8\,=\,0$$
+ 
+\item Cambio de variable: $\boxed{Y\,=\,\mathcal{L}\,(y) \quad \textcolor{brandeisblue}{\iff} \quad \mathcal{L}^{-\,1}\,(Y)\,=\,y  }$
+ 
+$$S^{3}\,\underbrace{\mathcal{L}\,\left(y \right)}_{\textcolor{brandeisblue}{Y} }\,-\,12\,S^{2}\,-\,16\,S\,-\,8\,=\,0 \quad \textcolor{brandeisblue}{\iff} \quad S^{3}\,Y\,=\,12\,S^{2}\,+\,16\,S\,+\,8$$
+ 
+$$Y\,=\,\dfrac{12\,S^{2}\,+\,16\,S\,+\,8}{S^{3}} \quad \textcolor{brandeisblue}{\iff} \quad Y\,=\,\dfrac{12\,S^{2}}{S^{3}}\,+\,\dfrac{16\,S}{S^{3}}\,+\,\dfrac{8}{S^{3}} $$
+ 
+$$Y\,=\,\dfrac{12 }{S }\,+\,\dfrac{16}{S^{2}}\,+\,\dfrac{8}{S^{3}} $$
+ 
+\item Transformar inversamente 
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y \right)\,=\,12\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S} \right)\,+\,16\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}} \right)\,+\,8\,\mathcal{L}^{-\,1}\,\left(\dfrac{\textcolor{brandeisblue}{2} }{\textcolor{brandeisblue}{2}\,S^{3}} \right)  $$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y \right)\,=\,12\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S} \right)\,+\,16\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}} \right)\,+\,4\,\mathcal{L}^{-\,1}\,\left(\dfrac{2}{S^{3}} \right)  $$
+ 
+$$\boxed{\textcolor{brandeisblue}{y\,(t)\,=\,12\,+\,16\,t\,+\,4\,t^{2} } } $$
+ 
+\end{enumerate}
+
+\end{exmp}
+ 
+\definecolor{chocolate(web)}{rgb}{0.82, 0.41, 0.12}
+ 
+\textcolor{chocolate(web)}{\chapter{Sistemas de ecuaciones diferenciales}} 
+ 
+\begin{exmp}[Ejercicio 20]
+ 
+$$
+\left\{
+\begin{array}{lll}
+y_{1}'\,=\,2\,y_{2} \\
+y_{2}'\,=\,2\,y_{1}
+\end{array}
+\right.
+\quad y_{1}\,(0)\,=\,-\,9 \quad \text{and} \quad y_{2}\,(0)\,=\,15$$
+
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+\definecolor{dollarbill}{rgb}{0.52, 0.73, 0.4}
+
+\textcolor{ao(english)}{\ding{202}}\, Transformar directamente el primer sistema
+
+$$ y_{1}'\,=\,2\,y_{2} \quad \textcolor{ao(english)}{\iff} \quad y_{1}'\,-\,2\,y_{2}\,=\,0$$
+
+$$\mathcal{L}\,\left(y_{1}'\,-\,2\,y_{2}\right)\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad \mathcal{L}\,\left(y_{1}'\right)\,-\,2\,\mathcal{L}\,\left(y_{2}\right)\,=\,0$$
+
+$$S\,\mathcal{L}\,\left(y_{1}\right)\,-\,y_{1}\,(0)\,-\,2\,\mathcal{L}\,\left(y_{2}\right)\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad S\,\mathcal{L}\,\left(y_{1}\right)\,-\,(-\,9)\,-\,2\,\mathcal{L}\,\left(y_{2}\right)\,=\,0$$
+
+$$S\,\mathcal{L}\,\left(y_{1}\right)\,+\,9\,-\,2\,\mathcal{L}\,\left(y_{2}\right)\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad S\,\underbrace{\mathcal{L}\,\left(y_{1}\right)}_{Y_{1}}\,-\,2\,\underbrace{\mathcal{L}\,\left(y_{2}\right)}_{Y_{2}}\,=\,-\,9$$
+
+\begin{center}
+\fcolorbox{ao(english)}{dollarbill}{$S\,Y_{1}\,-\,2\,Y_{2}\,=\,-\,9$}    
+\end{center}
+
+\textcolor{ao(english)}{\ding{203}}\, Transformar directamente el segundo sistema
+
+$$ y_{2}'\,=\,2\,y_{1} \quad \textcolor{ao(english)}{\iff} \quad -\,2\,y_{1}\,+\,y_{2}'\,=\,0$$
+
+$$\mathcal{L}\,\left(-\,2\,y_{1}\,+\,y_{2}'\right)\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad -\,2\,\mathcal{L}\,\left(y_{1}\right)\,+\,\mathcal{L}\,\left(y_{2}'\right)\,=\,0$$
+
+$$-\,2\,\mathcal{L}\,\left(y_{1}\right)\,+\,S\,\mathcal{L}\,\left(y_{2}\right)\,-\,y_{2}\,(0)\,=\,0 \quad \textcolor{ao(english)}{\iff} \quad -\,2\,\mathcal{L}\,\left(y_{1}\right)\,+\,S\,\mathcal{L}\,\left(y_{2}\right)\,-\,15\,=\,0$$
+
+$$-\,2\,\underbrace{\mathcal{L}\,\left(y_{1}\right)}_{Y_{1}}\,+\,S\,\underbrace{\mathcal{L}\,\left(y_{2}\right)}_{Y_{2}}\,=\,15$$
+
+\begin{center}
+\fcolorbox{ao(english)}{dollarbill}{$-\,2\,Y_{1}\,+\,S\,Y_{2}\,=\,15$}    
+\end{center}
+
+\textcolor{ao(english)}{\ding{204}}\, Solucionar el sistema
+
+$$\begin{cases}
+S\,Y_{1}\,-\,2\,Y_{2}\,=\,-\,9
+\\
+-\,2\,Y_{1}\,+\,S\,Y_{2}\,=\,15
+\end{cases}$$
+
+$$Y_{1}\,=\,\dfrac{\begin{vmatrix}
+\textcolor{ao(english)}{-\,9} & -\,2 \\
+\\
+\textcolor{ao(english)}{15} & S
+\end{vmatrix} }{\begin{vmatrix}
+S & -\,2 \\
+\\
+-\,2 & S
+\end{vmatrix} }\,=\,\dfrac{-\,9\,S\,-\,(-\,30)}{S^{2}\,-\,4}\,=\,\dfrac{-\,9\,S\,+\,30}{S^{2}\,-\,4}$$
+
+\
+
+\textcolor{ao(english)}{\ding{229}}\, Transformando inversamente $Y_{1}$
+
+$$Y_{1}\,=\,\dfrac{-\,9\,S\,+\,30}{S^{2}\,-\,4}$$
+
+\textcolor{ao(english)}{\ding{46}}$$S^{2}\,-\,4\,=\,(S\,-\,2)(S\,+\,2)$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{-\,9\,S\,+\,30}{S^{2}\,-\,4}\,=\,\dfrac{-\,9\,S\,+\,30}{(S\,-\,2)(S\,+\,2)}$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{-\,9\,S\,+\,30}{S^{2}\,-\,4}\,=\,\dfrac{A}{S\,-\,2}\,+\,\dfrac{B}{S\,+\,2}$$
+
+\textcolor{ao(english)}{\ding{47}}$$A\,=\,\dfrac{-\,9\,(\textcolor{ao(english)}{2})\,+\,30}{\textcolor{ao(english)}{2}\,+\,2}\,=\,\dfrac{-\,18\,+\,30}{4}\,=\,\dfrac{12}{4}\,=\,\boxed{\textcolor{ao(english)}{3}}$$
+
+\textcolor{ao(english)}{\ding{47}}$$B\,=\,\dfrac{-\,9\,(\textcolor{ao(english)}{-\,2})\,+\,30}{\textcolor{ao(english)}{-\,2}\,-\,2}\,=\,\dfrac{18\,+\,30}{-\,4}\,=\,-\,\dfrac{48}{4}\,=\,\boxed{\textcolor{ao(english)}{-\,12}}$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{-\,9\,S\,+\,30}{S^{2}\,-\,4}\,=\,\dfrac{3}{S\,-\,2}\,-\,\dfrac{12}{S\,+\,2} \quad \textcolor{ao(english)}{\iff} \quad Y_{1}\,=\,\dfrac{3}{S\,-\,2}\,-\,\dfrac{12}{S\,+\,2}$$
+
+$$\mathcal{L}^{-\,1}\,\left(Y_{1}\right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{3}{S\,-\,2}\,-\,\dfrac{12}{S\,+\,2}\right)$$
+
+$$\mathcal{L}^{-\,1}\,\left(Y_{1}\right)\,=\,3\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,-\,2}\right)\,-\,12\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,2}\right)$$
+
+\begin{center}
+\fcolorbox{ao(english)}{dollarbill}{$y_{1}\,(t)\,=\,3\,e^{2\,t}\,-\,12\,e^{-\,2\,t}$}    
+\end{center}
+
+$$Y_{2}\,=\,\dfrac{\begin{vmatrix}
+S & \textcolor{ao(english)}{-\,9} \\
+\\
+-\,2 & \textcolor{ao(english)}{15}
+\end{vmatrix} }{\begin{vmatrix}
+S & -\,2 \\
+\\
+-\,2 & S
+\end{vmatrix} }\,=\,\dfrac{15\,S\,-\,18}{S^{2}\,-\,4}$$
+
+\
+
+\textcolor{ao(english)}{\ding{229}}\, Transformando inversamente $Y_{2}$
+
+$$Y_{2}\,=\,\dfrac{15\,S\,-\,18}{S^{2}\,-\,4}$$
+
+\textcolor{ao(english)}{\ding{46}}$$S^{2}\,-\,4\,=\,(S\,-\,2)(S\,+\,2)$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{15\,S\,-\,18}{S^{2}\,-\,4}\,=\,\dfrac{15\,S\,-\,18}{(S\,-\,2)(S\,+\,2)}$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{15\,S\,-\,18}{S^{2}\,-\,4}\,=\,\dfrac{A}{S\,-\,2}\,+\,\dfrac{B}{S\,+\,2}$$
+
+\textcolor{ao(english)}{\ding{47}}$$A\,=\,\dfrac{15\,(\textcolor{ao(english)}{2})\,-\,18}{\textcolor{ao(english)}{2}\,+\,2}\,=\,\dfrac{30\,-\,18}{4}\,=\,\dfrac{12}{4}\,=\,\boxed{\textcolor{ao(english)}{3}}$$
+
+\textcolor{ao(english)}{\ding{47}}$$B\,=\,\dfrac{15\,(\textcolor{ao(english)}{-\,2})\,-\,18}{\textcolor{ao(english)}{-\,2}\,-\,2}\,=\,\dfrac{-\,30\,-\,18}{-\,4}\,=\,\dfrac{48}{4}\,=\,\boxed{\textcolor{ao(english)}{12}}$$
+
+\textcolor{ao(english)}{\ding{46}}$$\dfrac{15\,S\,-\,18}{S^{2}\,-\,4}\,=\,\dfrac{3}{S\,-\,2}\,+\,\dfrac{12}{S\,+\,2} \quad \textcolor{ao(english)}{\iff} \quad Y_{2}\,=\,\dfrac{3}{S\,-\,2}\,+\,\dfrac{12}{S\,+\,2}$$
+
+$$\mathcal{L}^{-\,1}\,\left(Y_{2}\right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{3}{S\,-\,2}\,+\,\dfrac{12}{S\,+\,2}\right)$$
+
+$$\mathcal{L}^{-\,1}\,\left(Y_{2}\right)\,=\,3\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,-\,2}\right)\,+\,12\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,2}\right)$$
+
+\begin{center}
+\fcolorbox{ao(english)}{dollarbill}{$y_{2}\,(t)\,=\,3\,e^{2\,t}\,+\,12\,e^{-\,2\,t}$}    
+\end{center}
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 21]
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 22]
+ 
+$$
+\left\{
+\begin{array}{lll}
+y_{1}'\,+\,y_{2}\,=\,2\,\cos\,t \\
+y_{1}\,+\,y_{2}'\,=\,0
+\end{array}
+\right.
+\quad y_{1}\,(0)\,=\,0 \quad \text{and} \quad y_{2}\,(0)\,=\,1$$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{bulgarianrose}{rgb}{0.28, 0.02, 0.03}
+ 
+\item Transformar directamente el primer sistema
+ 
+$$\mathcal{L}\,\left(y_{1}'\,+\,y_{2} \right)\,=\,2\,\mathcal{L}\,\left(\cos\,t \right) \quad \textcolor{bulgarianrose}{\iff} \quad \mathcal{L}\,\left(y_{1}' \right)\,+\,\mathcal{L}\,\left(y_{2} \right)\,=\,2\,\mathcal{L}\left(\cos\,t \right)$$
+ 
+$$S\,\mathcal{L}\,\left(y_{1} \right)\,-\,y_{1}\,(0)\,+\,\mathcal{L}\,\left(y_{2} \right)\,=\,\dfrac{2\,S}{S^{2}\,+\,1} \quad \textcolor{bulgarianrose}{\iff} \quad S\,\underbrace{\mathcal{L}\,\left(y_{1} \right)}_{\textcolor{bulgarianrose}{Y_{1} } }\,+\,\underbrace{\mathcal{L}\,\left(y_{2} \right)}_{\textcolor{bulgarianrose}{Y_{2} } }\,=\,\dfrac{2\,S}{S^{2}\,+\,1}$$
+ 
+$$\boxed{S\,Y_{1}\,+\,Y_{2}\,=\,\dfrac{2\,S}{S^{2}\,+\,1} }$$
+ 
+\item Transformar directamente el segundo sistema
+ 
+$$\mathcal{L}\,\left(y_{1}\,+\,y_{2}' \right)\,=\,\mathcal{L}\,\left(0 \right) \quad \textcolor{bulgarianrose}{\iff} \quad \mathcal{L}\,\left(y_{1} \right)\,+\,\mathcal{L}\,\left(y_{2}' \right)\,=\,0$$
+ 
+$$\mathcal{L}\,\left(y_{1} \right)\,+\,S\,\mathcal{L}\,\left(y_{2} \right)\,-\,y_{2}\,(0)\,=\,0 \quad \textcolor{bulgarianrose}{\iff} \quad \underbrace{\mathcal{L}\,\left(y_{1} \right)}_{\textcolor{bulgarianrose}{Y_{1} } }\,+\,S\,\underbrace{\mathcal{L}\,\left(y_{2} \right)}_{\textcolor{bulgarianrose}{Y_{2} } }\,-\,1\,=\,0$$
+ 
+$$\boxed{Y_{1}\,+\,S\,Y_{2}\,=\,1 }$$
+ 
+\item Solucionar el sistema 
+ 
+$$\begin{cases}
+S\,Y_{1}\,+\,Y_{2}\,=\,\dfrac{2\,S}{S^{2}\,+\,1} \\
+\\
+Y_{1}\,+\,S\,Y_{2}\,=\,1
+\end{cases}$$
+ 
+$$Y_{1}\,=\,\dfrac{\begin{vmatrix}
+\textcolor{bulgarianrose}{\dfrac{2\,S}{S^{2}\,+\,1}} & 1 \\
+\\
+\textcolor{bulgarianrose}{1} & S
+\end{vmatrix} }{\begin{vmatrix}
+S & 1 \\
+\\
+1 & S
+\end{vmatrix} }\,=\,\dfrac{\dfrac{2\,S^{2}}{S^{2}\,+\,1}\,-\,1 }{S^{2}\,-\,1 }\,=\,\dfrac{\dfrac{2\,S^{2}\,-\,(S^{2}\,+\,1) }{S^{2}\,+\,1 } }{S^{2}\,-\,1  } $$
+ 
+$$Y_{1}\,=\,\dfrac{\dfrac{2\,S^{2}\,-\,S^{2}\,-\,1 }{S^{2}\,+\,1 } }{S^{2}\,-\,1  }\,=\,\dfrac{\dfrac{S^{2}\,-\,1 }{S^{2}\,+\,1 } }{\dfrac{S^{2}\,-\,1}{\textcolor{bulgarianrose}{1}  }  }\,=\,\dfrac{S^{2}\,-\,1 }{(S^{2}\,-\,1)\,(S^{2}\,+\,1) } $$
+ 
+$$Y_{1}\,=\,\dfrac{1}{S^{2}\,+\,1}$$
+ 
+Transformando inversamente $Y_{1}$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y_{1} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}\,+\,1} \right) \quad \textcolor{bulgarianrose}{\iff} \quad \boxed{\textcolor{bulgarianrose}{y_{1}\,(t)\,=\,\sin\,t}} $$
+ 
+$$Y_{2}\,=\,\dfrac{\begin{vmatrix}
+S & \textcolor{bulgarianrose}{\dfrac{2\,S}{S^{2}\,+\,1}} \\
+\\
+1 & \textcolor{bulgarianrose}{1}
+\end{vmatrix} }{\begin{vmatrix}
+S & 1 \\
+\\
+1 & S
+\end{vmatrix} }\,=\,\dfrac{S\,-\,\dfrac{2\,S}{S^{2}\,+\,1} }{S^{2}\,-\,1}\,=\,\dfrac{\dfrac{S\,(S^{2}\,+\,1)\,-\,2\,S }{S^{2}\,+\,1 }}{S^{2}\,-\,1 }$$
+ 
+$$Y_{2}\,=\,\dfrac{\dfrac{S^{3}\,+\,S\,-\,2\,S }{S^{2}\,+\,1 }}{S^{2}\,-\,1 }\,=\,\dfrac{\dfrac{S^{3}\,-\,S }{S^{2}\,+\,1 }}{S^{2}\,-\,1 }\,=\,\dfrac{\dfrac{S\,(S^{2}\,-\,1) }{S^{2}\,+\,1 }}{\dfrac{S^{2}\,-\,1}{\textcolor{bulgarianrose}{1}} }$$
+ 
+$$Y_{2}\,=\,\dfrac{S\,(S^{2}\,-\,1) }{(S^{2}\,+\,1)\,(S^{2}\,-\,1) }\,=\,\dfrac{S}{S^{2}\,+\,1}$$
+ 
+Transformando inversamente $Y_{2}$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y_{2} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{S}{S^{2}\,+\,1} \right) \quad \textcolor{bulgarianrose}{\iff} \quad \boxed{\textcolor{bulgarianrose}{y_{2}\,(t)\,=\,\cos\,t}} $$
+ 
+\end{enumerate}
+
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 23]
+ 
+$$
+\left\{
+\begin{array}{lll}
+y_{1}'\,+\,y_{2}'\,=\,2\,\sin\,h\,t \\
+y_{2}'\,+\,y_{3}'\,=\,e^{t} \\
+y_{3}'\,+\,y_{1}'\,=\,2\,e^{t}\,+\,e^{-\,t}
+\end{array}
+\right.
+\quad y_{1}\,(0)\,=\,1, \quad  y_{2}\,(0)\,=\,1 \quad \text{and} \quad y_{3}\,(0)\,=\,0$$ 
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
+ 
+\item Transformar directamente el primer sistema.
+ 
+$$\mathcal{L}\,\left(y_{1}'\,+\,y_{2}' \right)\,=\,2\,\mathcal{L}\,\left(\sin\,h\,t \right) \quad \textcolor{blue-violet}{\iff} \quad \mathcal{L}\,\left(y_{1}' \right)\,+\,\mathcal{L}\,\left(y_{2}' \right)\,=\,2\,\mathcal{L}\,\left(\sin\,h\,t \right)$$
+ 
+$$S\,\mathcal{L}\,(y_{1})\,-\,y_{1}\,(0)\,+\,S\,\mathcal{L}\,(y_{2})\,-\,y_{2}\,(0)\,=\,\dfrac{2}{S^{2}\,-\,1} \quad \textcolor{blue-violet}{\iff} \quad S\,\underbrace{\mathcal{L}\,(y_{1})}_{\textcolor{blue-violet}{Y_{1}} }\,-\,1\,+\,S\,\underbrace{\mathcal{L}\,(y_{2})}_{\textcolor{blue-violet}{Y_{2}}}\,-\,1\,=\,\dfrac{2}{S^{2}\,-\,1}$$
+ 
+$$S\,Y_{1}\,+\,S\,Y_{2}\,=\,\dfrac{2}{S^{2}\,-\,1}\,+\,2 \quad \textcolor{blue-violet}{\iff} \quad S\,(Y_{1}\,+\,Y_{2})\,=\,\dfrac{2\,+\,2\,(S^{2}\,-\,1) }{S^{2}\,-\,1 }$$
+ 
+$$S\,(Y_{1}\,+\,Y_{2})\,=\,\dfrac{2\,+\,2\,S^{2}\,-\,2 }{S^{2}\,-\,1 } \quad \textcolor{blue-violet}{\iff} \quad Y_{1}\,+\,Y_{2}\,=\,\dfrac{2\,S^{\cancel{2}}}{\cancel{S}\,(S^{2}\,-\,1)}$$
+ 
+\begin{center}
+\fcolorbox{red}{yellow}{$Y_{1}\,+\,Y_{2}\,=\,\dfrac{2\,S}{S^{2}\,-\,1}$}    
+\end{center}
+ 
+\item Transformar directamente el segundo sistema.
+ 
+$$\mathcal{L}\,\left(y_{2}'\,+\,y_{3}' \right)\,=\,\mathcal{L}\,\left(e^{t} \right) \quad \textcolor{blue-violet}{\iff} \quad \mathcal{L}\,\left(y_{2}' \right)\,+\,\mathcal{L}\,\left(y_{3}' \right)\,=\,\mathcal{L}\,\left(e^{t} \right)$$
+ 
+$$S\,\mathcal{L}\,(y_{2})\,-\,y_{2}\,(0)\,+\,S\,\mathcal{L}\,(y_{3})\,-\,y_{3}\,(0)\,=\,\dfrac{1}{S\,-\,1} \quad \textcolor{blue-violet}{\iff} \quad S\,\underbrace{\mathcal{L}\,(y_{2})}_{\textcolor{blue-violet}{Y_{2}} }\,-\,1\,+\,S\,\underbrace{\mathcal{L}\,(y_{3})}_{\textcolor{blue-violet}{Y_{3}}}\,=\,\dfrac{1}{S\,-\,1}$$
+ 
+$$S\,(Y_{2}\,+\,Y_{3})\,=\,\dfrac{1}{S\,-\,1}\,+\,1 \quad \textcolor{blue-violet}{\iff} \quad Y_{2}\,+\,Y_{3}\,=\,\dfrac{1\,+\,S\,-\,1}{S\,(S\,-\,1)} \quad \textcolor{blue-violet}{\iff} \quad Y_{2}\,+\,Y_{3}\,=\,\dfrac{\cancel{S}}{\cancel{S}\,(S\,-\,1)}$$
+ 
+\begin{center}
+\fcolorbox{red}{green}{$Y_{2}\,+\,Y_{3}\,=\,\dfrac{1}{S\,-\,1}$ }    
+\end{center}
+ 
+\item Transformar directamente el tercer sistema.
+ 
+$$\mathcal{L}\,\left(y_{3}'\,+\,y_{1}' \right)\,=\,2\,\mathcal{L}\,\left(e^{t} \right)\,+\,\mathcal{L}\,\left(e^{-\,t} \right) \quad \textcolor{blue-violet}{\iff} \quad \mathcal{L}\,\left(y_{3}' \right)\,+\,\mathcal{L}\,\left(y_{1}' \right)\,=\,2\,\mathcal{L}\,\left(e^{t} \right)\,+\,\mathcal{L}\,\left(e^{-\,t} \right)$$
+ 
+$$S\,\mathcal{L}\,(y_{3})\,-\,y_{3}\,(0)\,+\,S\,\mathcal{L}\,(y_{1})\,-\,y_{1}\,(0)\,=\,\dfrac{2}{S\,-\,1}\,+\,\dfrac{1}{S\,+\,1} $$
+ 
+$$S\,\underbrace{\mathcal{L}\,(y_{3})}_{\textcolor{blue-violet}{Y_{3}} }\,+\,S\,\underbrace{\mathcal{L}\,(y_{1})}_{\textcolor{blue-violet}{Y_{1}}}\,-\,1\,=\,\dfrac{2}{S\,-\,1}\,+\,\dfrac{1}{S\,+\,1}$$
+ 
+$$S\,(Y_{3}\,+\,Y_{1})\,=\,\dfrac{2}{S\,-\,1}\,+\,\dfrac{1}{S\,+\,1}\,+\,1 \quad \textcolor{blue-violet}{\iff} \quad S\,(Y_{3}\,+\,Y_{1})\,=\,\dfrac{2\,(S\,+\,1)\,+\,S\,-\,1\,+\,(S\,-\,1)\,(S\,+\,1)}{(S\,-\,1)\,(S\,+\,1) }$$
+ 
+$$S\,(Y_{3}\,+\,Y_{1})\,=\,\dfrac{2\,S\,+\,2\,+\,S\,-\,1\,+\,S^{2}\,-\,1}{(S\,-\,1)\,(S\,+\,1) } \quad \textcolor{blue-violet}{\iff} \quad Y_{3}\,+\,Y_{1}\,=\,\dfrac{S^{2}\,+\,3\,S }{S\,(S^{2}\,-\,1) }$$
+ 
+$$Y_{3}\,+\,Y_{1}\,=\,\dfrac{S\,(S\,+\,3)}{S\,(S^{2}\,-\,1)} \quad \textcolor{blue-violet}{\iff} \quad Y_{3}\,+\,Y_{1}\,=\,\dfrac{\cancel{S}\,(S\,+\,3)}{\cancel{S}\,(S^{2}\,-\,1)}$$
+ 
+\begin{center}
+\fcolorbox{red}{purple}{$Y_{3}\,+\,Y_{1}\,=\,\dfrac{S\,+\,3}{S^{2}\,-\,1}$ }    
+\end{center}
+ 
+\item Combinando segunda y tercera ecuación del sistema
+ 
+$$\begin{cases}
+Y_{2}\,+\,Y_{3}\,=\,\dfrac{1}{S\,-\,1} \\
+\\
+Y_{3}\,+\,Y_{1}\,=\,\dfrac{S\,+\,3}{S^{2}\,-\,1}
+\end{cases}$$
+ 
+$$\begin{cases}
+Y_{2}\,+\,Y_{3}\,=\,\dfrac{1}{S\,-\,1} \\
+\\
+Y_{3}\,+\,Y_{1}\,=\,\dfrac{S\,+\,3}{S^{2}\,-\,1} \qquad \textcolor{blue-violet}{\times\,(-\,1)}
+\end{cases} \quad \textcolor{blue-violet}{\iff} \quad \begin{cases}
+Y_{2}\,+\,Y_{3}\,=\,\dfrac{1}{S\,-\,1} \\
+\\
+-\,Y_{3}\,-\,Y_{1}\,=\,-\,\dfrac{S\,+\,3}{S^{2}\,-\,1} 
+\end{cases}$$
+ 
+$$Y_{2}\,-\,Y_{1}\,=\,\dfrac{1}{S\,-\,1}\,-\,\dfrac{S\,+\,3}{(S\,-\,1)\,(S\,+\,1)} \quad \textcolor{blue-violet}{\iff} \quad Y_{2}\,-\,Y_{1}\,=\,\dfrac{S\,+\,1\,-\,(S\,+\,3)}{(S\,-\,1)\,(S\,+\,1)}$$
+ 
+$$Y_{2}\,-\,Y_{1}\,=\,\dfrac{S\,+\,1\,-\,S\,-\,3}{(S\,-\,1)\,(S\,+\,1)} \quad \textcolor{blue-violet}{\iff} \quad \boxed{Y_{2}\,-\,Y_{1}\,=\,-\,\dfrac{2}{(S\,-\,1)\,(S\,+\,1)} }$$
+ 
+\item Combinando la primera ecuación del sistema con la ecuación resultante de la segunda y la tercera. 
+ 
+$$\begin{cases}
+Y_{1}\,+\,Y_{2}\,=\,\dfrac{2\,S}{S^{2}\,-\,1}\\
+\\
+Y_{2}\,-\,Y_{1}\,=\,-\,\dfrac{2}{(S\,-\,1)\,(S\,+\,1)}
+\end{cases}$$
+ 
+$$2\,Y_{2}\,=\,\dfrac{2\,S}{S^{2}\,-\,1}\,-\,\dfrac{2}{S^{2}\,-\,1} \quad \textcolor{blue-violet}{\iff} \quad 2\,Y_{2}\,=\,\dfrac{2\,S\,-\,2}{S^{2}\,-\,1}$$
+ 
+$$Y_{2}\,=\,\dfrac{\cancel{2}\,\cancel{(S\,-\,1)}}{\cancel{2}\,\cancel{(S\,-\,1)}\,(S\,+\,1)} \quad \textcolor{blue-violet}{\iff} \quad Y_{2}\,=\,\dfrac{1}{S\,+\,1}$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y_{2} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,+\,1} \right) \quad \textcolor{blue-violet}{\iff} \quad \boxed{\textcolor{blue-violet}{y_{2}\,(t)\,=\,e^{-\,t} } }$$
+ 
+Sustituyendo $Y_{2}$ en cualquier ecuación del sistema
+ 
+$$Y_{1}\,+\,\textcolor{blue-violet}{\dfrac{1}{S\,+\,1} }\,=\,\dfrac{2\,S}{(S\,-\,1)\,(S\,+\,1) } \quad \textcolor{blue-violet}{\iff} \quad Y_{1}\,=\,\dfrac{2\,S}{(S\,-\,1)\,(S\,+\,1) }\,-\,\dfrac{1}{S\,+\,1}$$
+ 
+$$Y_{1}\,=\,\dfrac{2\,S\,-\,(S\,-\,1)}{(S\,-\,1)\,(S\,+\,1) } \quad \textcolor{blue-violet}{\iff} \quad Y_{1}\,=\,\dfrac{2\,S\,-\,S\,+\,1}{(S\,-\,1)\,(S\,+\,1) }$$
+ 
+$$Y_{1}\,=\,\dfrac{\cancel{S\,+\,1}}{(S\,-\,1)\,\cancel{(S\,+\,1)} } \quad \textcolor{blue-violet}{\iff} \quad Y_{1}\,=\,\dfrac{1}{S\,-\,1}$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y_{1} \right)\,=\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S\,-\,1} \right) \quad \textcolor{blue-violet}{\iff} \quad \boxed{\textcolor{blue-violet}{y_{1}\,(t)\,=\,e^{t} } }$$
+ 
+Sustituyendo $Y_{2}$
+ 
+$$\textcolor{blue-violet}{\dfrac{1}{S\,+\,1}}\,+\,Y_{3}\,=\,\dfrac{1}{S\,-\,1} \quad \textcolor{blue-violet}{\iff} \quad Y_{3}\,=\,\dfrac{1}{S\,-\,1}\,-\,\dfrac{1}{S\,+\,1}$$
+ 
+$$Y_{3}\,=\,\dfrac{S\,+\,1\,-\,(S\,-\,1)}{(S\,-\,1)\,(S\,+\,1) } \quad \textcolor{blue-violet}{\iff} \quad Y_{3}\,=\,\dfrac{S\,+\,1\,-\,S\,+\,1}{(S\,-\,1)\,(S\,+\,1) } \quad \textcolor{blue-violet}{\iff} \quad Y_{3}\,=\,\dfrac{2}{S^{2}\,-\,1}$$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y_{3} \right)\,=\,2\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}\,-\,1} \right) \quad \textcolor{blue-violet}{\iff} \quad \boxed{\textcolor{blue-violet}{y_{3}\,(t)\,=\,2\,\sinh\,t } }$$
+ 
+\end{enumerate}
+
+\end{exmp}
+ 
+\definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
+ 
+\textcolor{darkcerulean}{\chapter{Aplicaciones diversas}}
+ 
+\begin{exmp}[Ejercicio 24]
+ 
+\definecolor{cardinal}{rgb}{0.77, 0.12, 0.23}
+ 
+\ 
+ 
+\textcolor{cardinal}{\ding{225}}\, Se conoce: 
+ 
+\ 
+ 
+\textcolor{cardinal}{\ding{168}}\, $W\,=\,8$ libras.
+ 
+\ 
+ 
+\textcolor{cardinal}{\ding{168}}\, $K\,=\,1\,\text{libra/pie}$ .
+ 
+\ 
+ 
+\textcolor{cardinal}{\ding{225}}\, $y\,(0)\,=\,6$ Pulgadas $\quad \textcolor{cardinal}{\wedge} \quad$ $y'\,(0)\,=\,\dfrac{3}{2}\,\text{Pies/s}$
+ 
+\ 
+ 
+\textcolor{cardinal}{\ding{225}}\, Conviertiendo las unidades de pulgadas a pies: 
+ 
+$$6\,\text{Pulgadas}\,\times\,\dfrac{1\,\text{Pies}}{12\,\text{Pulgadas}}\,=\,\dfrac{1}{2}\,\text{Pies}$$
+ 
+\ 
+ 
+\textcolor{cardinal}{\ding{225}}\, Hallando la masa: 
+ 
+$$W\,=\,m\,g \quad \textcolor{cardinal}{\iff} \quad 8\,\text{lb}\,=\,m\,\times\,32\,Pies/s^{2} \quad \textcolor{cardinal}{\iff} \quad m\,=\,\dfrac{8\,\text{lb}}{32\,Pies/s^{2} }$$
+ 
+$$\boxed{m\,=\,\dfrac{1}{4}\,Slug }$$
+ 
+Sustituyendo
+ 
+$$m\,y''\,+\,K\,y\,=\,0 \quad \textcolor{cardinal}{\iff} \quad \dfrac{1}{4}\,y''\,+\,y\,=\,0 \quad \textcolor{cardinal}{\iff} \quad \textcolor{cardinal}{4}\,\left(\dfrac{1}{4}\,y''\,+\,y \right)\,=\,\textcolor{cardinal}{4\,\times}\,0$$
+ 
+$$y''\,+\,4\,y\,=\,0$$
+ 
+$$\textcolor{cardinal}{\vdots}$$
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 25]
+ 
+Muestre que el problema de valores iniciales
+ 
+$$\dfrac{d^{2}\,x}{d\,t^{2}}\,+\,\omega^{2}\,x\,=\,F_{0}\,\cos\,\gamma\,t; \quad x\,(0)\,=\,0 \quad \textcolor{red}{\wedge} \quad x'\,(0)\,=\,0$$ 
+ 
+Est{\'a} dado por  
+ 
+$$x\,(t)\,=\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2}}\,(\cos\,\gamma\,t\,-\,\cos\,\omega\,t)$$ 
+ 
+Recuerde que $F_{0}$, $\omega^{2}$ y $\gamma^{2}$ son constantes.
+ 
+\
+ 
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+ 
+\textcolor{arsenic}{\ding{182}}\, Tomando la transformada directa a ambos lados
+ 
+$$\mathcal{L}\,\left(x''\,+\,\omega^{2}\,x \right)\,=\,F_{0}\,\mathcal{L}\,\left(\cos\,\gamma\,t \right) \quad \textcolor{arsenic}{\iff} \quad \mathcal{L}\,\left(x'' \right)\,+\,\omega^{2}\,\mathcal{L}\,\left(x \right)\,=\,F_{0}\,\mathcal{L}\,\left(\cos\,\gamma\,t \right) $$
+ 
+$$S^{2}\,\underbrace{\mathcal{L}\,\left(x \right)}_{\textcolor{arsenic}{X} }\,-\,\cancel{S\,x\,(0)}\,-\,\cancel{x'\,(0)}\,+\,\omega^{2}\,\underbrace{\mathcal{L}\,\left(x \right)}_{\textcolor{arsenic}{X} }\,=\,F_{0}\,\mathcal{L}\,\left(\cos\,\gamma\,t \right)$$
+ 
+\textcolor{arsenic}{\ding{183}}\, Proponer cambio de variable: $X\,(S)\,=\,\mathcal{L}\,\left(x\,(t) \right) \quad \textcolor{arsenic}{\iff} \quad \mathcal{L}^{-\,1}\,\left(X \right)\,=\,x\,(t)$
+ 
+$$S^{2}\,X\,+\,\omega^{2}\,X\,=\,F_{0}\,\dfrac{S}{S^{2}\,+\,\gamma^{2}} \quad \textcolor{arsenic}{\iff} \quad X\,\left(S^{2}\,+\,\omega^{2} \right)\,=\,F_{0}\,\dfrac{S}{S^{2}\,+\,\gamma^{2}}$$
+ 
+$$\boxed{X\,=\,\dfrac{F_{0}\,S}{(S^{2}\,+\,\omega^{2})\,(S^{2}\,+\,\gamma^{2}) } }$$
+ 
+\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black,fonttitle=\bfseries,title=\sf Aparte]
+ 
+\textcolor{orange}{\ding{171}}\, $$\dfrac{F_{0}\,S}{(S^{2}\,+\,\omega^{2})\,(S^{2}\,+\,\gamma^{2})}\,=\,\dfrac{A\,S\,+\,B }{S^{2}\,+\,\omega^{2}}\,+\,\dfrac{C\,S\,+\,D}{S^{2}\,+\,\gamma^{2} }$$
+ 
+\textcolor{orange}{\ding{171}}\, $$\dfrac{F_{0}\,S}{(S^{2}\,+\,\omega^{2})\,(S^{2}\,+\,\gamma^{2})}\,=\,\dfrac{(A\,S\,+\,B)\,(S^{2}\,+\,\gamma^{2})\,+\,(C\,S\,+\,D)\,(S^{2}\,+\,\omega^{2}) }{(S^{2}\,+\,\omega^{2})\,(S^{2}\,+\,\gamma^{2})}$$
+ 
+$$=\,\dfrac{A\,S^{3}\,+\,\textcolor{blue}{A\,\gamma^{2}\,S}\,+\,\textcolor{red}{B\,S^{2}}\,+\,\textcolor{green}{B\,\gamma^{2}}\,+\,C\,S^{3}\,+\,\textcolor{blue}{C\,\omega^{2}\,S}\,+\,\textcolor{red}{D\,S^{2}}\,+\,\textcolor{green}{\omega^{2}\,D} }{(S^{2}\,+\,\omega^{2})\,(S^{2}\,+\,\gamma^{2})}$$
+ 
+\textcolor{orange}{\ding{171}}\, $$\dfrac{F_{0}\,S}{(S^{2}\,+\,\omega^{2})\,(S^{2}\,+\,\gamma^{2})}\,=\,\dfrac{(A\,+\,C)\,S^{3}\,+\,(B\,+\,D)\,S^{2}\,+\,(A\,\gamma^{2}\,+\,C\,\omega^{2})\,S\,+\,(B\,\gamma^{2}\,+\,\omega^{2}\,D) }{(S^{2}\,+\,\omega^{2})\,(S^{2}\,+\,\gamma^{2})}$$
+ 
+$$\left\{
+\begin{array}{ll}
+A\,+\,C\,=\,0 \quad \textcolor{orange}{\iff} \quad A\,=\,-\,C \\
+B\,+\,D\,=\,0 \quad \textcolor{orange}{\iff} \quad B\,=\,-\,D \\
+A\,\gamma^{2}\,+\,C\,\omega^{2}\,=\,F_{0} \\
+B\,\gamma^{2}\,+\,\omega^{2}\,D\,=\,0
+\end{array}
+\right.$$
+ 
+$$-\,C\,\gamma^{2}\,+\,C\,\omega^{2}\,=\,F_{0} \quad \textcolor{orange}{\iff} \quad C\,(\omega^{2}\,-\,\gamma^{2} )\,=\,F_{0} \quad \textcolor{orange}{\iff} \quad \boxed{C\,=\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2}} }$$
+ 
+De esta manera: $$\boxed{A\,=\,-\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2} } }$$
+ 
+$$\boxed{B\,=\,D\,=\,0}$$
+ 
+$$\dfrac{F_{0}\,S}{(S^{2}\,+\,\omega^{2})\,(S^{2}\,+\,\gamma^{2})}\,=\,-\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2} }\,\dfrac{S }{S^{2}\,+\,\omega^{2}}\,+\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2}}\,\dfrac{S}{S^{2}\,+\,\gamma^{2} }$$
+ 
+\end{tcolorbox}
+ 
+\textcolor{arsenic}{\ding{184}}\, Transformar inversamente
+ 
+$$\mathcal{L}^{-\,1}\,\left(X \right)\,=\,-\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2} }\,\mathcal{L}^{-\,1}\,\left(\dfrac{S }{S^{2}\,+\,\omega^{2}} \right)\,+\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2}}\,\mathcal{L}^{-\,1}\,\left(\dfrac{S}{S^{2}\,+\,\gamma^{2} } \right)$$
+ 
+$$x\,(t)\,=\,-\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2} }\,\cos\,\omega\,t\,+\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2}}\,\cos\,\gamma\,t$$
+ 
+$$\boxed{\textcolor{arsenic}{x\,(t)\,=\,\dfrac{F_{0}}{\omega^{2}\,-\,\gamma^{2} }\,(\cos\,\gamma\,t\,-\,\cos\,\omega\,t) } } $$
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 26]
+ 
+\definecolor{burntorange}{rgb}{0.8, 0.33, 0.0}
+ 
+$$\left\{
+\begin{array}{ll}
+\dfrac{m}{\textcolor{burntorange}{m}} \dfrac{d^{2}\,x}{d\,t^{2}}\,=\,0 \\ \\
+\dfrac{m}{\textcolor{burntorange}{m}}\,\dfrac{d^{2}\,y}{d\,t^{2}}\,=\,-\,\dfrac{m}{\textcolor{burntorange}{m}}\,g
+\end{array}
+\right. \quad \textcolor{burntorange}{\iff} \quad \left\{
+\begin{array}{ll}
+x''\,=\,0 \\ \\
+y''\,=\,-\,g
+\end{array}
+\right. $$
+ 
+\begin{enumerate}[label=\itembolasazules{\arabic*}]
+ 
+\item $$\mathcal{L}\,\left(x'' \right)\,=\,\mathcal{L}\,\left(0 \right) \quad \textcolor{burntorange}{\iff} \quad S^{2}\,\mathcal{L}\,\left(x\,(t) \right)\,-\,S\,x\,(0)\,-\,x'\,(0)\,=\,0 $$
+ 
+$$S^{2}\,\underbrace{\mathcal{L}\,\left(x\,(t) \right)}_{\textcolor{burntorange}{X} }\,-\,V_{0}\,\cos\,\theta\,=\,0 \quad \textcolor{burntorange}{\iff} \quad S^{2}\,X\,=\,V_{0}\,\cos\,\theta$$
+ 
+$$X\,=\,\dfrac{V_{0}\,\cos\,\theta}{S^{2}} \quad \textcolor{burntorange}{\iff} \quad \mathcal{L}^{-\,1}\,\left(X \right)\,=\,V_{0}\,\cos\,\theta\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}
+} \right)$$
+ 
+$$\boxed{\textcolor{burntorange}{x\,(t)\,=\,(V_{0}\,\cos\,\theta)\,t } } $$
+ 
+\item $$\mathcal{L}\,\left(y'' \right)\,=\,\mathcal{L}\,\left(-\,g \right) \quad \textcolor{burntorange}{\iff} \quad S^{2}\,\mathcal{L}\,\left(y\,(t) \right)\,-\,S\,y\,(0)\,-\,y'\,(0)\,=\,-\,\dfrac{g}{S} $$
+ 
+$$S^{2}\,\underbrace{\mathcal{L}\,\left(y\,(t) \right)}_{\textcolor{burntorange}{Y} }\,-\,V_{0}\,\sin\,\theta\,=\,-\,\dfrac{g}{S} \quad \textcolor{burntorange}{\iff} \quad S^{2}\,Y\,=\,-\,\dfrac{g}{S}\,+\,V_{0}\,\sin\,\theta$$
+ 
+$$Y\,=\,\dfrac{V_{0}\,\sin\,\theta}{S^{2}}\,-\,\dfrac{g}{S^{3}} \quad \textcolor{burntorange}{\iff} \quad \mathcal{L}^{-\,1}\,\left(Y \right)\,=\,V_{0}\,\sin\,\theta\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}} \right)\,-\,g\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{3}} \right) $$
+ 
+$$\mathcal{L}^{-\,1}\,\left(Y \right)\,=\,V_{0}\,\sin\,\theta\,\mathcal{L}^{-\,1}\,\left(\dfrac{1}{S^{2}} \right)\,-\,\dfrac{1}{\textcolor{burntorange}{2}}\,g\,\mathcal{L}^{-\,1}\,\left(\dfrac{\textcolor{burntorange}{2} }{S^{3}} \right)$$
+ 
+$$\boxed{\textcolor{burntorange}{y\,(t)\,=\,(V_{0}\,\sin\,\theta)\,t\,-\,\dfrac{1}{2}\,g\,t^{2} } } $$
+ 
+\item Alcance horizontal máximo.
+ 
+$$(V_{0}\,\sin\,\theta)\,t\,-\,\dfrac{1}{2}\,g\,t^{2}\,=\,0 \quad \textcolor{burntorange}{\iff} \quad t\,\left(V_{0}\,\sin\,\theta\,-\,\dfrac{1}{2}\,g\,t \right)\,=\,0$$
+ 
+$$t\,=\,0 \qquad \textcolor{burntorange}{\vee} \qquad V_{0}\,\sin\,\theta\,-\,\dfrac{1}{2}\,g\,t\,=\,0$$
+ 
+$$V_{0}\,\sin\,\theta\,=\,\dfrac{1}{2}\,g\,t \qquad \textcolor{burntorange}{\vee} \qquad t_{V}\,=\,\dfrac{2\,V_{0}\,\sin\,\theta}{g}$$
+ 
+\textcolor{burntorange}{\ding{47} } $$x_{max}\,(t)\,=\,(V_{0}\,\cos\,\theta)\,\left(\dfrac{2\,V_{0}\,\sin\,\theta}{g} \right) \quad \textcolor{burntorange}{\iff} \quad x_{max}\,(t)\,=\,\dfrac{V_{0}^{2}\,\times\,2\,\sin\,\theta\,\cos\,\theta }{g}$$
+ 
+$$\boxed{\textcolor{burntorange}{x_{max}\,=\,\dfrac{V_{0}^{2}\,\sin\,2\,\theta }{g} }} $$
+ 
+\end{enumerate}
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 27]
+ 
+\definecolor{carnelian}{rgb}{0.7, 0.11, 0.11}
+ 
+\
+ 
+\textcolor{carnelian}{\ding{225}}\, $$L\,\dfrac{d\,i}{d\,t}\,+\,R\,i\,=\,V\,(t) \quad \textcolor{carnelian}{\iff} \quad \dfrac{10}{\textcolor{carnelian}{10} }\,\dfrac{d\,i}{d\,t}\,+\,\dfrac{10}{\textcolor{carnelian}{10} }\,i\,=\,\dfrac{1}{\textcolor{carnelian}{10} }e^{t} \quad \textcolor{carnelian}{\iff} \quad i'\,+\,i\,=\,\dfrac{1}{10}\,e^{t}$$
+ 
+$$\mathcal{L}\,\left(i' \right)\,+\,\mathcal{L}\,\left(i \right)\,=\,\dfrac{1}{10}\,\mathcal{L}\,\left(e^{t} \right) \quad \textcolor{carnelian}{\iff} \quad S\,\underbrace{\mathcal{L}\,\left(i \right)}_{\textcolor{carnelian}{I} }\,-\,i\,(0)\,+\,\underbrace{\mathcal{L}\,\left(i \right)}_{\textcolor{carnelian}{I}}\,=\,\dfrac{1}{10}\,\mathcal{L}\,\left(e^{t} \right)$$
+ 
+$$S\,I\,+\,I\,=\,\dfrac{1}{10}\,\dfrac{1}{S\,-\,1} \quad \textcolor{carnelian}{\iff} \quad I\,(S\,+\,1)\,=\,\dfrac{1}{10}\,\dfrac{1}{S\,-\,1}$$
+ 
+$$\boxed{I\,=\,\dfrac{1}{10}\,\dfrac{1}{(S\,-\,1)\,(S\,+\,1)}}$$
+ 
+$$\textcolor{carnelian}{\vdots}$$
+ 
+\end{exmp}
+ 
+\begin{exmp}[Ejercicio 28]
+ 
+\ 
+ 
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.75}
+ 
+\textcolor{ceruleanblue}{\ding{80}}\, Ecuación del circuito RLC
+ 
+$$5\,Q''\,+\,10\,Q'\,+\,\dfrac{1}{0,1}\,Q\,=\,25\,\sin\,t$$
+ 
+$$\textcolor{ceruleanblue}{\vdots}$$
+ 
+\end{exmp}
+
+Este documento fue levantado en \textcolor{orange}{\LaTeX}
+ 
+\end{document}
